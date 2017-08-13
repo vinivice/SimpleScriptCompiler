@@ -3,7 +3,7 @@
 #include<vector>
 #include<stdio.h>
 #include<stdlib.h>
-#define FINAL -1
+#define FINAL 10000
 
 std::vector<int> stateStack;
 FILE *fr;
@@ -15,7 +15,6 @@ int nextToken()
     fread(a, 4, 1, fr);
     printf("*%d*", *a);
     return *a;
-    //READ FILE AND RETURN TOKEN HERE
 }
 
 void push(int input)
@@ -47,7 +46,7 @@ bool isShift(int input)
 
 bool isReduction(int input)
 {
-    if(input < -1)
+    if(input < 0)
     {
         return true;
     }    
