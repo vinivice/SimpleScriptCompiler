@@ -86,7 +86,7 @@ t_token searchKeyWord(char *name){
     for(i = 0;i < 18; i++){
         if (!strcmp(name, reserved_words[i])){
             printf("It's a reserved word\n");
-            return i;        
+            return (t_token)i;        
         }
     }
     printf("It isn't a reserved work\n");

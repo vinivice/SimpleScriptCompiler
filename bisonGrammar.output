@@ -1,0 +1,2151 @@
+State 135 conflicts: 1 shift/reduce
+
+
+Grammar
+
+    0 $accept: P $end
+
+    1 P: LDE
+
+    2 LDE: LDE DE
+    3    | DE
+
+    4 DE: DF
+    5   | DT
+
+    6 T: "integer"
+    7  | "char"
+    8  | "boolean"
+    9  | "string"
+   10  | ID
+
+   11 DT: "type" ID "=" "array" "[" NUM "]" "of" T
+   12   | "type" ID "=" "struct" "{" DC "}"
+   13   | "type" ID "=" T
+
+   14 DC: DC ";" LI ":" "T"
+   15   | LI ":" "T"
+
+   16 DF: "function" ID "(" LP ")" ":" T B
+
+   17 LP: LP "," ID ":" T
+   18   | ID ":" T
+
+   19 B: "{" LDV LS "}"
+
+   20 LDV: LDV DV
+   21    | DV
+
+   22 LS: LS S
+   23   | S
+
+   24 DV: "var" LI ":" T ";"
+
+   25 LI: LI "," ID
+   26   | ID
+
+   27 S: "if" "(" E ")" S
+   28  | "if" "(" E ")" S "else" S
+   29  | "while" "(" E ")" S
+   30  | "do" S "while" "(" E ")" ";"
+   31  | B
+   32  | LV "=" E ";"
+   33  | "break" ";"
+   34  | "continue" ";"
+
+   35 E: E "&&" L
+   36  | E "||" L
+   37  | L
+
+   38 L: L "<" R
+   39  | L ">" R
+   40  | L "<=" R
+   41  | L ">=" R
+   42  | L "==" R
+   43  | L "!=" R
+   44  | R
+
+   45 R: R "+" Y
+   46  | R "-" Y
+   47  | Y
+
+   48 Y: Y "*" F
+   49  | Y "/" F
+   50  | F
+
+   51 F: LV
+   52  | "++" LV
+   53  | "--" LV
+   54  | LV "++"
+   55  | LV "--"
+   56  | "(" E ")"
+   57  | ID "(" LE ")"
+   58  | "-" F
+   59  | "!" F
+   60  | TRUE
+   61  | FALSE
+   62  | CHR
+   63  | STR
+   64  | NUM
+
+   65 LE: LE "," E
+   66   | E
+
+   67 LV: LV "." ID
+   68   | LV "[" E "]"
+   69   | ID
+
+   70 ID: "Id"
+
+   71 TRUE: "true"
+
+   72 FALSE: "false"
+
+   73 CHR: "c"
+
+   74 STR: "s"
+
+   75 NUM: "n"
+
+
+Terminals, with rules where they appear
+
+$end (0) 0
+error (256)
+"integer" (258) 6
+"char" (259) 7
+"boolean" (260) 8
+"string" (261) 9
+"type" (262) 11 12 13
+"=" (263) 11 12 13 32
+"array" (264) 11
+"[" (265) 11 68
+"]" (266) 11 68
+"of" (267) 11
+"struct" (268) 12
+"{" (269) 12 19
+"}" (270) 12 19
+";" (271) 14 24 30 32 33 34
+":" (272) 14 15 16 17 18 24
+"T" (273) 14 15
+"function" (274) 16
+"(" (275) 16 27 28 29 30 56 57
+")" (276) 16 27 28 29 30 56 57
+"," (277) 17 25 65
+"var" (278) 24
+"if" (279) 27 28
+"else" (280) 28
+"while" (281) 29 30
+"do" (282) 30
+"break" (283) 33
+"continue" (284) 34
+"&&" (285) 35
+"||" (286) 36
+"<" (287) 38
+">" (288) 39
+"<=" (289) 40
+">=" (290) 41
+"==" (291) 42
+"!=" (292) 43
+"+" (293) 45
+"-" (294) 46 58
+"*" (295) 48
+"/" (296) 49
+"++" (297) 52 54
+"--" (298) 53 55
+"!" (299) 59
+"." (300) 67
+"Id" (301) 70
+"true" (302) 71
+"false" (303) 72
+"c" (304) 73
+"s" (305) 74
+"n" (306) 75
+
+
+Nonterminals, with rules where they appear
+
+$accept (52)
+    on left: 0
+P (53)
+    on left: 1, on right: 0
+LDE (54)
+    on left: 2 3, on right: 1 2
+DE (55)
+    on left: 4 5, on right: 2 3
+T (56)
+    on left: 6 7 8 9 10, on right: 11 13 16 17 18 24
+DT (57)
+    on left: 11 12 13, on right: 5
+DC (58)
+    on left: 14 15, on right: 12 14
+DF (59)
+    on left: 16, on right: 4
+LP (60)
+    on left: 17 18, on right: 16 17
+B (61)
+    on left: 19, on right: 16 31
+LDV (62)
+    on left: 20 21, on right: 19 20
+LS (63)
+    on left: 22 23, on right: 19 22
+DV (64)
+    on left: 24, on right: 20 21
+LI (65)
+    on left: 25 26, on right: 14 15 24 25
+S (66)
+    on left: 27 28 29 30 31 32 33 34, on right: 22 23 27 28 29 30
+E (67)
+    on left: 35 36 37, on right: 27 28 29 30 32 35 36 56 65 66 68
+L (68)
+    on left: 38 39 40 41 42 43 44, on right: 35 36 37 38 39 40 41 42
+    43
+R (69)
+    on left: 45 46 47, on right: 38 39 40 41 42 43 44 45 46
+Y (70)
+    on left: 48 49 50, on right: 45 46 47 48 49
+F (71)
+    on left: 51 52 53 54 55 56 57 58 59 60 61 62 63 64, on right: 48
+    49 50 58 59
+LE (72)
+    on left: 65 66, on right: 57 65
+LV (73)
+    on left: 67 68 69, on right: 32 51 52 53 54 55 67 68
+ID (74)
+    on left: 70, on right: 10 11 12 13 16 17 18 25 26 57 67 69
+TRUE (75)
+    on left: 71, on right: 60
+FALSE (76)
+    on left: 72, on right: 61
+CHR (77)
+    on left: 73, on right: 62
+STR (78)
+    on left: 74, on right: 63
+NUM (79)
+    on left: 75, on right: 11 64
+
+
+State 0
+
+    0 $accept: . P $end
+
+    "type"      shift, and go to state 1
+    "function"  shift, and go to state 2
+
+    P    go to state 3
+    LDE  go to state 4
+    DE   go to state 5
+    DT   go to state 6
+    DF   go to state 7
+
+
+State 1
+
+   11 DT: "type" . ID "=" "array" "[" NUM "]" "of" T
+   12   | "type" . ID "=" "struct" "{" DC "}"
+   13   | "type" . ID "=" T
+
+    "Id"  shift, and go to state 8
+
+    ID  go to state 9
+
+
+State 2
+
+   16 DF: "function" . ID "(" LP ")" ":" T B
+
+    "Id"  shift, and go to state 8
+
+    ID  go to state 10
+
+
+State 3
+
+    0 $accept: P . $end
+
+    $end  shift, and go to state 11
+
+
+State 4
+
+    1 P: LDE .
+    2 LDE: LDE . DE
+
+    "type"      shift, and go to state 1
+    "function"  shift, and go to state 2
+
+    $default  reduce using rule 1 (P)
+
+    DE  go to state 12
+    DT  go to state 6
+    DF  go to state 7
+
+
+State 5
+
+    3 LDE: DE .
+
+    $default  reduce using rule 3 (LDE)
+
+
+State 6
+
+    5 DE: DT .
+
+    $default  reduce using rule 5 (DE)
+
+
+State 7
+
+    4 DE: DF .
+
+    $default  reduce using rule 4 (DE)
+
+
+State 8
+
+   70 ID: "Id" .
+
+    $default  reduce using rule 70 (ID)
+
+
+State 9
+
+   11 DT: "type" ID . "=" "array" "[" NUM "]" "of" T
+   12   | "type" ID . "=" "struct" "{" DC "}"
+   13   | "type" ID . "=" T
+
+    "="  shift, and go to state 13
+
+
+State 10
+
+   16 DF: "function" ID . "(" LP ")" ":" T B
+
+    "("  shift, and go to state 14
+
+
+State 11
+
+    0 $accept: P $end .
+
+    $default  accept
+
+
+State 12
+
+    2 LDE: LDE DE .
+
+    $default  reduce using rule 2 (LDE)
+
+
+State 13
+
+   11 DT: "type" ID "=" . "array" "[" NUM "]" "of" T
+   12   | "type" ID "=" . "struct" "{" DC "}"
+   13   | "type" ID "=" . T
+
+    "integer"  shift, and go to state 15
+    "char"     shift, and go to state 16
+    "boolean"  shift, and go to state 17
+    "string"   shift, and go to state 18
+    "array"    shift, and go to state 19
+    "struct"   shift, and go to state 20
+    "Id"       shift, and go to state 8
+
+    T   go to state 21
+    ID  go to state 22
+
+
+State 14
+
+   16 DF: "function" ID "(" . LP ")" ":" T B
+
+    "Id"  shift, and go to state 8
+
+    LP  go to state 23
+    ID  go to state 24
+
+
+State 15
+
+    6 T: "integer" .
+
+    $default  reduce using rule 6 (T)
+
+
+State 16
+
+    7 T: "char" .
+
+    $default  reduce using rule 7 (T)
+
+
+State 17
+
+    8 T: "boolean" .
+
+    $default  reduce using rule 8 (T)
+
+
+State 18
+
+    9 T: "string" .
+
+    $default  reduce using rule 9 (T)
+
+
+State 19
+
+   11 DT: "type" ID "=" "array" . "[" NUM "]" "of" T
+
+    "["  shift, and go to state 25
+
+
+State 20
+
+   12 DT: "type" ID "=" "struct" . "{" DC "}"
+
+    "{"  shift, and go to state 26
+
+
+State 21
+
+   13 DT: "type" ID "=" T .
+
+    $default  reduce using rule 13 (DT)
+
+
+State 22
+
+   10 T: ID .
+
+    $default  reduce using rule 10 (T)
+
+
+State 23
+
+   16 DF: "function" ID "(" LP . ")" ":" T B
+   17 LP: LP . "," ID ":" T
+
+    ")"  shift, and go to state 27
+    ","  shift, and go to state 28
+
+
+State 24
+
+   18 LP: ID . ":" T
+
+    ":"  shift, and go to state 29
+
+
+State 25
+
+   11 DT: "type" ID "=" "array" "[" . NUM "]" "of" T
+
+    "n"  shift, and go to state 30
+
+    NUM  go to state 31
+
+
+State 26
+
+   12 DT: "type" ID "=" "struct" "{" . DC "}"
+
+    "Id"  shift, and go to state 8
+
+    DC  go to state 32
+    LI  go to state 33
+    ID  go to state 34
+
+
+State 27
+
+   16 DF: "function" ID "(" LP ")" . ":" T B
+
+    ":"  shift, and go to state 35
+
+
+State 28
+
+   17 LP: LP "," . ID ":" T
+
+    "Id"  shift, and go to state 8
+
+    ID  go to state 36
+
+
+State 29
+
+   18 LP: ID ":" . T
+
+    "integer"  shift, and go to state 15
+    "char"     shift, and go to state 16
+    "boolean"  shift, and go to state 17
+    "string"   shift, and go to state 18
+    "Id"       shift, and go to state 8
+
+    T   go to state 37
+    ID  go to state 22
+
+
+State 30
+
+   75 NUM: "n" .
+
+    $default  reduce using rule 75 (NUM)
+
+
+State 31
+
+   11 DT: "type" ID "=" "array" "[" NUM . "]" "of" T
+
+    "]"  shift, and go to state 38
+
+
+State 32
+
+   12 DT: "type" ID "=" "struct" "{" DC . "}"
+   14 DC: DC . ";" LI ":" "T"
+
+    "}"  shift, and go to state 39
+    ";"  shift, and go to state 40
+
+
+State 33
+
+   15 DC: LI . ":" "T"
+   25 LI: LI . "," ID
+
+    ":"  shift, and go to state 41
+    ","  shift, and go to state 42
+
+
+State 34
+
+   26 LI: ID .
+
+    $default  reduce using rule 26 (LI)
+
+
+State 35
+
+   16 DF: "function" ID "(" LP ")" ":" . T B
+
+    "integer"  shift, and go to state 15
+    "char"     shift, and go to state 16
+    "boolean"  shift, and go to state 17
+    "string"   shift, and go to state 18
+    "Id"       shift, and go to state 8
+
+    T   go to state 43
+    ID  go to state 22
+
+
+State 36
+
+   17 LP: LP "," ID . ":" T
+
+    ":"  shift, and go to state 44
+
+
+State 37
+
+   18 LP: ID ":" T .
+
+    $default  reduce using rule 18 (LP)
+
+
+State 38
+
+   11 DT: "type" ID "=" "array" "[" NUM "]" . "of" T
+
+    "of"  shift, and go to state 45
+
+
+State 39
+
+   12 DT: "type" ID "=" "struct" "{" DC "}" .
+
+    $default  reduce using rule 12 (DT)
+
+
+State 40
+
+   14 DC: DC ";" . LI ":" "T"
+
+    "Id"  shift, and go to state 8
+
+    LI  go to state 46
+    ID  go to state 34
+
+
+State 41
+
+   15 DC: LI ":" . "T"
+
+    "T"  shift, and go to state 47
+
+
+State 42
+
+   25 LI: LI "," . ID
+
+    "Id"  shift, and go to state 8
+
+    ID  go to state 48
+
+
+State 43
+
+   16 DF: "function" ID "(" LP ")" ":" T . B
+
+    "{"  shift, and go to state 49
+
+    B  go to state 50
+
+
+State 44
+
+   17 LP: LP "," ID ":" . T
+
+    "integer"  shift, and go to state 15
+    "char"     shift, and go to state 16
+    "boolean"  shift, and go to state 17
+    "string"   shift, and go to state 18
+    "Id"       shift, and go to state 8
+
+    T   go to state 51
+    ID  go to state 22
+
+
+State 45
+
+   11 DT: "type" ID "=" "array" "[" NUM "]" "of" . T
+
+    "integer"  shift, and go to state 15
+    "char"     shift, and go to state 16
+    "boolean"  shift, and go to state 17
+    "string"   shift, and go to state 18
+    "Id"       shift, and go to state 8
+
+    T   go to state 52
+    ID  go to state 22
+
+
+State 46
+
+   14 DC: DC ";" LI . ":" "T"
+   25 LI: LI . "," ID
+
+    ":"  shift, and go to state 53
+    ","  shift, and go to state 42
+
+
+State 47
+
+   15 DC: LI ":" "T" .
+
+    $default  reduce using rule 15 (DC)
+
+
+State 48
+
+   25 LI: LI "," ID .
+
+    $default  reduce using rule 25 (LI)
+
+
+State 49
+
+   19 B: "{" . LDV LS "}"
+
+    "var"  shift, and go to state 54
+
+    LDV  go to state 55
+    DV   go to state 56
+
+
+State 50
+
+   16 DF: "function" ID "(" LP ")" ":" T B .
+
+    $default  reduce using rule 16 (DF)
+
+
+State 51
+
+   17 LP: LP "," ID ":" T .
+
+    $default  reduce using rule 17 (LP)
+
+
+State 52
+
+   11 DT: "type" ID "=" "array" "[" NUM "]" "of" T .
+
+    $default  reduce using rule 11 (DT)
+
+
+State 53
+
+   14 DC: DC ";" LI ":" . "T"
+
+    "T"  shift, and go to state 57
+
+
+State 54
+
+   24 DV: "var" . LI ":" T ";"
+
+    "Id"  shift, and go to state 8
+
+    LI  go to state 58
+    ID  go to state 34
+
+
+State 55
+
+   19 B: "{" LDV . LS "}"
+   20 LDV: LDV . DV
+
+    "{"         shift, and go to state 49
+    "var"       shift, and go to state 54
+    "if"        shift, and go to state 59
+    "while"     shift, and go to state 60
+    "do"        shift, and go to state 61
+    "break"     shift, and go to state 62
+    "continue"  shift, and go to state 63
+    "Id"        shift, and go to state 8
+
+    B   go to state 64
+    LS  go to state 65
+    DV  go to state 66
+    S   go to state 67
+    LV  go to state 68
+    ID  go to state 69
+
+
+State 56
+
+   21 LDV: DV .
+
+    $default  reduce using rule 21 (LDV)
+
+
+State 57
+
+   14 DC: DC ";" LI ":" "T" .
+
+    $default  reduce using rule 14 (DC)
+
+
+State 58
+
+   24 DV: "var" LI . ":" T ";"
+   25 LI: LI . "," ID
+
+    ":"  shift, and go to state 70
+    ","  shift, and go to state 42
+
+
+State 59
+
+   27 S: "if" . "(" E ")" S
+   28  | "if" . "(" E ")" S "else" S
+
+    "("  shift, and go to state 71
+
+
+State 60
+
+   29 S: "while" . "(" E ")" S
+
+    "("  shift, and go to state 72
+
+
+State 61
+
+   30 S: "do" . S "while" "(" E ")" ";"
+
+    "{"         shift, and go to state 49
+    "if"        shift, and go to state 59
+    "while"     shift, and go to state 60
+    "do"        shift, and go to state 61
+    "break"     shift, and go to state 62
+    "continue"  shift, and go to state 63
+    "Id"        shift, and go to state 8
+
+    B   go to state 64
+    S   go to state 73
+    LV  go to state 68
+    ID  go to state 69
+
+
+State 62
+
+   33 S: "break" . ";"
+
+    ";"  shift, and go to state 74
+
+
+State 63
+
+   34 S: "continue" . ";"
+
+    ";"  shift, and go to state 75
+
+
+State 64
+
+   31 S: B .
+
+    $default  reduce using rule 31 (S)
+
+
+State 65
+
+   19 B: "{" LDV LS . "}"
+   22 LS: LS . S
+
+    "{"         shift, and go to state 49
+    "}"         shift, and go to state 76
+    "if"        shift, and go to state 59
+    "while"     shift, and go to state 60
+    "do"        shift, and go to state 61
+    "break"     shift, and go to state 62
+    "continue"  shift, and go to state 63
+    "Id"        shift, and go to state 8
+
+    B   go to state 64
+    S   go to state 77
+    LV  go to state 68
+    ID  go to state 69
+
+
+State 66
+
+   20 LDV: LDV DV .
+
+    $default  reduce using rule 20 (LDV)
+
+
+State 67
+
+   23 LS: S .
+
+    $default  reduce using rule 23 (LS)
+
+
+State 68
+
+   32 S: LV . "=" E ";"
+   67 LV: LV . "." ID
+   68   | LV . "[" E "]"
+
+    "="  shift, and go to state 78
+    "["  shift, and go to state 79
+    "."  shift, and go to state 80
+
+
+State 69
+
+   69 LV: ID .
+
+    $default  reduce using rule 69 (LV)
+
+
+State 70
+
+   24 DV: "var" LI ":" . T ";"
+
+    "integer"  shift, and go to state 15
+    "char"     shift, and go to state 16
+    "boolean"  shift, and go to state 17
+    "string"   shift, and go to state 18
+    "Id"       shift, and go to state 8
+
+    T   go to state 81
+    ID  go to state 22
+
+
+State 71
+
+   27 S: "if" "(" . E ")" S
+   28  | "if" "(" . E ")" S "else" S
+
+    "("      shift, and go to state 82
+    "-"      shift, and go to state 83
+    "++"     shift, and go to state 84
+    "--"     shift, and go to state 85
+    "!"      shift, and go to state 86
+    "Id"     shift, and go to state 8
+    "true"   shift, and go to state 87
+    "false"  shift, and go to state 88
+    "c"      shift, and go to state 89
+    "s"      shift, and go to state 90
+    "n"      shift, and go to state 30
+
+    E      go to state 91
+    L      go to state 92
+    R      go to state 93
+    Y      go to state 94
+    F      go to state 95
+    LV     go to state 96
+    ID     go to state 97
+    TRUE   go to state 98
+    FALSE  go to state 99
+    CHR    go to state 100
+    STR    go to state 101
+    NUM    go to state 102
+
+
+State 72
+
+   29 S: "while" "(" . E ")" S
+
+    "("      shift, and go to state 82
+    "-"      shift, and go to state 83
+    "++"     shift, and go to state 84
+    "--"     shift, and go to state 85
+    "!"      shift, and go to state 86
+    "Id"     shift, and go to state 8
+    "true"   shift, and go to state 87
+    "false"  shift, and go to state 88
+    "c"      shift, and go to state 89
+    "s"      shift, and go to state 90
+    "n"      shift, and go to state 30
+
+    E      go to state 103
+    L      go to state 92
+    R      go to state 93
+    Y      go to state 94
+    F      go to state 95
+    LV     go to state 96
+    ID     go to state 97
+    TRUE   go to state 98
+    FALSE  go to state 99
+    CHR    go to state 100
+    STR    go to state 101
+    NUM    go to state 102
+
+
+State 73
+
+   30 S: "do" S . "while" "(" E ")" ";"
+
+    "while"  shift, and go to state 104
+
+
+State 74
+
+   33 S: "break" ";" .
+
+    $default  reduce using rule 33 (S)
+
+
+State 75
+
+   34 S: "continue" ";" .
+
+    $default  reduce using rule 34 (S)
+
+
+State 76
+
+   19 B: "{" LDV LS "}" .
+
+    $default  reduce using rule 19 (B)
+
+
+State 77
+
+   22 LS: LS S .
+
+    $default  reduce using rule 22 (LS)
+
+
+State 78
+
+   32 S: LV "=" . E ";"
+
+    "("      shift, and go to state 82
+    "-"      shift, and go to state 83
+    "++"     shift, and go to state 84
+    "--"     shift, and go to state 85
+    "!"      shift, and go to state 86
+    "Id"     shift, and go to state 8
+    "true"   shift, and go to state 87
+    "false"  shift, and go to state 88
+    "c"      shift, and go to state 89
+    "s"      shift, and go to state 90
+    "n"      shift, and go to state 30
+
+    E      go to state 105
+    L      go to state 92
+    R      go to state 93
+    Y      go to state 94
+    F      go to state 95
+    LV     go to state 96
+    ID     go to state 97
+    TRUE   go to state 98
+    FALSE  go to state 99
+    CHR    go to state 100
+    STR    go to state 101
+    NUM    go to state 102
+
+
+State 79
+
+   68 LV: LV "[" . E "]"
+
+    "("      shift, and go to state 82
+    "-"      shift, and go to state 83
+    "++"     shift, and go to state 84
+    "--"     shift, and go to state 85
+    "!"      shift, and go to state 86
+    "Id"     shift, and go to state 8
+    "true"   shift, and go to state 87
+    "false"  shift, and go to state 88
+    "c"      shift, and go to state 89
+    "s"      shift, and go to state 90
+    "n"      shift, and go to state 30
+
+    E      go to state 106
+    L      go to state 92
+    R      go to state 93
+    Y      go to state 94
+    F      go to state 95
+    LV     go to state 96
+    ID     go to state 97
+    TRUE   go to state 98
+    FALSE  go to state 99
+    CHR    go to state 100
+    STR    go to state 101
+    NUM    go to state 102
+
+
+State 80
+
+   67 LV: LV "." . ID
+
+    "Id"  shift, and go to state 8
+
+    ID  go to state 107
+
+
+State 81
+
+   24 DV: "var" LI ":" T . ";"
+
+    ";"  shift, and go to state 108
+
+
+State 82
+
+   56 F: "(" . E ")"
+
+    "("      shift, and go to state 82
+    "-"      shift, and go to state 83
+    "++"     shift, and go to state 84
+    "--"     shift, and go to state 85
+    "!"      shift, and go to state 86
+    "Id"     shift, and go to state 8
+    "true"   shift, and go to state 87
+    "false"  shift, and go to state 88
+    "c"      shift, and go to state 89
+    "s"      shift, and go to state 90
+    "n"      shift, and go to state 30
+
+    E      go to state 109
+    L      go to state 92
+    R      go to state 93
+    Y      go to state 94
+    F      go to state 95
+    LV     go to state 96
+    ID     go to state 97
+    TRUE   go to state 98
+    FALSE  go to state 99
+    CHR    go to state 100
+    STR    go to state 101
+    NUM    go to state 102
+
+
+State 83
+
+   58 F: "-" . F
+
+    "("      shift, and go to state 82
+    "-"      shift, and go to state 83
+    "++"     shift, and go to state 84
+    "--"     shift, and go to state 85
+    "!"      shift, and go to state 86
+    "Id"     shift, and go to state 8
+    "true"   shift, and go to state 87
+    "false"  shift, and go to state 88
+    "c"      shift, and go to state 89
+    "s"      shift, and go to state 90
+    "n"      shift, and go to state 30
+
+    F      go to state 110
+    LV     go to state 96
+    ID     go to state 97
+    TRUE   go to state 98
+    FALSE  go to state 99
+    CHR    go to state 100
+    STR    go to state 101
+    NUM    go to state 102
+
+
+State 84
+
+   52 F: "++" . LV
+
+    "Id"  shift, and go to state 8
+
+    LV  go to state 111
+    ID  go to state 69
+
+
+State 85
+
+   53 F: "--" . LV
+
+    "Id"  shift, and go to state 8
+
+    LV  go to state 112
+    ID  go to state 69
+
+
+State 86
+
+   59 F: "!" . F
+
+    "("      shift, and go to state 82
+    "-"      shift, and go to state 83
+    "++"     shift, and go to state 84
+    "--"     shift, and go to state 85
+    "!"      shift, and go to state 86
+    "Id"     shift, and go to state 8
+    "true"   shift, and go to state 87
+    "false"  shift, and go to state 88
+    "c"      shift, and go to state 89
+    "s"      shift, and go to state 90
+    "n"      shift, and go to state 30
+
+    F      go to state 113
+    LV     go to state 96
+    ID     go to state 97
+    TRUE   go to state 98
+    FALSE  go to state 99
+    CHR    go to state 100
+    STR    go to state 101
+    NUM    go to state 102
+
+
+State 87
+
+   71 TRUE: "true" .
+
+    $default  reduce using rule 71 (TRUE)
+
+
+State 88
+
+   72 FALSE: "false" .
+
+    $default  reduce using rule 72 (FALSE)
+
+
+State 89
+
+   73 CHR: "c" .
+
+    $default  reduce using rule 73 (CHR)
+
+
+State 90
+
+   74 STR: "s" .
+
+    $default  reduce using rule 74 (STR)
+
+
+State 91
+
+   27 S: "if" "(" E . ")" S
+   28  | "if" "(" E . ")" S "else" S
+   35 E: E . "&&" L
+   36  | E . "||" L
+
+    ")"   shift, and go to state 114
+    "&&"  shift, and go to state 115
+    "||"  shift, and go to state 116
+
+
+State 92
+
+   37 E: L .
+   38 L: L . "<" R
+   39  | L . ">" R
+   40  | L . "<=" R
+   41  | L . ">=" R
+   42  | L . "==" R
+   43  | L . "!=" R
+
+    "<"   shift, and go to state 117
+    ">"   shift, and go to state 118
+    "<="  shift, and go to state 119
+    ">="  shift, and go to state 120
+    "=="  shift, and go to state 121
+    "!="  shift, and go to state 122
+
+    $default  reduce using rule 37 (E)
+
+
+State 93
+
+   44 L: R .
+   45 R: R . "+" Y
+   46  | R . "-" Y
+
+    "+"  shift, and go to state 123
+    "-"  shift, and go to state 124
+
+    $default  reduce using rule 44 (L)
+
+
+State 94
+
+   47 R: Y .
+   48 Y: Y . "*" F
+   49  | Y . "/" F
+
+    "*"  shift, and go to state 125
+    "/"  shift, and go to state 126
+
+    $default  reduce using rule 47 (R)
+
+
+State 95
+
+   50 Y: F .
+
+    $default  reduce using rule 50 (Y)
+
+
+State 96
+
+   51 F: LV .
+   54  | LV . "++"
+   55  | LV . "--"
+   67 LV: LV . "." ID
+   68   | LV . "[" E "]"
+
+    "["   shift, and go to state 79
+    "++"  shift, and go to state 127
+    "--"  shift, and go to state 128
+    "."   shift, and go to state 80
+
+    $default  reduce using rule 51 (F)
+
+
+State 97
+
+   57 F: ID . "(" LE ")"
+   69 LV: ID .
+
+    "("  shift, and go to state 129
+
+    $default  reduce using rule 69 (LV)
+
+
+State 98
+
+   60 F: TRUE .
+
+    $default  reduce using rule 60 (F)
+
+
+State 99
+
+   61 F: FALSE .
+
+    $default  reduce using rule 61 (F)
+
+
+State 100
+
+   62 F: CHR .
+
+    $default  reduce using rule 62 (F)
+
+
+State 101
+
+   63 F: STR .
+
+    $default  reduce using rule 63 (F)
+
+
+State 102
+
+   64 F: NUM .
+
+    $default  reduce using rule 64 (F)
+
+
+State 103
+
+   29 S: "while" "(" E . ")" S
+   35 E: E . "&&" L
+   36  | E . "||" L
+
+    ")"   shift, and go to state 130
+    "&&"  shift, and go to state 115
+    "||"  shift, and go to state 116
+
+
+State 104
+
+   30 S: "do" S "while" . "(" E ")" ";"
+
+    "("  shift, and go to state 131
+
+
+State 105
+
+   32 S: LV "=" E . ";"
+   35 E: E . "&&" L
+   36  | E . "||" L
+
+    ";"   shift, and go to state 132
+    "&&"  shift, and go to state 115
+    "||"  shift, and go to state 116
+
+
+State 106
+
+   35 E: E . "&&" L
+   36  | E . "||" L
+   68 LV: LV "[" E . "]"
+
+    "]"   shift, and go to state 133
+    "&&"  shift, and go to state 115
+    "||"  shift, and go to state 116
+
+
+State 107
+
+   67 LV: LV "." ID .
+
+    $default  reduce using rule 67 (LV)
+
+
+State 108
+
+   24 DV: "var" LI ":" T ";" .
+
+    $default  reduce using rule 24 (DV)
+
+
+State 109
+
+   35 E: E . "&&" L
+   36  | E . "||" L
+   56 F: "(" E . ")"
+
+    ")"   shift, and go to state 134
+    "&&"  shift, and go to state 115
+    "||"  shift, and go to state 116
+
+
+State 110
+
+   58 F: "-" F .
+
+    $default  reduce using rule 58 (F)
+
+
+State 111
+
+   52 F: "++" LV .
+   67 LV: LV . "." ID
+   68   | LV . "[" E "]"
+
+    "["  shift, and go to state 79
+    "."  shift, and go to state 80
+
+    $default  reduce using rule 52 (F)
+
+
+State 112
+
+   53 F: "--" LV .
+   67 LV: LV . "." ID
+   68   | LV . "[" E "]"
+
+    "["  shift, and go to state 79
+    "."  shift, and go to state 80
+
+    $default  reduce using rule 53 (F)
+
+
+State 113
+
+   59 F: "!" F .
+
+    $default  reduce using rule 59 (F)
+
+
+State 114
+
+   27 S: "if" "(" E ")" . S
+   28  | "if" "(" E ")" . S "else" S
+
+    "{"         shift, and go to state 49
+    "if"        shift, and go to state 59
+    "while"     shift, and go to state 60
+    "do"        shift, and go to state 61
+    "break"     shift, and go to state 62
+    "continue"  shift, and go to state 63
+    "Id"        shift, and go to state 8
+
+    B   go to state 64
+    S   go to state 135
+    LV  go to state 68
+    ID  go to state 69
+
+
+State 115
+
+   35 E: E "&&" . L
+
+    "("      shift, and go to state 82
+    "-"      shift, and go to state 83
+    "++"     shift, and go to state 84
+    "--"     shift, and go to state 85
+    "!"      shift, and go to state 86
+    "Id"     shift, and go to state 8
+    "true"   shift, and go to state 87
+    "false"  shift, and go to state 88
+    "c"      shift, and go to state 89
+    "s"      shift, and go to state 90
+    "n"      shift, and go to state 30
+
+    L      go to state 136
+    R      go to state 93
+    Y      go to state 94
+    F      go to state 95
+    LV     go to state 96
+    ID     go to state 97
+    TRUE   go to state 98
+    FALSE  go to state 99
+    CHR    go to state 100
+    STR    go to state 101
+    NUM    go to state 102
+
+
+State 116
+
+   36 E: E "||" . L
+
+    "("      shift, and go to state 82
+    "-"      shift, and go to state 83
+    "++"     shift, and go to state 84
+    "--"     shift, and go to state 85
+    "!"      shift, and go to state 86
+    "Id"     shift, and go to state 8
+    "true"   shift, and go to state 87
+    "false"  shift, and go to state 88
+    "c"      shift, and go to state 89
+    "s"      shift, and go to state 90
+    "n"      shift, and go to state 30
+
+    L      go to state 137
+    R      go to state 93
+    Y      go to state 94
+    F      go to state 95
+    LV     go to state 96
+    ID     go to state 97
+    TRUE   go to state 98
+    FALSE  go to state 99
+    CHR    go to state 100
+    STR    go to state 101
+    NUM    go to state 102
+
+
+State 117
+
+   38 L: L "<" . R
+
+    "("      shift, and go to state 82
+    "-"      shift, and go to state 83
+    "++"     shift, and go to state 84
+    "--"     shift, and go to state 85
+    "!"      shift, and go to state 86
+    "Id"     shift, and go to state 8
+    "true"   shift, and go to state 87
+    "false"  shift, and go to state 88
+    "c"      shift, and go to state 89
+    "s"      shift, and go to state 90
+    "n"      shift, and go to state 30
+
+    R      go to state 138
+    Y      go to state 94
+    F      go to state 95
+    LV     go to state 96
+    ID     go to state 97
+    TRUE   go to state 98
+    FALSE  go to state 99
+    CHR    go to state 100
+    STR    go to state 101
+    NUM    go to state 102
+
+
+State 118
+
+   39 L: L ">" . R
+
+    "("      shift, and go to state 82
+    "-"      shift, and go to state 83
+    "++"     shift, and go to state 84
+    "--"     shift, and go to state 85
+    "!"      shift, and go to state 86
+    "Id"     shift, and go to state 8
+    "true"   shift, and go to state 87
+    "false"  shift, and go to state 88
+    "c"      shift, and go to state 89
+    "s"      shift, and go to state 90
+    "n"      shift, and go to state 30
+
+    R      go to state 139
+    Y      go to state 94
+    F      go to state 95
+    LV     go to state 96
+    ID     go to state 97
+    TRUE   go to state 98
+    FALSE  go to state 99
+    CHR    go to state 100
+    STR    go to state 101
+    NUM    go to state 102
+
+
+State 119
+
+   40 L: L "<=" . R
+
+    "("      shift, and go to state 82
+    "-"      shift, and go to state 83
+    "++"     shift, and go to state 84
+    "--"     shift, and go to state 85
+    "!"      shift, and go to state 86
+    "Id"     shift, and go to state 8
+    "true"   shift, and go to state 87
+    "false"  shift, and go to state 88
+    "c"      shift, and go to state 89
+    "s"      shift, and go to state 90
+    "n"      shift, and go to state 30
+
+    R      go to state 140
+    Y      go to state 94
+    F      go to state 95
+    LV     go to state 96
+    ID     go to state 97
+    TRUE   go to state 98
+    FALSE  go to state 99
+    CHR    go to state 100
+    STR    go to state 101
+    NUM    go to state 102
+
+
+State 120
+
+   41 L: L ">=" . R
+
+    "("      shift, and go to state 82
+    "-"      shift, and go to state 83
+    "++"     shift, and go to state 84
+    "--"     shift, and go to state 85
+    "!"      shift, and go to state 86
+    "Id"     shift, and go to state 8
+    "true"   shift, and go to state 87
+    "false"  shift, and go to state 88
+    "c"      shift, and go to state 89
+    "s"      shift, and go to state 90
+    "n"      shift, and go to state 30
+
+    R      go to state 141
+    Y      go to state 94
+    F      go to state 95
+    LV     go to state 96
+    ID     go to state 97
+    TRUE   go to state 98
+    FALSE  go to state 99
+    CHR    go to state 100
+    STR    go to state 101
+    NUM    go to state 102
+
+
+State 121
+
+   42 L: L "==" . R
+
+    "("      shift, and go to state 82
+    "-"      shift, and go to state 83
+    "++"     shift, and go to state 84
+    "--"     shift, and go to state 85
+    "!"      shift, and go to state 86
+    "Id"     shift, and go to state 8
+    "true"   shift, and go to state 87
+    "false"  shift, and go to state 88
+    "c"      shift, and go to state 89
+    "s"      shift, and go to state 90
+    "n"      shift, and go to state 30
+
+    R      go to state 142
+    Y      go to state 94
+    F      go to state 95
+    LV     go to state 96
+    ID     go to state 97
+    TRUE   go to state 98
+    FALSE  go to state 99
+    CHR    go to state 100
+    STR    go to state 101
+    NUM    go to state 102
+
+
+State 122
+
+   43 L: L "!=" . R
+
+    "("      shift, and go to state 82
+    "-"      shift, and go to state 83
+    "++"     shift, and go to state 84
+    "--"     shift, and go to state 85
+    "!"      shift, and go to state 86
+    "Id"     shift, and go to state 8
+    "true"   shift, and go to state 87
+    "false"  shift, and go to state 88
+    "c"      shift, and go to state 89
+    "s"      shift, and go to state 90
+    "n"      shift, and go to state 30
+
+    R      go to state 143
+    Y      go to state 94
+    F      go to state 95
+    LV     go to state 96
+    ID     go to state 97
+    TRUE   go to state 98
+    FALSE  go to state 99
+    CHR    go to state 100
+    STR    go to state 101
+    NUM    go to state 102
+
+
+State 123
+
+   45 R: R "+" . Y
+
+    "("      shift, and go to state 82
+    "-"      shift, and go to state 83
+    "++"     shift, and go to state 84
+    "--"     shift, and go to state 85
+    "!"      shift, and go to state 86
+    "Id"     shift, and go to state 8
+    "true"   shift, and go to state 87
+    "false"  shift, and go to state 88
+    "c"      shift, and go to state 89
+    "s"      shift, and go to state 90
+    "n"      shift, and go to state 30
+
+    Y      go to state 144
+    F      go to state 95
+    LV     go to state 96
+    ID     go to state 97
+    TRUE   go to state 98
+    FALSE  go to state 99
+    CHR    go to state 100
+    STR    go to state 101
+    NUM    go to state 102
+
+
+State 124
+
+   46 R: R "-" . Y
+
+    "("      shift, and go to state 82
+    "-"      shift, and go to state 83
+    "++"     shift, and go to state 84
+    "--"     shift, and go to state 85
+    "!"      shift, and go to state 86
+    "Id"     shift, and go to state 8
+    "true"   shift, and go to state 87
+    "false"  shift, and go to state 88
+    "c"      shift, and go to state 89
+    "s"      shift, and go to state 90
+    "n"      shift, and go to state 30
+
+    Y      go to state 145
+    F      go to state 95
+    LV     go to state 96
+    ID     go to state 97
+    TRUE   go to state 98
+    FALSE  go to state 99
+    CHR    go to state 100
+    STR    go to state 101
+    NUM    go to state 102
+
+
+State 125
+
+   48 Y: Y "*" . F
+
+    "("      shift, and go to state 82
+    "-"      shift, and go to state 83
+    "++"     shift, and go to state 84
+    "--"     shift, and go to state 85
+    "!"      shift, and go to state 86
+    "Id"     shift, and go to state 8
+    "true"   shift, and go to state 87
+    "false"  shift, and go to state 88
+    "c"      shift, and go to state 89
+    "s"      shift, and go to state 90
+    "n"      shift, and go to state 30
+
+    F      go to state 146
+    LV     go to state 96
+    ID     go to state 97
+    TRUE   go to state 98
+    FALSE  go to state 99
+    CHR    go to state 100
+    STR    go to state 101
+    NUM    go to state 102
+
+
+State 126
+
+   49 Y: Y "/" . F
+
+    "("      shift, and go to state 82
+    "-"      shift, and go to state 83
+    "++"     shift, and go to state 84
+    "--"     shift, and go to state 85
+    "!"      shift, and go to state 86
+    "Id"     shift, and go to state 8
+    "true"   shift, and go to state 87
+    "false"  shift, and go to state 88
+    "c"      shift, and go to state 89
+    "s"      shift, and go to state 90
+    "n"      shift, and go to state 30
+
+    F      go to state 147
+    LV     go to state 96
+    ID     go to state 97
+    TRUE   go to state 98
+    FALSE  go to state 99
+    CHR    go to state 100
+    STR    go to state 101
+    NUM    go to state 102
+
+
+State 127
+
+   54 F: LV "++" .
+
+    $default  reduce using rule 54 (F)
+
+
+State 128
+
+   55 F: LV "--" .
+
+    $default  reduce using rule 55 (F)
+
+
+State 129
+
+   57 F: ID "(" . LE ")"
+
+    "("      shift, and go to state 82
+    "-"      shift, and go to state 83
+    "++"     shift, and go to state 84
+    "--"     shift, and go to state 85
+    "!"      shift, and go to state 86
+    "Id"     shift, and go to state 8
+    "true"   shift, and go to state 87
+    "false"  shift, and go to state 88
+    "c"      shift, and go to state 89
+    "s"      shift, and go to state 90
+    "n"      shift, and go to state 30
+
+    E      go to state 148
+    L      go to state 92
+    R      go to state 93
+    Y      go to state 94
+    F      go to state 95
+    LE     go to state 149
+    LV     go to state 96
+    ID     go to state 97
+    TRUE   go to state 98
+    FALSE  go to state 99
+    CHR    go to state 100
+    STR    go to state 101
+    NUM    go to state 102
+
+
+State 130
+
+   29 S: "while" "(" E ")" . S
+
+    "{"         shift, and go to state 49
+    "if"        shift, and go to state 59
+    "while"     shift, and go to state 60
+    "do"        shift, and go to state 61
+    "break"     shift, and go to state 62
+    "continue"  shift, and go to state 63
+    "Id"        shift, and go to state 8
+
+    B   go to state 64
+    S   go to state 150
+    LV  go to state 68
+    ID  go to state 69
+
+
+State 131
+
+   30 S: "do" S "while" "(" . E ")" ";"
+
+    "("      shift, and go to state 82
+    "-"      shift, and go to state 83
+    "++"     shift, and go to state 84
+    "--"     shift, and go to state 85
+    "!"      shift, and go to state 86
+    "Id"     shift, and go to state 8
+    "true"   shift, and go to state 87
+    "false"  shift, and go to state 88
+    "c"      shift, and go to state 89
+    "s"      shift, and go to state 90
+    "n"      shift, and go to state 30
+
+    E      go to state 151
+    L      go to state 92
+    R      go to state 93
+    Y      go to state 94
+    F      go to state 95
+    LV     go to state 96
+    ID     go to state 97
+    TRUE   go to state 98
+    FALSE  go to state 99
+    CHR    go to state 100
+    STR    go to state 101
+    NUM    go to state 102
+
+
+State 132
+
+   32 S: LV "=" E ";" .
+
+    $default  reduce using rule 32 (S)
+
+
+State 133
+
+   68 LV: LV "[" E "]" .
+
+    $default  reduce using rule 68 (LV)
+
+
+State 134
+
+   56 F: "(" E ")" .
+
+    $default  reduce using rule 56 (F)
+
+
+State 135
+
+   27 S: "if" "(" E ")" S .
+   28  | "if" "(" E ")" S . "else" S
+
+    "else"  shift, and go to state 152
+
+    "else"    [reduce using rule 27 (S)]
+    $default  reduce using rule 27 (S)
+
+
+State 136
+
+   35 E: E "&&" L .
+   38 L: L . "<" R
+   39  | L . ">" R
+   40  | L . "<=" R
+   41  | L . ">=" R
+   42  | L . "==" R
+   43  | L . "!=" R
+
+    "<"   shift, and go to state 117
+    ">"   shift, and go to state 118
+    "<="  shift, and go to state 119
+    ">="  shift, and go to state 120
+    "=="  shift, and go to state 121
+    "!="  shift, and go to state 122
+
+    $default  reduce using rule 35 (E)
+
+
+State 137
+
+   36 E: E "||" L .
+   38 L: L . "<" R
+   39  | L . ">" R
+   40  | L . "<=" R
+   41  | L . ">=" R
+   42  | L . "==" R
+   43  | L . "!=" R
+
+    "<"   shift, and go to state 117
+    ">"   shift, and go to state 118
+    "<="  shift, and go to state 119
+    ">="  shift, and go to state 120
+    "=="  shift, and go to state 121
+    "!="  shift, and go to state 122
+
+    $default  reduce using rule 36 (E)
+
+
+State 138
+
+   38 L: L "<" R .
+   45 R: R . "+" Y
+   46  | R . "-" Y
+
+    "+"  shift, and go to state 123
+    "-"  shift, and go to state 124
+
+    $default  reduce using rule 38 (L)
+
+
+State 139
+
+   39 L: L ">" R .
+   45 R: R . "+" Y
+   46  | R . "-" Y
+
+    "+"  shift, and go to state 123
+    "-"  shift, and go to state 124
+
+    $default  reduce using rule 39 (L)
+
+
+State 140
+
+   40 L: L "<=" R .
+   45 R: R . "+" Y
+   46  | R . "-" Y
+
+    "+"  shift, and go to state 123
+    "-"  shift, and go to state 124
+
+    $default  reduce using rule 40 (L)
+
+
+State 141
+
+   41 L: L ">=" R .
+   45 R: R . "+" Y
+   46  | R . "-" Y
+
+    "+"  shift, and go to state 123
+    "-"  shift, and go to state 124
+
+    $default  reduce using rule 41 (L)
+
+
+State 142
+
+   42 L: L "==" R .
+   45 R: R . "+" Y
+   46  | R . "-" Y
+
+    "+"  shift, and go to state 123
+    "-"  shift, and go to state 124
+
+    $default  reduce using rule 42 (L)
+
+
+State 143
+
+   43 L: L "!=" R .
+   45 R: R . "+" Y
+   46  | R . "-" Y
+
+    "+"  shift, and go to state 123
+    "-"  shift, and go to state 124
+
+    $default  reduce using rule 43 (L)
+
+
+State 144
+
+   45 R: R "+" Y .
+   48 Y: Y . "*" F
+   49  | Y . "/" F
+
+    "*"  shift, and go to state 125
+    "/"  shift, and go to state 126
+
+    $default  reduce using rule 45 (R)
+
+
+State 145
+
+   46 R: R "-" Y .
+   48 Y: Y . "*" F
+   49  | Y . "/" F
+
+    "*"  shift, and go to state 125
+    "/"  shift, and go to state 126
+
+    $default  reduce using rule 46 (R)
+
+
+State 146
+
+   48 Y: Y "*" F .
+
+    $default  reduce using rule 48 (Y)
+
+
+State 147
+
+   49 Y: Y "/" F .
+
+    $default  reduce using rule 49 (Y)
+
+
+State 148
+
+   35 E: E . "&&" L
+   36  | E . "||" L
+   66 LE: E .
+
+    "&&"  shift, and go to state 115
+    "||"  shift, and go to state 116
+
+    $default  reduce using rule 66 (LE)
+
+
+State 149
+
+   57 F: ID "(" LE . ")"
+   65 LE: LE . "," E
+
+    ")"  shift, and go to state 153
+    ","  shift, and go to state 154
+
+
+State 150
+
+   29 S: "while" "(" E ")" S .
+
+    $default  reduce using rule 29 (S)
+
+
+State 151
+
+   30 S: "do" S "while" "(" E . ")" ";"
+   35 E: E . "&&" L
+   36  | E . "||" L
+
+    ")"   shift, and go to state 155
+    "&&"  shift, and go to state 115
+    "||"  shift, and go to state 116
+
+
+State 152
+
+   28 S: "if" "(" E ")" S "else" . S
+
+    "{"         shift, and go to state 49
+    "if"        shift, and go to state 59
+    "while"     shift, and go to state 60
+    "do"        shift, and go to state 61
+    "break"     shift, and go to state 62
+    "continue"  shift, and go to state 63
+    "Id"        shift, and go to state 8
+
+    B   go to state 64
+    S   go to state 156
+    LV  go to state 68
+    ID  go to state 69
+
+
+State 153
+
+   57 F: ID "(" LE ")" .
+
+    $default  reduce using rule 57 (F)
+
+
+State 154
+
+   65 LE: LE "," . E
+
+    "("      shift, and go to state 82
+    "-"      shift, and go to state 83
+    "++"     shift, and go to state 84
+    "--"     shift, and go to state 85
+    "!"      shift, and go to state 86
+    "Id"     shift, and go to state 8
+    "true"   shift, and go to state 87
+    "false"  shift, and go to state 88
+    "c"      shift, and go to state 89
+    "s"      shift, and go to state 90
+    "n"      shift, and go to state 30
+
+    E      go to state 157
+    L      go to state 92
+    R      go to state 93
+    Y      go to state 94
+    F      go to state 95
+    LV     go to state 96
+    ID     go to state 97
+    TRUE   go to state 98
+    FALSE  go to state 99
+    CHR    go to state 100
+    STR    go to state 101
+    NUM    go to state 102
+
+
+State 155
+
+   30 S: "do" S "while" "(" E ")" . ";"
+
+    ";"  shift, and go to state 158
+
+
+State 156
+
+   28 S: "if" "(" E ")" S "else" S .
+
+    $default  reduce using rule 28 (S)
+
+
+State 157
+
+   35 E: E . "&&" L
+   36  | E . "||" L
+   65 LE: LE "," E .
+
+    "&&"  shift, and go to state 115
+    "||"  shift, and go to state 116
+
+    $default  reduce using rule 65 (LE)
+
+
+State 158
+
+   30 S: "do" S "while" "(" E ")" ";" .
+
+    $default  reduce using rule 30 (S)
