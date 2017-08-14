@@ -1,3 +1,10 @@
+#pragma once
+
+#define MAX_ID_LEN 20
+#define MAX_CONSTS 200
+#define MAX_NUM_LEN 20
+#define MAX_STR_LEN 200
+
 typedef enum {
     //palavras reservadas
     ARRAY = 0, BOOLEAN, BREAK, CHAR, CONTINUE, DO, ELSE, FALSE, FUNCTION, IF, INTEGER,
@@ -32,7 +39,7 @@ typedef struct tokensSecundarios {
 
 typedef enum {
 	P = 1000, LDE, DE, T, DT, DC, DF, LP, B, LDV, LS, DV, LI, S,
-	E, L, R, Y, F, LE, LV, ID, TRU, FAL, CHR, STR, NUM
+	E, L, R, Y, F, LE, LV, ID_TERMINAL, TRU, FAL, CHR, STR, NUM
 } t_nonTerminalCode;
 
 typedef struct 

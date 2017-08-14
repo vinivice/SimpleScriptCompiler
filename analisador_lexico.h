@@ -3,11 +3,6 @@
 #include "uthash.h"
 #include "definitions.h"
 
-#define MAX_ID_LEN 20
-#define MAX_CONSTS 200
-#define MAX_NUM_LEN 20
-#define MAX_STR_LEN 200
-
 t_const vConst[MAX_CONSTS]; 
 
 int nNumConsts = 0;

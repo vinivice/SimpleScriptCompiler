@@ -1,8 +1,9 @@
-#include"tabelaAcao.h"
+#include "tabelaAcao.h"
+#include "definitions.h"
 
-#include<vector>
-#include<stdio.h>
-#include<stdlib.h>
+#include <vector>
+#include <stdio.h>
+#include <stdlib.h>
 #define FINAL 10000
 
 std::vector<int> stateStack;
