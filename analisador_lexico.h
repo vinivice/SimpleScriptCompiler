@@ -1,37 +1,12 @@
 #include<ctype.h>
 #include<string.h>
 #include "uthash.h"
+#include "definitions.h"
 
 #define MAX_ID_LEN 20
 #define MAX_CONSTS 200
 #define MAX_NUM_LEN 20
 #define MAX_STR_LEN 200
-
-typedef enum {
-    //palavras reservadas
-    ARRAY, BOOLEAN, BREAK, CHAR, CONTINUE, DO, ELSE, FALSE, FUNCTION, IF, INTEGER,
-    OF, STRING, STRUCT, TRUE, TYPE, VAR, WHILE,
-    
-    //simbolos
-    COLON, SEMI_COLON, COMMA, EQUALS, LEFT_SQUARE, RIGHT_SQUARE, LEFT_BRACES, RIGHT_BRACES,
-    LEFT_PARENTHESIS, RIGHT_PARENTHESIS, AND, OR, LESS_THAN, GREATER_THAN, LESS_OR_EQUAL, 
-    GREATER_OR_EQUAL, NOT_EQUAL, EQUAL_EQUAL, PLUS, PLUS_PLUS, MINUS, MINUS_MINUS, TIMES,
-    DIVIDE, DOT, NOT,
-
-    //tokens regulares
-    CHARACTER, NUMERAL, STRINGVAL, ID,
-
-    //token desconhecido
-    UNKNOWN } t_token;
-
-typedef struct {
-    char type;
-    union Value {
-        char cVal;
-        int nVal;
-        char sVal[MAX_ID_LEN + 1];
-    } value;
-} t_const;
 
 t_const vConst[MAX_CONSTS]; 
 
@@ -72,12 +47,6 @@ int addStringConst(char *s) {
 
 const char *reserved_words[] = {"array", "boolean", "break", "char", "continue", "do", "else", "false", "function", "if",
                                  "integer", "of", "string", "struct", "true", "type", "var", "while"};
-
-typedef struct tokensSecundarios {
-    int key;
-    char name[MAX_ID_LEN + 1];
-    UT_hash_handle hh;
-} tokens_Secundarios;
 
 tokens_Secundarios *s, *tS = NULL;
 
