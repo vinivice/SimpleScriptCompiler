@@ -1,0 +1,2809 @@
+elementoTabelaAuxiliar rule(int p)
+{
+	p = -p;
+	elementoTabelaAuxiliar eta;
+    switch(p)
+	{
+		case 0:
+		{
+			eta.len = 1;
+			eta.left = P ;
+			break;
+		}
+		case 1:
+		{
+			eta.len = 2;
+			eta.left = LDE ;
+			break;
+		}
+		case 2:
+		{
+			eta.len = 1;
+			eta.left = LDE ;
+			break;
+		}
+		case 3:
+		{
+			eta.len = 1;
+			eta.left = DE ;
+			break;
+		}
+		case 4:
+		{
+			eta.len = 1;
+			eta.left = DE ;
+			break;
+		}
+		case 5:
+		{
+			eta.len = 1;
+			eta.left = T ;
+			break;
+		}
+		case 6:
+		{
+			eta.len = 1;
+			eta.left = T ;
+			break;
+		}
+		case 7:
+		{
+			eta.len = 1;
+			eta.left = T ;
+			break;
+		}
+		case 8:
+		{
+			eta.len = 1;
+			eta.left = T ;
+			break;
+		}
+		case 9:
+		{
+			eta.len = 1;
+			eta.left = T ;
+			break;
+		}
+		case 10:
+		{
+			eta.len = 5;
+			eta.left = DT ;
+			break;
+		}
+		case 11:
+		{
+			eta.len = 5;
+			eta.left = DT ;
+			break;
+		}
+		case 12:
+		{
+			eta.len = 4;
+			eta.left = DT ;
+			break;
+		}
+		case 13:
+		{
+			eta.len = 5;
+			eta.left = DC ;
+			break;
+		}
+		case 14:
+		{
+			eta.len = 3;
+			eta.left = DC ;
+			break;
+		}
+		case 15:
+		{
+			eta.len = 5;
+			eta.left = DF ;
+			break;
+		}
+		case 16:
+		{
+			eta.len = 5;
+			eta.left = LP ;
+			break;
+		}
+		case 17:
+		{
+			eta.len = 3;
+			eta.left = LP ;
+			break;
+		}
+		case 18:
+		{
+			eta.len = 4;
+			eta.left = B ;
+			break;
+		}
+		case 19:
+		{
+			eta.len = 2;
+			eta.left = LDV ;
+			break;
+		}
+		case 20:
+		{
+			eta.len = 1;
+			eta.left = LDV ;
+			break;
+		}
+		case 21:
+		{
+			eta.len = 2;
+			eta.left = LS ;
+			break;
+		}
+		case 22:
+		{
+			eta.len = 1;
+			eta.left = LS ;
+			break;
+		}
+		case 23:
+		{
+			eta.len = 5;
+			eta.left = DV ;
+			break;
+		}
+		case 24:
+		{
+			eta.len = 3;
+			eta.left = LI ;
+			break;
+		}
+		case 25:
+		{
+			eta.len = 1;
+			eta.left = LI ;
+			break;
+		}
+		case 26:
+		{
+			eta.len = 5;
+			eta.left = S ;
+			break;
+		}
+		case 27:
+		{
+			eta.len = 7;
+			eta.left = S ;
+			break;
+		}
+		case 28:
+		{
+			eta.len = 5;
+			eta.left = S ;
+			break;
+		}
+		case 29:
+		{
+			eta.len = 7;
+			eta.left = S ;
+			break;
+		}
+		case 30:
+		{
+			eta.len = 1;
+			eta.left = S ;
+			break;
+		}
+		case 31:
+		{
+			eta.len = 4;
+			eta.left = S ;
+			break;
+		}
+		case 32:
+		{
+			eta.len = 2;
+			eta.left = S ;
+			break;
+		}
+		case 33:
+		{
+			eta.len = 2;
+			eta.left = S ;
+			break;
+		}
+		case 34:
+		{
+			eta.len = 3;
+			eta.left = E ;
+			break;
+		}
+		case 35:
+		{
+			eta.len = 3;
+			eta.left = E ;
+			break;
+		}
+		case 36:
+		{
+			eta.len = 1;
+			eta.left = E ;
+			break;
+		}
+		case 37:
+		{
+			eta.len = 3;
+			eta.left = L ;
+			break;
+		}
+		case 38:
+		{
+			eta.len = 3;
+			eta.left = L ;
+			break;
+		}
+		case 39:
+		{
+			eta.len = 3;
+			eta.left = L ;
+			break;
+		}
+		case 40:
+		{
+			eta.len = 3;
+			eta.left = L ;
+			break;
+		}
+		case 41:
+		{
+			eta.len = 3;
+			eta.left = L ;
+			break;
+		}
+		case 42:
+		{
+			eta.len = 3;
+			eta.left = L ;
+			break;
+		}
+		case 43:
+		{
+			eta.len = 1;
+			eta.left = L ;
+			break;
+		}
+		case 44:
+		{
+			eta.len = 3;
+			eta.left = R ;
+			break;
+		}
+		case 45:
+		{
+			eta.len = 3;
+			eta.left = R ;
+			break;
+		}
+		case 46:
+		{
+			eta.len = 1;
+			eta.left = R ;
+			break;
+		}
+		case 47:
+		{
+			eta.len = 3;
+			eta.left = Y ;
+			break;
+		}
+		case 48:
+		{
+			eta.len = 3;
+			eta.left = Y ;
+			break;
+		}
+		case 49:
+		{
+			eta.len = 1;
+			eta.left = Y ;
+			break;
+		}
+		case 50:
+		{
+			eta.len = 1;
+			eta.left = F ;
+			break;
+		}
+		case 51:
+		{
+			eta.len = 2;
+			eta.left = F ;
+			break;
+		}
+		case 52:
+		{
+			eta.len = 2;
+			eta.left = F ;
+			break;
+		}
+		case 53:
+		{
+			eta.len = 2;
+			eta.left = F ;
+			break;
+		}
+		case 54:
+		{
+			eta.len = 2;
+			eta.left = F ;
+			break;
+		}
+		case 55:
+		{
+			eta.len = 3;
+			eta.left = F ;
+			break;
+		}
+		case 56:
+		{
+			eta.len = 4;
+			eta.left = F ;
+			break;
+		}
+		case 57:
+		{
+			eta.len = 2;
+			eta.left = F ;
+			break;
+		}
+		case 58:
+		{
+			eta.len = 2;
+			eta.left = F ;
+			break;
+		}
+		case 59:
+		{
+			eta.len = 1;
+			eta.left = F ;
+			break;
+		}
+		case 60:
+		{
+			eta.len = 1;
+			eta.left = F ;
+			break;
+		}
+		case 61:
+		{
+			eta.len = 1;
+			eta.left = F ;
+			break;
+		}
+		case 62:
+		{
+			eta.len = 1;
+			eta.left = F ;
+			break;
+		}
+		case 63:
+		{
+			eta.len = 1;
+			eta.left = F ;
+			break;
+		}
+		case 64:
+		{
+			eta.len = 3;
+			eta.left = LE ;
+			break;
+		}
+		case 65:
+		{
+			eta.len = 1;
+			eta.left = LE ;
+			break;
+		}
+		case 66:
+		{
+			eta.len = 3;
+			eta.left = LV ;
+			break;
+		}
+		case 67:
+		{
+			eta.len = 4;
+			eta.left = LV ;
+			break;
+		}
+		case 68:
+		{
+			eta.len = 1;
+			eta.left = LV ;
+			break;
+		}
+		case 69:
+		{
+			eta.len = 1;
+			eta.left = ID ;
+			break;
+		}
+		case 70:
+		{
+			eta.len = 1;
+			eta.left = TRU ;
+			break;
+		}
+		case 71:
+		{
+			eta.len = 1;
+			eta.left = FAL ;
+			break;
+		}
+		case 72:
+		{
+			eta.len = 1;
+			eta.left = CHR ;
+			break;
+		}
+		case 73:
+		{
+			eta.len = 1;
+			eta.left = STR ;
+			break;
+		}
+		case 74:
+		{
+			eta.len = 1;
+			eta.left = NUM ;
+			break;
+		}
+	}
+    return eta;
+}
+
+int action(int state, int input)
+{
+	switch(state)
+	{
+		case 0: //CHECK STAGE 0
+			switch(input)
+			{
+				case TYPE: return 6;
+				case FUNCTION: return 5;
+				case LDE: return 1;
+				case DE: return 2;
+				case DT: return 4;
+				case DF: return 3;
+			}
+			break;
+		case 1: //CHECK STAGE 1
+			switch(input)
+			{
+				case TYPE: return 6;
+				case FUNCTION: return 5;
+				case $: return acc;
+				case DE: return 7;
+				case DT: return 4;
+				case DF: return 3;
+			}
+			break;
+		case 2: //CHECK STAGE 2
+			switch(input)
+			{
+				case TYPE: return -2;
+				case FUNCTION: return -2;
+				case $: return -2;
+			}
+			break;
+		case 3: //CHECK STAGE 3
+			switch(input)
+			{
+				case TYPE: return -3;
+				case FUNCTION: return -3;
+				case $: return -3;
+			}
+			break;
+		case 4: //CHECK STAGE 4
+			switch(input)
+			{
+				case TYPE: return -4;
+				case FUNCTION: return -4;
+				case $: return -4;
+			}
+			break;
+		case 5: //CHECK STAGE 5
+			switch(input)
+			{
+				case ID: return 9;
+				case ID: return 8;
+			}
+			break;
+		case 6: //CHECK STAGE 6
+			switch(input)
+			{
+				case ID: return 9;
+				case ID: return 10;
+			}
+			break;
+		case 7: //CHECK STAGE 7
+			switch(input)
+			{
+				case TYPE: return -1;
+				case FUNCTION: return -1;
+				case $: return -1;
+			}
+			break;
+		case 8: //CHECK STAGE 8
+			switch(input)
+			{
+				case LEFT_PARENTHESIS: return 11;
+			}
+			break;
+		case 9: //CHECK STAGE 9
+			switch(input)
+			{
+				case TYPE: return -69;
+				case EQUALS: return -69;
+				case LEFT_SQUARE: return -69;
+				case RIGHT_SQUARE: return -69;
+				case LEFT_BRACES: return -69;
+				case RIGHT_BRACES: return -69;
+				case SEMI_COLON: return -69;
+				case COLON: return -69;
+				case FUNCTION: return -69;
+				case LEFT_PARENTHESIS: return -69;
+				case RIGHT_PARENTHESIS: return -69;
+				case COMMA: return -69;
+				case AND: return -69;
+				case OR: return -69;
+				case LESS_THAN: return -69;
+				case GREATER_THAN: return -69;
+				case LESS_OR_EQUAL: return -69;
+				case GREATER_OR_EQUAL: return -69;
+				case EQUAL_EQUAL: return -69;
+				case NOT_EQUAL: return -69;
+				case PLUS: return -69;
+				case MINUS: return -69;
+				case TIMES: return -69;
+				case DIVIDE: return -69;
+				case PLUS_PLUS: return -69;
+				case MINUS_MINUS: return -69;
+				case DOT: return -69;
+				case $: return -69;
+			}
+			break;
+		case 10: //CHECK STAGE 10
+			switch(input)
+			{
+				case EQUALS: return 12;
+			}
+			break;
+		case 11: //CHECK STAGE 11
+			switch(input)
+			{
+				case ID: return 9;
+				case LP: return 13;
+				case ID: return 14;
+			}
+			break;
+		case 12: //CHECK STAGE 12
+			switch(input)
+			{
+				case INTEGER: return 18;
+				case CHAR: return 19;
+				case BOOLEAN: return 20;
+				case STRING: return 21;
+				case ARRAY: return 15;
+				case STRUCT: return 16;
+				case ID: return 9;
+				case T: return 17;
+				case ID: return 22;
+			}
+			break;
+		case 13: //CHECK STAGE 13
+			switch(input)
+			{
+				case RIGHT_PARENTHESIS: return 23;
+				case COMMA: return 24;
+			}
+			break;
+		case 14: //CHECK STAGE 14
+			switch(input)
+			{
+				case COLON: return 25;
+			}
+			break;
+		case 15: //CHECK STAGE 15
+			switch(input)
+			{
+				case LEFT_SQUARE: return 26;
+			}
+			break;
+		case 16: //CHECK STAGE 16
+			switch(input)
+			{
+				case LEFT_BRACES: return 27;
+			}
+			break;
+		case 17: //CHECK STAGE 17
+			switch(input)
+			{
+				case TYPE: return -12;
+				case FUNCTION: return -12;
+				case $: return -12;
+			}
+			break;
+		case 18: //CHECK STAGE 18
+			switch(input)
+			{
+				case TYPE: return -5;
+				case LEFT_BRACES: return -5;
+				case RIGHT_BRACES: return -5;
+				case SEMI_COLON: return -5;
+				case FUNCTION: return -5;
+				case RIGHT_PARENTHESIS: return -5;
+				case COMMA: return -5;
+				case $: return -5;
+			}
+			break;
+		case 19: //CHECK STAGE 19
+			switch(input)
+			{
+				case TYPE: return -6;
+				case LEFT_BRACES: return -6;
+				case RIGHT_BRACES: return -6;
+				case SEMI_COLON: return -6;
+				case FUNCTION: return -6;
+				case RIGHT_PARENTHESIS: return -6;
+				case COMMA: return -6;
+				case $: return -6;
+			}
+			break;
+		case 20: //CHECK STAGE 20
+			switch(input)
+			{
+				case TYPE: return -7;
+				case LEFT_BRACES: return -7;
+				case RIGHT_BRACES: return -7;
+				case SEMI_COLON: return -7;
+				case FUNCTION: return -7;
+				case RIGHT_PARENTHESIS: return -7;
+				case COMMA: return -7;
+				case $: return -7;
+			}
+			break;
+		case 21: //CHECK STAGE 21
+			switch(input)
+			{
+				case TYPE: return -8;
+				case LEFT_BRACES: return -8;
+				case RIGHT_BRACES: return -8;
+				case SEMI_COLON: return -8;
+				case FUNCTION: return -8;
+				case RIGHT_PARENTHESIS: return -8;
+				case COMMA: return -8;
+				case $: return -8;
+			}
+			break;
+		case 22: //CHECK STAGE 22
+			switch(input)
+			{
+				case TYPE: return -9;
+				case LEFT_BRACES: return -9;
+				case RIGHT_BRACES: return -9;
+				case SEMI_COLON: return -9;
+				case FUNCTION: return -9;
+				case RIGHT_PARENTHESIS: return -9;
+				case COMMA: return -9;
+				case $: return -9;
+			}
+			break;
+		case 23: //CHECK STAGE 23
+			switch(input)
+			{
+				case COLON: return 28;
+			}
+			break;
+		case 24: //CHECK STAGE 24
+			switch(input)
+			{
+				case ID: return 9;
+				case ID: return 29;
+			}
+			break;
+		case 25: //CHECK STAGE 25
+			switch(input)
+			{
+				case INTEGER: return 18;
+				case CHAR: return 19;
+				case BOOLEAN: return 20;
+				case STRING: return 21;
+				case ID: return 9;
+				case T: return 30;
+				case ID: return 22;
+			}
+			break;
+		case 26: //CHECK STAGE 26
+			switch(input)
+			{
+				case NUMERAL: return 32;
+				case NUM: return 31;
+			}
+			break;
+		case 27: //CHECK STAGE 27
+			switch(input)
+			{
+				case ID: return 9;
+				case DC: return 33;
+				case LI: return 34;
+				case ID: return 35;
+			}
+			break;
+		case 28: //CHECK STAGE 28
+			switch(input)
+			{
+				case INTEGER: return 18;
+				case CHAR: return 19;
+				case BOOLEAN: return 20;
+				case STRING: return 21;
+				case ID: return 9;
+				case T: return 36;
+				case ID: return 22;
+			}
+			break;
+		case 29: //CHECK STAGE 29
+			switch(input)
+			{
+				case COLON: return 37;
+			}
+			break;
+		case 30: //CHECK STAGE 30
+			switch(input)
+			{
+				case RIGHT_PARENTHESIS: return -17;
+				case COMMA: return -17;
+			}
+			break;
+		case 31: //CHECK STAGE 31
+			switch(input)
+			{
+				case RIGHT_SQUARE: return 38;
+			}
+			break;
+		case 32: //CHECK STAGE 32
+			switch(input)
+			{
+				case RIGHT_SQUARE: return -74;
+				case SEMI_COLON: return -74;
+				case RIGHT_PARENTHESIS: return -74;
+				case COMMA: return -74;
+				case AND: return -74;
+				case OR: return -74;
+				case LESS_THAN: return -74;
+				case GREATER_THAN: return -74;
+				case LESS_OR_EQUAL: return -74;
+				case GREATER_OR_EQUAL: return -74;
+				case EQUAL_EQUAL: return -74;
+				case NOT_EQUAL: return -74;
+				case PLUS: return -74;
+				case MINUS: return -74;
+				case TIMES: return -74;
+				case DIVIDE: return -74;
+			}
+			break;
+		case 33: //CHECK STAGE 33
+			switch(input)
+			{
+				case RIGHT_BRACES: return 39;
+				case SEMI_COLON: return 40;
+			}
+			break;
+		case 34: //CHECK STAGE 34
+			switch(input)
+			{
+				case COLON: return 41;
+				case COMMA: return 42;
+			}
+			break;
+		case 35: //CHECK STAGE 35
+			switch(input)
+			{
+				case COLON: return -25;
+				case COMMA: return -25;
+			}
+			break;
+		case 36: //CHECK STAGE 36
+			switch(input)
+			{
+				case LEFT_BRACES: return 44;
+				case B: return 43;
+			}
+			break;
+		case 37: //CHECK STAGE 37
+			switch(input)
+			{
+				case INTEGER: return 18;
+				case CHAR: return 19;
+				case BOOLEAN: return 20;
+				case STRING: return 21;
+				case ID: return 9;
+				case T: return 45;
+				case ID: return 22;
+			}
+			break;
+		case 38: //CHECK STAGE 38
+			switch(input)
+			{
+				case OF: return 46;
+			}
+			break;
+		case 39: //CHECK STAGE 39
+			switch(input)
+			{
+				case TYPE: return -11;
+				case FUNCTION: return -11;
+				case $: return -11;
+			}
+			break;
+		case 40: //CHECK STAGE 40
+			switch(input)
+			{
+				case ID: return 9;
+				case LI: return 47;
+				case ID: return 35;
+			}
+			break;
+		case 41: //CHECK STAGE 41
+			switch(input)
+			{
+				case INTEGER: return 18;
+				case CHAR: return 19;
+				case BOOLEAN: return 20;
+				case STRING: return 21;
+				case ID: return 9;
+				case T: return 48;
+				case ID: return 22;
+			}
+			break;
+		case 42: //CHECK STAGE 42
+			switch(input)
+			{
+				case ID: return 9;
+				case ID: return 49;
+			}
+			break;
+		case 43: //CHECK STAGE 43
+			switch(input)
+			{
+				case TYPE: return -15;
+				case FUNCTION: return -15;
+				case $: return -15;
+			}
+			break;
+		case 44: //CHECK STAGE 44
+			switch(input)
+			{
+				case VAR: return 52;
+				case LDV: return 50;
+				case DV: return 51;
+			}
+			break;
+		case 45: //CHECK STAGE 45
+			switch(input)
+			{
+				case RIGHT_PARENTHESIS: return -16;
+				case COMMA: return -16;
+			}
+			break;
+		case 46: //CHECK STAGE 46
+			switch(input)
+			{
+				case INTEGER: return 18;
+				case CHAR: return 19;
+				case BOOLEAN: return 20;
+				case STRING: return 21;
+				case ID: return 9;
+				case T: return 53;
+				case ID: return 22;
+			}
+			break;
+		case 47: //CHECK STAGE 47
+			switch(input)
+			{
+				case COLON: return 54;
+				case COMMA: return 42;
+			}
+			break;
+		case 48: //CHECK STAGE 48
+			switch(input)
+			{
+				case RIGHT_BRACES: return -14;
+				case SEMI_COLON: return -14;
+			}
+			break;
+		case 49: //CHECK STAGE 49
+			switch(input)
+			{
+				case COLON: return -24;
+				case COMMA: return -24;
+			}
+			break;
+		case 50: //CHECK STAGE 50
+			switch(input)
+			{
+				case LEFT_BRACES: return 44;
+				case VAR: return 52;
+				case IF: return 58;
+				case WHILE: return 59;
+				case DO: return 60;
+				case BREAK: return 63;
+				case CONTINUE: return 64;
+				case ID: return 9;
+				case B: return 61;
+				case LS: return 55;
+				case DV: return 56;
+				case S: return 57;
+				case LV: return 62;
+				case ID: return 65;
+			}
+			break;
+		case 51: //CHECK STAGE 51
+			switch(input)
+			{
+				case LEFT_BRACES: return -20;
+				case VAR: return -20;
+				case IF: return -20;
+				case WHILE: return -20;
+				case DO: return -20;
+				case BREAK: return -20;
+				case CONTINUE: return -20;
+				case ID: return -20;
+			}
+			break;
+		case 52: //CHECK STAGE 52
+			switch(input)
+			{
+				case ID: return 9;
+				case LI: return 66;
+				case ID: return 35;
+			}
+			break;
+		case 53: //CHECK STAGE 53
+			switch(input)
+			{
+				case TYPE: return -10;
+				case FUNCTION: return -10;
+				case $: return -10;
+			}
+			break;
+		case 54: //CHECK STAGE 54
+			switch(input)
+			{
+				case INTEGER: return 18;
+				case CHAR: return 19;
+				case BOOLEAN: return 20;
+				case STRING: return 21;
+				case ID: return 9;
+				case T: return 67;
+				case ID: return 22;
+			}
+			break;
+		case 55: //CHECK STAGE 55
+			switch(input)
+			{
+				case LEFT_BRACES: return 44;
+				case RIGHT_BRACES: return 68;
+				case IF: return 58;
+				case WHILE: return 59;
+				case DO: return 60;
+				case BREAK: return 63;
+				case CONTINUE: return 64;
+				case ID: return 9;
+				case B: return 61;
+				case S: return 69;
+				case LV: return 62;
+				case ID: return 65;
+			}
+			break;
+		case 56: //CHECK STAGE 56
+			switch(input)
+			{
+				case LEFT_BRACES: return -19;
+				case VAR: return -19;
+				case IF: return -19;
+				case WHILE: return -19;
+				case DO: return -19;
+				case BREAK: return -19;
+				case CONTINUE: return -19;
+				case ID: return -19;
+			}
+			break;
+		case 57: //CHECK STAGE 57
+			switch(input)
+			{
+				case LEFT_BRACES: return -22;
+				case RIGHT_BRACES: return -22;
+				case IF: return -22;
+				case WHILE: return -22;
+				case DO: return -22;
+				case BREAK: return -22;
+				case CONTINUE: return -22;
+				case ID: return -22;
+			}
+			break;
+		case 58: //CHECK STAGE 58
+			switch(input)
+			{
+				case LEFT_PARENTHESIS: return 70;
+			}
+			break;
+		case 59: //CHECK STAGE 59
+			switch(input)
+			{
+				case LEFT_PARENTHESIS: return 71;
+			}
+			break;
+		case 60: //CHECK STAGE 60
+			switch(input)
+			{
+				case LEFT_BRACES: return 44;
+				case IF: return 58;
+				case WHILE: return 59;
+				case DO: return 60;
+				case BREAK: return 63;
+				case CONTINUE: return 64;
+				case ID: return 9;
+				case B: return 61;
+				case S: return 72;
+				case LV: return 62;
+				case ID: return 65;
+			}
+			break;
+		case 61: //CHECK STAGE 61
+			switch(input)
+			{
+				case LEFT_BRACES: return -30;
+				case RIGHT_BRACES: return -30;
+				case IF: return -30;
+				case ELSE: return -30;
+				case WHILE: return -30;
+				case DO: return -30;
+				case BREAK: return -30;
+				case CONTINUE: return -30;
+				case ID: return -30;
+			}
+			break;
+		case 62: //CHECK STAGE 62
+			switch(input)
+			{
+				case EQUALS: return 73;
+				case LEFT_SQUARE: return 75;
+				case DOT: return 74;
+			}
+			break;
+		case 63: //CHECK STAGE 63
+			switch(input)
+			{
+				case SEMI_COLON: return 76;
+			}
+			break;
+		case 64: //CHECK STAGE 64
+			switch(input)
+			{
+				case SEMI_COLON: return 77;
+			}
+			break;
+		case 65: //CHECK STAGE 65
+			switch(input)
+			{
+				case EQUALS: return -68;
+				case LEFT_SQUARE: return -68;
+				case RIGHT_SQUARE: return -68;
+				case SEMI_COLON: return -68;
+				case RIGHT_PARENTHESIS: return -68;
+				case COMMA: return -68;
+				case AND: return -68;
+				case OR: return -68;
+				case LESS_THAN: return -68;
+				case GREATER_THAN: return -68;
+				case LESS_OR_EQUAL: return -68;
+				case GREATER_OR_EQUAL: return -68;
+				case EQUAL_EQUAL: return -68;
+				case NOT_EQUAL: return -68;
+				case PLUS: return -68;
+				case MINUS: return -68;
+				case TIMES: return -68;
+				case DIVIDE: return -68;
+				case DOT: return -68;
+			}
+			break;
+		case 66: //CHECK STAGE 66
+			switch(input)
+			{
+				case COLON: return 78;
+				case COMMA: return 42;
+			}
+			break;
+		case 67: //CHECK STAGE 67
+			switch(input)
+			{
+				case RIGHT_BRACES: return -13;
+				case SEMI_COLON: return -13;
+			}
+			break;
+		case 68: //CHECK STAGE 68
+			switch(input)
+			{
+				case TYPE: return -18;
+				case LEFT_BRACES: return -18;
+				case RIGHT_BRACES: return -18;
+				case FUNCTION: return -18;
+				case IF: return -18;
+				case ELSE: return -18;
+				case WHILE: return -18;
+				case DO: return -18;
+				case BREAK: return -18;
+				case CONTINUE: return -18;
+				case ID: return -18;
+				case $: return -18;
+			}
+			break;
+		case 69: //CHECK STAGE 69
+			switch(input)
+			{
+				case LEFT_BRACES: return -21;
+				case RIGHT_BRACES: return -21;
+				case IF: return -21;
+				case WHILE: return -21;
+				case DO: return -21;
+				case BREAK: return -21;
+				case CONTINUE: return -21;
+				case ID: return -21;
+			}
+			break;
+		case 70: //CHECK STAGE 70
+			switch(input)
+			{
+				case LEFT_PARENTHESIS: return 87;
+				case MINUS: return 89;
+				case PLUS_PLUS: return 85;
+				case MINUS_MINUS: return 86;
+				case NOT: return 90;
+				case ID: return 9;
+				case TRUE: return 96;
+				case FALSE: return 97;
+				case CHARACTER: return 98;
+				case STRINGVAL: return 99;
+				case NUMERAL: return 32;
+				case E: return 79;
+				case L: return 80;
+				case R: return 81;
+				case Y: return 82;
+				case F: return 83;
+				case LV: return 84;
+				case ID: return 88;
+				case TRU: return 91;
+				case FAL: return 92;
+				case CHR: return 93;
+				case STR: return 94;
+				case NUM: return 95;
+			}
+			break;
+		case 71: //CHECK STAGE 71
+			switch(input)
+			{
+				case LEFT_PARENTHESIS: return 87;
+				case MINUS: return 89;
+				case PLUS_PLUS: return 85;
+				case MINUS_MINUS: return 86;
+				case NOT: return 90;
+				case ID: return 9;
+				case TRUE: return 96;
+				case FALSE: return 97;
+				case CHARACTER: return 98;
+				case STRINGVAL: return 99;
+				case NUMERAL: return 32;
+				case E: return 100;
+				case L: return 80;
+				case R: return 81;
+				case Y: return 82;
+				case F: return 83;
+				case LV: return 84;
+				case ID: return 88;
+				case TRU: return 91;
+				case FAL: return 92;
+				case CHR: return 93;
+				case STR: return 94;
+				case NUM: return 95;
+			}
+			break;
+		case 72: //CHECK STAGE 72
+			switch(input)
+			{
+				case WHILE: return 101;
+			}
+			break;
+		case 73: //CHECK STAGE 73
+			switch(input)
+			{
+				case LEFT_PARENTHESIS: return 87;
+				case MINUS: return 89;
+				case PLUS_PLUS: return 85;
+				case MINUS_MINUS: return 86;
+				case NOT: return 90;
+				case ID: return 9;
+				case TRUE: return 96;
+				case FALSE: return 97;
+				case CHARACTER: return 98;
+				case STRINGVAL: return 99;
+				case NUMERAL: return 32;
+				case E: return 102;
+				case L: return 80;
+				case R: return 81;
+				case Y: return 82;
+				case F: return 83;
+				case LV: return 84;
+				case ID: return 88;
+				case TRU: return 91;
+				case FAL: return 92;
+				case CHR: return 93;
+				case STR: return 94;
+				case NUM: return 95;
+			}
+			break;
+		case 74: //CHECK STAGE 74
+			switch(input)
+			{
+				case ID: return 9;
+				case ID: return 103;
+			}
+			break;
+		case 75: //CHECK STAGE 75
+			switch(input)
+			{
+				case LEFT_PARENTHESIS: return 87;
+				case MINUS: return 89;
+				case PLUS_PLUS: return 85;
+				case MINUS_MINUS: return 86;
+				case NOT: return 90;
+				case ID: return 9;
+				case TRUE: return 96;
+				case FALSE: return 97;
+				case CHARACTER: return 98;
+				case STRINGVAL: return 99;
+				case NUMERAL: return 32;
+				case E: return 104;
+				case L: return 80;
+				case R: return 81;
+				case Y: return 82;
+				case F: return 83;
+				case LV: return 84;
+				case ID: return 88;
+				case TRU: return 91;
+				case FAL: return 92;
+				case CHR: return 93;
+				case STR: return 94;
+				case NUM: return 95;
+			}
+			break;
+		case 76: //CHECK STAGE 76
+			switch(input)
+			{
+				case LEFT_BRACES: return -32;
+				case RIGHT_BRACES: return -32;
+				case IF: return -32;
+				case ELSE: return -32;
+				case WHILE: return -32;
+				case DO: return -32;
+				case BREAK: return -32;
+				case CONTINUE: return -32;
+				case ID: return -32;
+			}
+			break;
+		case 77: //CHECK STAGE 77
+			switch(input)
+			{
+				case LEFT_BRACES: return -33;
+				case RIGHT_BRACES: return -33;
+				case IF: return -33;
+				case ELSE: return -33;
+				case WHILE: return -33;
+				case DO: return -33;
+				case BREAK: return -33;
+				case CONTINUE: return -33;
+				case ID: return -33;
+			}
+			break;
+		case 78: //CHECK STAGE 78
+			switch(input)
+			{
+				case INTEGER: return 18;
+				case CHAR: return 19;
+				case BOOLEAN: return 20;
+				case STRING: return 21;
+				case ID: return 9;
+				case T: return 105;
+				case ID: return 22;
+			}
+			break;
+		case 79: //CHECK STAGE 79
+			switch(input)
+			{
+				case RIGHT_PARENTHESIS: return 106;
+				case AND: return 107;
+				case OR: return 108;
+			}
+			break;
+		case 80: //CHECK STAGE 80
+			switch(input)
+			{
+				case RIGHT_SQUARE: return -36;
+				case SEMI_COLON: return -36;
+				case RIGHT_PARENTHESIS: return -36;
+				case COMMA: return -36;
+				case AND: return -36;
+				case OR: return -36;
+				case LESS_THAN: return 109;
+				case GREATER_THAN: return 110;
+				case LESS_OR_EQUAL: return 111;
+				case GREATER_OR_EQUAL: return 112;
+				case EQUAL_EQUAL: return 113;
+				case NOT_EQUAL: return 114;
+			}
+			break;
+		case 81: //CHECK STAGE 81
+			switch(input)
+			{
+				case RIGHT_SQUARE: return -43;
+				case SEMI_COLON: return -43;
+				case RIGHT_PARENTHESIS: return -43;
+				case COMMA: return -43;
+				case AND: return -43;
+				case OR: return -43;
+				case LESS_THAN: return -43;
+				case GREATER_THAN: return -43;
+				case LESS_OR_EQUAL: return -43;
+				case GREATER_OR_EQUAL: return -43;
+				case EQUAL_EQUAL: return -43;
+				case NOT_EQUAL: return -43;
+				case PLUS: return 115;
+				case MINUS: return 116;
+			}
+			break;
+		case 82: //CHECK STAGE 82
+			switch(input)
+			{
+				case RIGHT_SQUARE: return -46;
+				case SEMI_COLON: return -46;
+				case RIGHT_PARENTHESIS: return -46;
+				case COMMA: return -46;
+				case AND: return -46;
+				case OR: return -46;
+				case LESS_THAN: return -46;
+				case GREATER_THAN: return -46;
+				case LESS_OR_EQUAL: return -46;
+				case GREATER_OR_EQUAL: return -46;
+				case EQUAL_EQUAL: return -46;
+				case NOT_EQUAL: return -46;
+				case PLUS: return -46;
+				case MINUS: return -46;
+				case TIMES: return 117;
+				case DIVIDE: return 118;
+			}
+			break;
+		case 83: //CHECK STAGE 83
+			switch(input)
+			{
+				case RIGHT_SQUARE: return -49;
+				case SEMI_COLON: return -49;
+				case RIGHT_PARENTHESIS: return -49;
+				case COMMA: return -49;
+				case AND: return -49;
+				case OR: return -49;
+				case LESS_THAN: return -49;
+				case GREATER_THAN: return -49;
+				case LESS_OR_EQUAL: return -49;
+				case GREATER_OR_EQUAL: return -49;
+				case EQUAL_EQUAL: return -49;
+				case NOT_EQUAL: return -49;
+				case PLUS: return -49;
+				case MINUS: return -49;
+				case TIMES: return -49;
+				case DIVIDE: return -49;
+			}
+			break;
+		case 84: //CHECK STAGE 84
+			switch(input)
+			{
+				case LEFT_SQUARE: return 75;
+				case RIGHT_SQUARE: return -50;
+				case SEMI_COLON: return -50;
+				case RIGHT_PARENTHESIS: return -50;
+				case COMMA: return -50;
+				case AND: return -50;
+				case OR: return -50;
+				case LESS_THAN: return -50;
+				case GREATER_THAN: return -50;
+				case LESS_OR_EQUAL: return -50;
+				case GREATER_OR_EQUAL: return -50;
+				case EQUAL_EQUAL: return -50;
+				case NOT_EQUAL: return -50;
+				case PLUS: return -50;
+				case MINUS: return -50;
+				case TIMES: return -50;
+				case DIVIDE: return -50;
+				case PLUS_PLUS: return 119;
+				case MINUS_MINUS: return 120;
+				case DOT: return 74;
+			}
+			break;
+		case 85: //CHECK STAGE 85
+			switch(input)
+			{
+				case ID: return 9;
+				case LV: return 121;
+				case ID: return 65;
+			}
+			break;
+		case 86: //CHECK STAGE 86
+			switch(input)
+			{
+				case ID: return 9;
+				case LV: return 122;
+				case ID: return 65;
+			}
+			break;
+		case 87: //CHECK STAGE 87
+			switch(input)
+			{
+				case LEFT_PARENTHESIS: return 87;
+				case MINUS: return 89;
+				case PLUS_PLUS: return 85;
+				case MINUS_MINUS: return 86;
+				case NOT: return 90;
+				case ID: return 9;
+				case TRUE: return 96;
+				case FALSE: return 97;
+				case CHARACTER: return 98;
+				case STRINGVAL: return 99;
+				case NUMERAL: return 32;
+				case E: return 123;
+				case L: return 80;
+				case R: return 81;
+				case Y: return 82;
+				case F: return 83;
+				case LV: return 84;
+				case ID: return 88;
+				case TRU: return 91;
+				case FAL: return 92;
+				case CHR: return 93;
+				case STR: return 94;
+				case NUM: return 95;
+			}
+			break;
+		case 88: //CHECK STAGE 88
+			switch(input)
+			{
+				case LEFT_SQUARE: return -68;
+				case RIGHT_SQUARE: return -68;
+				case SEMI_COLON: return -68;
+				case LEFT_PARENTHESIS: return 124;
+				case RIGHT_PARENTHESIS: return -68;
+				case COMMA: return -68;
+				case AND: return -68;
+				case OR: return -68;
+				case LESS_THAN: return -68;
+				case GREATER_THAN: return -68;
+				case LESS_OR_EQUAL: return -68;
+				case GREATER_OR_EQUAL: return -68;
+				case EQUAL_EQUAL: return -68;
+				case NOT_EQUAL: return -68;
+				case PLUS: return -68;
+				case MINUS: return -68;
+				case TIMES: return -68;
+				case DIVIDE: return -68;
+				case PLUS_PLUS: return -68;
+				case MINUS_MINUS: return -68;
+				case DOT: return -68;
+			}
+			break;
+		case 89: //CHECK STAGE 89
+			switch(input)
+			{
+				case LEFT_PARENTHESIS: return 87;
+				case MINUS: return 89;
+				case PLUS_PLUS: return 85;
+				case MINUS_MINUS: return 86;
+				case NOT: return 90;
+				case ID: return 9;
+				case TRUE: return 96;
+				case FALSE: return 97;
+				case CHARACTER: return 98;
+				case STRINGVAL: return 99;
+				case NUMERAL: return 32;
+				case F: return 125;
+				case LV: return 84;
+				case ID: return 88;
+				case TRU: return 91;
+				case FAL: return 92;
+				case CHR: return 93;
+				case STR: return 94;
+				case NUM: return 95;
+			}
+			break;
+		case 90: //CHECK STAGE 90
+			switch(input)
+			{
+				case LEFT_PARENTHESIS: return 87;
+				case MINUS: return 89;
+				case PLUS_PLUS: return 85;
+				case MINUS_MINUS: return 86;
+				case NOT: return 90;
+				case ID: return 9;
+				case TRUE: return 96;
+				case FALSE: return 97;
+				case CHARACTER: return 98;
+				case STRINGVAL: return 99;
+				case NUMERAL: return 32;
+				case F: return 126;
+				case LV: return 84;
+				case ID: return 88;
+				case TRU: return 91;
+				case FAL: return 92;
+				case CHR: return 93;
+				case STR: return 94;
+				case NUM: return 95;
+			}
+			break;
+		case 91: //CHECK STAGE 91
+			switch(input)
+			{
+				case RIGHT_SQUARE: return -59;
+				case SEMI_COLON: return -59;
+				case RIGHT_PARENTHESIS: return -59;
+				case COMMA: return -59;
+				case AND: return -59;
+				case OR: return -59;
+				case LESS_THAN: return -59;
+				case GREATER_THAN: return -59;
+				case LESS_OR_EQUAL: return -59;
+				case GREATER_OR_EQUAL: return -59;
+				case EQUAL_EQUAL: return -59;
+				case NOT_EQUAL: return -59;
+				case PLUS: return -59;
+				case MINUS: return -59;
+				case TIMES: return -59;
+				case DIVIDE: return -59;
+			}
+			break;
+		case 92: //CHECK STAGE 92
+			switch(input)
+			{
+				case RIGHT_SQUARE: return -60;
+				case SEMI_COLON: return -60;
+				case RIGHT_PARENTHESIS: return -60;
+				case COMMA: return -60;
+				case AND: return -60;
+				case OR: return -60;
+				case LESS_THAN: return -60;
+				case GREATER_THAN: return -60;
+				case LESS_OR_EQUAL: return -60;
+				case GREATER_OR_EQUAL: return -60;
+				case EQUAL_EQUAL: return -60;
+				case NOT_EQUAL: return -60;
+				case PLUS: return -60;
+				case MINUS: return -60;
+				case TIMES: return -60;
+				case DIVIDE: return -60;
+			}
+			break;
+		case 93: //CHECK STAGE 93
+			switch(input)
+			{
+				case RIGHT_SQUARE: return -61;
+				case SEMI_COLON: return -61;
+				case RIGHT_PARENTHESIS: return -61;
+				case COMMA: return -61;
+				case AND: return -61;
+				case OR: return -61;
+				case LESS_THAN: return -61;
+				case GREATER_THAN: return -61;
+				case LESS_OR_EQUAL: return -61;
+				case GREATER_OR_EQUAL: return -61;
+				case EQUAL_EQUAL: return -61;
+				case NOT_EQUAL: return -61;
+				case PLUS: return -61;
+				case MINUS: return -61;
+				case TIMES: return -61;
+				case DIVIDE: return -61;
+			}
+			break;
+		case 94: //CHECK STAGE 94
+			switch(input)
+			{
+				case RIGHT_SQUARE: return -62;
+				case SEMI_COLON: return -62;
+				case RIGHT_PARENTHESIS: return -62;
+				case COMMA: return -62;
+				case AND: return -62;
+				case OR: return -62;
+				case LESS_THAN: return -62;
+				case GREATER_THAN: return -62;
+				case LESS_OR_EQUAL: return -62;
+				case GREATER_OR_EQUAL: return -62;
+				case EQUAL_EQUAL: return -62;
+				case NOT_EQUAL: return -62;
+				case PLUS: return -62;
+				case MINUS: return -62;
+				case TIMES: return -62;
+				case DIVIDE: return -62;
+			}
+			break;
+		case 95: //CHECK STAGE 95
+			switch(input)
+			{
+				case RIGHT_SQUARE: return -63;
+				case SEMI_COLON: return -63;
+				case RIGHT_PARENTHESIS: return -63;
+				case COMMA: return -63;
+				case AND: return -63;
+				case OR: return -63;
+				case LESS_THAN: return -63;
+				case GREATER_THAN: return -63;
+				case LESS_OR_EQUAL: return -63;
+				case GREATER_OR_EQUAL: return -63;
+				case EQUAL_EQUAL: return -63;
+				case NOT_EQUAL: return -63;
+				case PLUS: return -63;
+				case MINUS: return -63;
+				case TIMES: return -63;
+				case DIVIDE: return -63;
+			}
+			break;
+		case 96: //CHECK STAGE 96
+			switch(input)
+			{
+				case RIGHT_SQUARE: return -70;
+				case SEMI_COLON: return -70;
+				case RIGHT_PARENTHESIS: return -70;
+				case COMMA: return -70;
+				case AND: return -70;
+				case OR: return -70;
+				case LESS_THAN: return -70;
+				case GREATER_THAN: return -70;
+				case LESS_OR_EQUAL: return -70;
+				case GREATER_OR_EQUAL: return -70;
+				case EQUAL_EQUAL: return -70;
+				case NOT_EQUAL: return -70;
+				case PLUS: return -70;
+				case MINUS: return -70;
+				case TIMES: return -70;
+				case DIVIDE: return -70;
+			}
+			break;
+		case 97: //CHECK STAGE 97
+			switch(input)
+			{
+				case RIGHT_SQUARE: return -71;
+				case SEMI_COLON: return -71;
+				case RIGHT_PARENTHESIS: return -71;
+				case COMMA: return -71;
+				case AND: return -71;
+				case OR: return -71;
+				case LESS_THAN: return -71;
+				case GREATER_THAN: return -71;
+				case LESS_OR_EQUAL: return -71;
+				case GREATER_OR_EQUAL: return -71;
+				case EQUAL_EQUAL: return -71;
+				case NOT_EQUAL: return -71;
+				case PLUS: return -71;
+				case MINUS: return -71;
+				case TIMES: return -71;
+				case DIVIDE: return -71;
+			}
+			break;
+		case 98: //CHECK STAGE 98
+			switch(input)
+			{
+				case RIGHT_SQUARE: return -72;
+				case SEMI_COLON: return -72;
+				case RIGHT_PARENTHESIS: return -72;
+				case COMMA: return -72;
+				case AND: return -72;
+				case OR: return -72;
+				case LESS_THAN: return -72;
+				case GREATER_THAN: return -72;
+				case LESS_OR_EQUAL: return -72;
+				case GREATER_OR_EQUAL: return -72;
+				case EQUAL_EQUAL: return -72;
+				case NOT_EQUAL: return -72;
+				case PLUS: return -72;
+				case MINUS: return -72;
+				case TIMES: return -72;
+				case DIVIDE: return -72;
+			}
+			break;
+		case 99: //CHECK STAGE 99
+			switch(input)
+			{
+				case RIGHT_SQUARE: return -73;
+				case SEMI_COLON: return -73;
+				case RIGHT_PARENTHESIS: return -73;
+				case COMMA: return -73;
+				case AND: return -73;
+				case OR: return -73;
+				case LESS_THAN: return -73;
+				case GREATER_THAN: return -73;
+				case LESS_OR_EQUAL: return -73;
+				case GREATER_OR_EQUAL: return -73;
+				case EQUAL_EQUAL: return -73;
+				case NOT_EQUAL: return -73;
+				case PLUS: return -73;
+				case MINUS: return -73;
+				case TIMES: return -73;
+				case DIVIDE: return -73;
+			}
+			break;
+		case 100: //CHECK STAGE 100
+			switch(input)
+			{
+				case RIGHT_PARENTHESIS: return 127;
+				case AND: return 107;
+				case OR: return 108;
+			}
+			break;
+		case 101: //CHECK STAGE 101
+			switch(input)
+			{
+				case LEFT_PARENTHESIS: return 128;
+			}
+			break;
+		case 102: //CHECK STAGE 102
+			switch(input)
+			{
+				case SEMI_COLON: return 129;
+				case AND: return 107;
+				case OR: return 108;
+			}
+			break;
+		case 103: //CHECK STAGE 103
+			switch(input)
+			{
+				case EQUALS: return -66;
+				case LEFT_SQUARE: return -66;
+				case RIGHT_SQUARE: return -66;
+				case SEMI_COLON: return -66;
+				case RIGHT_PARENTHESIS: return -66;
+				case COMMA: return -66;
+				case AND: return -66;
+				case OR: return -66;
+				case LESS_THAN: return -66;
+				case GREATER_THAN: return -66;
+				case LESS_OR_EQUAL: return -66;
+				case GREATER_OR_EQUAL: return -66;
+				case EQUAL_EQUAL: return -66;
+				case NOT_EQUAL: return -66;
+				case PLUS: return -66;
+				case MINUS: return -66;
+				case TIMES: return -66;
+				case DIVIDE: return -66;
+				case PLUS_PLUS: return -66;
+				case MINUS_MINUS: return -66;
+				case DOT: return -66;
+			}
+			break;
+		case 104: //CHECK STAGE 104
+			switch(input)
+			{
+				case RIGHT_SQUARE: return 130;
+				case AND: return 107;
+				case OR: return 108;
+			}
+			break;
+		case 105: //CHECK STAGE 105
+			switch(input)
+			{
+				case SEMI_COLON: return 131;
+			}
+			break;
+		case 106: //CHECK STAGE 106
+			switch(input)
+			{
+				case LEFT_BRACES: return 44;
+				case IF: return 58;
+				case WHILE: return 59;
+				case DO: return 60;
+				case BREAK: return 63;
+				case CONTINUE: return 64;
+				case ID: return 9;
+				case B: return 61;
+				case S: return 132;
+				case LV: return 62;
+				case ID: return 65;
+			}
+			break;
+		case 107: //CHECK STAGE 107
+			switch(input)
+			{
+				case LEFT_PARENTHESIS: return 87;
+				case MINUS: return 89;
+				case PLUS_PLUS: return 85;
+				case MINUS_MINUS: return 86;
+				case NOT: return 90;
+				case ID: return 9;
+				case TRUE: return 96;
+				case FALSE: return 97;
+				case CHARACTER: return 98;
+				case STRINGVAL: return 99;
+				case NUMERAL: return 32;
+				case L: return 133;
+				case R: return 81;
+				case Y: return 82;
+				case F: return 83;
+				case LV: return 84;
+				case ID: return 88;
+				case TRU: return 91;
+				case FAL: return 92;
+				case CHR: return 93;
+				case STR: return 94;
+				case NUM: return 95;
+			}
+			break;
+		case 108: //CHECK STAGE 108
+			switch(input)
+			{
+				case LEFT_PARENTHESIS: return 87;
+				case MINUS: return 89;
+				case PLUS_PLUS: return 85;
+				case MINUS_MINUS: return 86;
+				case NOT: return 90;
+				case ID: return 9;
+				case TRUE: return 96;
+				case FALSE: return 97;
+				case CHARACTER: return 98;
+				case STRINGVAL: return 99;
+				case NUMERAL: return 32;
+				case L: return 134;
+				case R: return 81;
+				case Y: return 82;
+				case F: return 83;
+				case LV: return 84;
+				case ID: return 88;
+				case TRU: return 91;
+				case FAL: return 92;
+				case CHR: return 93;
+				case STR: return 94;
+				case NUM: return 95;
+			}
+			break;
+		case 109: //CHECK STAGE 109
+			switch(input)
+			{
+				case LEFT_PARENTHESIS: return 87;
+				case MINUS: return 89;
+				case PLUS_PLUS: return 85;
+				case MINUS_MINUS: return 86;
+				case NOT: return 90;
+				case ID: return 9;
+				case TRUE: return 96;
+				case FALSE: return 97;
+				case CHARACTER: return 98;
+				case STRINGVAL: return 99;
+				case NUMERAL: return 32;
+				case R: return 135;
+				case Y: return 82;
+				case F: return 83;
+				case LV: return 84;
+				case ID: return 88;
+				case TRU: return 91;
+				case FAL: return 92;
+				case CHR: return 93;
+				case STR: return 94;
+				case NUM: return 95;
+			}
+			break;
+		case 110: //CHECK STAGE 110
+			switch(input)
+			{
+				case LEFT_PARENTHESIS: return 87;
+				case MINUS: return 89;
+				case PLUS_PLUS: return 85;
+				case MINUS_MINUS: return 86;
+				case NOT: return 90;
+				case ID: return 9;
+				case TRUE: return 96;
+				case FALSE: return 97;
+				case CHARACTER: return 98;
+				case STRINGVAL: return 99;
+				case NUMERAL: return 32;
+				case R: return 136;
+				case Y: return 82;
+				case F: return 83;
+				case LV: return 84;
+				case ID: return 88;
+				case TRU: return 91;
+				case FAL: return 92;
+				case CHR: return 93;
+				case STR: return 94;
+				case NUM: return 95;
+			}
+			break;
+		case 111: //CHECK STAGE 111
+			switch(input)
+			{
+				case LEFT_PARENTHESIS: return 87;
+				case MINUS: return 89;
+				case PLUS_PLUS: return 85;
+				case MINUS_MINUS: return 86;
+				case NOT: return 90;
+				case ID: return 9;
+				case TRUE: return 96;
+				case FALSE: return 97;
+				case CHARACTER: return 98;
+				case STRINGVAL: return 99;
+				case NUMERAL: return 32;
+				case R: return 137;
+				case Y: return 82;
+				case F: return 83;
+				case LV: return 84;
+				case ID: return 88;
+				case TRU: return 91;
+				case FAL: return 92;
+				case CHR: return 93;
+				case STR: return 94;
+				case NUM: return 95;
+			}
+			break;
+		case 112: //CHECK STAGE 112
+			switch(input)
+			{
+				case LEFT_PARENTHESIS: return 87;
+				case MINUS: return 89;
+				case PLUS_PLUS: return 85;
+				case MINUS_MINUS: return 86;
+				case NOT: return 90;
+				case ID: return 9;
+				case TRUE: return 96;
+				case FALSE: return 97;
+				case CHARACTER: return 98;
+				case STRINGVAL: return 99;
+				case NUMERAL: return 32;
+				case R: return 138;
+				case Y: return 82;
+				case F: return 83;
+				case LV: return 84;
+				case ID: return 88;
+				case TRU: return 91;
+				case FAL: return 92;
+				case CHR: return 93;
+				case STR: return 94;
+				case NUM: return 95;
+			}
+			break;
+		case 113: //CHECK STAGE 113
+			switch(input)
+			{
+				case LEFT_PARENTHESIS: return 87;
+				case MINUS: return 89;
+				case PLUS_PLUS: return 85;
+				case MINUS_MINUS: return 86;
+				case NOT: return 90;
+				case ID: return 9;
+				case TRUE: return 96;
+				case FALSE: return 97;
+				case CHARACTER: return 98;
+				case STRINGVAL: return 99;
+				case NUMERAL: return 32;
+				case R: return 139;
+				case Y: return 82;
+				case F: return 83;
+				case LV: return 84;
+				case ID: return 88;
+				case TRU: return 91;
+				case FAL: return 92;
+				case CHR: return 93;
+				case STR: return 94;
+				case NUM: return 95;
+			}
+			break;
+		case 114: //CHECK STAGE 114
+			switch(input)
+			{
+				case LEFT_PARENTHESIS: return 87;
+				case MINUS: return 89;
+				case PLUS_PLUS: return 85;
+				case MINUS_MINUS: return 86;
+				case NOT: return 90;
+				case ID: return 9;
+				case TRUE: return 96;
+				case FALSE: return 97;
+				case CHARACTER: return 98;
+				case STRINGVAL: return 99;
+				case NUMERAL: return 32;
+				case R: return 140;
+				case Y: return 82;
+				case F: return 83;
+				case LV: return 84;
+				case ID: return 88;
+				case TRU: return 91;
+				case FAL: return 92;
+				case CHR: return 93;
+				case STR: return 94;
+				case NUM: return 95;
+			}
+			break;
+		case 115: //CHECK STAGE 115
+			switch(input)
+			{
+				case LEFT_PARENTHESIS: return 87;
+				case MINUS: return 89;
+				case PLUS_PLUS: return 85;
+				case MINUS_MINUS: return 86;
+				case NOT: return 90;
+				case ID: return 9;
+				case TRUE: return 96;
+				case FALSE: return 97;
+				case CHARACTER: return 98;
+				case STRINGVAL: return 99;
+				case NUMERAL: return 32;
+				case Y: return 141;
+				case F: return 83;
+				case LV: return 84;
+				case ID: return 88;
+				case TRU: return 91;
+				case FAL: return 92;
+				case CHR: return 93;
+				case STR: return 94;
+				case NUM: return 95;
+			}
+			break;
+		case 116: //CHECK STAGE 116
+			switch(input)
+			{
+				case LEFT_PARENTHESIS: return 87;
+				case MINUS: return 89;
+				case PLUS_PLUS: return 85;
+				case MINUS_MINUS: return 86;
+				case NOT: return 90;
+				case ID: return 9;
+				case TRUE: return 96;
+				case FALSE: return 97;
+				case CHARACTER: return 98;
+				case STRINGVAL: return 99;
+				case NUMERAL: return 32;
+				case Y: return 142;
+				case F: return 83;
+				case LV: return 84;
+				case ID: return 88;
+				case TRU: return 91;
+				case FAL: return 92;
+				case CHR: return 93;
+				case STR: return 94;
+				case NUM: return 95;
+			}
+			break;
+		case 117: //CHECK STAGE 117
+			switch(input)
+			{
+				case LEFT_PARENTHESIS: return 87;
+				case MINUS: return 89;
+				case PLUS_PLUS: return 85;
+				case MINUS_MINUS: return 86;
+				case NOT: return 90;
+				case ID: return 9;
+				case TRUE: return 96;
+				case FALSE: return 97;
+				case CHARACTER: return 98;
+				case STRINGVAL: return 99;
+				case NUMERAL: return 32;
+				case F: return 143;
+				case LV: return 84;
+				case ID: return 88;
+				case TRU: return 91;
+				case FAL: return 92;
+				case CHR: return 93;
+				case STR: return 94;
+				case NUM: return 95;
+			}
+			break;
+		case 118: //CHECK STAGE 118
+			switch(input)
+			{
+				case LEFT_PARENTHESIS: return 87;
+				case MINUS: return 89;
+				case PLUS_PLUS: return 85;
+				case MINUS_MINUS: return 86;
+				case NOT: return 90;
+				case ID: return 9;
+				case TRUE: return 96;
+				case FALSE: return 97;
+				case CHARACTER: return 98;
+				case STRINGVAL: return 99;
+				case NUMERAL: return 32;
+				case F: return 144;
+				case LV: return 84;
+				case ID: return 88;
+				case TRU: return 91;
+				case FAL: return 92;
+				case CHR: return 93;
+				case STR: return 94;
+				case NUM: return 95;
+			}
+			break;
+		case 119: //CHECK STAGE 119
+			switch(input)
+			{
+				case RIGHT_SQUARE: return -53;
+				case SEMI_COLON: return -53;
+				case RIGHT_PARENTHESIS: return -53;
+				case COMMA: return -53;
+				case AND: return -53;
+				case OR: return -53;
+				case LESS_THAN: return -53;
+				case GREATER_THAN: return -53;
+				case LESS_OR_EQUAL: return -53;
+				case GREATER_OR_EQUAL: return -53;
+				case EQUAL_EQUAL: return -53;
+				case NOT_EQUAL: return -53;
+				case PLUS: return -53;
+				case MINUS: return -53;
+				case TIMES: return -53;
+				case DIVIDE: return -53;
+			}
+			break;
+		case 120: //CHECK STAGE 120
+			switch(input)
+			{
+				case RIGHT_SQUARE: return -54;
+				case SEMI_COLON: return -54;
+				case RIGHT_PARENTHESIS: return -54;
+				case COMMA: return -54;
+				case AND: return -54;
+				case OR: return -54;
+				case LESS_THAN: return -54;
+				case GREATER_THAN: return -54;
+				case LESS_OR_EQUAL: return -54;
+				case GREATER_OR_EQUAL: return -54;
+				case EQUAL_EQUAL: return -54;
+				case NOT_EQUAL: return -54;
+				case PLUS: return -54;
+				case MINUS: return -54;
+				case TIMES: return -54;
+				case DIVIDE: return -54;
+			}
+			break;
+	"
+		case 121: //CHECK STAGE 121
+			switch(input)
+			{
+				case LEFT_SQUARE: return 75;
+				case RIGHT_SQUARE: return -51;
+				case SEMI_COLON: return -51;
+				case RIGHT_PARENTHESIS: return -51;
+				case COMMA: return -51;
+				case AND: return -51;
+				case OR: return -51;
+				case LESS_THAN: return -51;
+				case GREATER_THAN: return -51;
+				case LESS_OR_EQUAL: return -51;
+				case GREATER_OR_EQUAL: return -51;
+				case EQUAL_EQUAL: return -51;
+				case NOT_EQUAL: return -51;
+				case PLUS: return -51;
+				case MINUS: return -51;
+				case TIMES: return -51;
+				case DIVIDE: return -51;
+				case DOT: return 74;
+			}
+			break;
+		case 122: //CHECK STAGE 122
+			switch(input)
+			{
+				case LEFT_SQUARE: return 75;
+				case RIGHT_SQUARE: return -52;
+				case SEMI_COLON: return -52;
+				case RIGHT_PARENTHESIS: return -52;
+				case COMMA: return -52;
+				case AND: return -52;
+				case OR: return -52;
+				case LESS_THAN: return -52;
+				case GREATER_THAN: return -52;
+				case LESS_OR_EQUAL: return -52;
+				case GREATER_OR_EQUAL: return -52;
+				case EQUAL_EQUAL: return -52;
+				case NOT_EQUAL: return -52;
+				case PLUS: return -52;
+				case MINUS: return -52;
+				case TIMES: return -52;
+				case DIVIDE: return -52;
+				case DOT: return 74;
+			}
+			break;
+		case 123: //CHECK STAGE 123
+			switch(input)
+			{
+				case RIGHT_PARENTHESIS: return 145;
+				case AND: return 107;
+				case OR: return 108;
+			}
+			break;
+		case 124: //CHECK STAGE 124
+			switch(input)
+			{
+				case LEFT_PARENTHESIS: return 87;
+				case MINUS: return 89;
+				case PLUS_PLUS: return 85;
+				case MINUS_MINUS: return 86;
+				case NOT: return 90;
+				case ID: return 9;
+				case TRUE: return 96;
+				case FALSE: return 97;
+				case CHARACTER: return 98;
+				case STRINGVAL: return 99;
+				case NUMERAL: return 32;
+				case E: return 147;
+				case L: return 80;
+				case R: return 81;
+				case Y: return 82;
+				case F: return 83;
+				case LE: return 146;
+				case LV: return 84;
+				case ID: return 88;
+				case TRU: return 91;
+				case FAL: return 92;
+				case CHR: return 93;
+				case STR: return 94;
+				case NUM: return 95;
+			}
+			break;
+		case 125: //CHECK STAGE 125
+			switch(input)
+			{
+				case RIGHT_SQUARE: return -57;
+				case SEMI_COLON: return -57;
+				case RIGHT_PARENTHESIS: return -57;
+				case COMMA: return -57;
+				case AND: return -57;
+				case OR: return -57;
+				case LESS_THAN: return -57;
+				case GREATER_THAN: return -57;
+				case LESS_OR_EQUAL: return -57;
+				case GREATER_OR_EQUAL: return -57;
+				case EQUAL_EQUAL: return -57;
+				case NOT_EQUAL: return -57;
+				case PLUS: return -57;
+				case MINUS: return -57;
+				case TIMES: return -57;
+				case DIVIDE: return -57;
+			}
+			break;
+		case 126: //CHECK STAGE 126
+			switch(input)
+			{
+				case RIGHT_SQUARE: return -58;
+				case SEMI_COLON: return -58;
+				case RIGHT_PARENTHESIS: return -58;
+				case COMMA: return -58;
+				case AND: return -58;
+				case OR: return -58;
+				case LESS_THAN: return -58;
+				case GREATER_THAN: return -58;
+				case LESS_OR_EQUAL: return -58;
+				case GREATER_OR_EQUAL: return -58;
+				case EQUAL_EQUAL: return -58;
+				case NOT_EQUAL: return -58;
+				case PLUS: return -58;
+				case MINUS: return -58;
+				case TIMES: return -58;
+				case DIVIDE: return -58;
+			}
+			break;
+		case 127: //CHECK STAGE 127
+			switch(input)
+			{
+				case LEFT_BRACES: return 44;
+				case IF: return 58;
+				case WHILE: return 59;
+				case DO: return 60;
+				case BREAK: return 63;
+				case CONTINUE: return 64;
+				case ID: return 9;
+				case B: return 61;
+				case S: return 148;
+				case LV: return 62;
+				case ID: return 65;
+			}
+			break;
+		case 128: //CHECK STAGE 128
+			switch(input)
+			{
+				case LEFT_PARENTHESIS: return 87;
+				case MINUS: return 89;
+				case PLUS_PLUS: return 85;
+				case MINUS_MINUS: return 86;
+				case NOT: return 90;
+				case ID: return 9;
+				case TRUE: return 96;
+				case FALSE: return 97;
+				case CHARACTER: return 98;
+				case STRINGVAL: return 99;
+				case NUMERAL: return 32;
+				case E: return 149;
+				case L: return 80;
+				case R: return 81;
+				case Y: return 82;
+				case F: return 83;
+				case LV: return 84;
+				case ID: return 88;
+				case TRU: return 91;
+				case FAL: return 92;
+				case CHR: return 93;
+				case STR: return 94;
+				case NUM: return 95;
+			}
+			break;
+		case 129: //CHECK STAGE 129
+			switch(input)
+			{
+				case LEFT_BRACES: return -31;
+				case RIGHT_BRACES: return -31;
+				case IF: return -31;
+				case ELSE: return -31;
+				case WHILE: return -31;
+				case DO: return -31;
+				case BREAK: return -31;
+				case CONTINUE: return -31;
+				case ID: return -31;
+			}
+			break;
+		case 130: //CHECK STAGE 130
+			switch(input)
+			{
+				case EQUALS: return -67;
+				case LEFT_SQUARE: return -67;
+				case RIGHT_SQUARE: return -67;
+				case SEMI_COLON: return -67;
+				case RIGHT_PARENTHESIS: return -67;
+				case COMMA: return -67;
+				case AND: return -67;
+				case OR: return -67;
+				case LESS_THAN: return -67;
+				case GREATER_THAN: return -67;
+				case LESS_OR_EQUAL: return -67;
+				case GREATER_OR_EQUAL: return -67;
+				case EQUAL_EQUAL: return -67;
+				case NOT_EQUAL: return -67;
+				case PLUS: return -67;
+				case MINUS: return -67;
+				case TIMES: return -67;
+				case DIVIDE: return -67;
+				case PLUS_PLUS: return -67;
+				case MINUS_MINUS: return -67;
+				case DOT: return -67;
+			}
+			break;
+		case 131: //CHECK STAGE 131
+			switch(input)
+			{
+				case LEFT_BRACES: return -23;
+				case VAR: return -23;
+				case IF: return -23;
+				case WHILE: return -23;
+				case DO: return -23;
+				case BREAK: return -23;
+				case CONTINUE: return -23;
+				case ID: return -23;
+			}
+			break;
+		case 132: //CHECK STAGE 132
+			switch(input)
+			{
+				case LEFT_BRACES: return -26;
+				case RIGHT_BRACES: return -26;
+				case IF: return -26;
+				case ELSE: return 150 / -26;
+				case WHILE: return -26;
+				case DO: return -26;
+				case BREAK: return -26;
+				case CONTINUE: return -26;
+				case ID: return -26;
+			}
+			break;
+		case 133: //CHECK STAGE 133
+			switch(input)
+			{
+				case RIGHT_SQUARE: return -34;
+				case SEMI_COLON: return -34;
+				case RIGHT_PARENTHESIS: return -34;
+				case COMMA: return -34;
+				case AND: return -34;
+				case OR: return -34;
+				case LESS_THAN: return 109;
+				case GREATER_THAN: return 110;
+				case LESS_OR_EQUAL: return 111;
+				case GREATER_OR_EQUAL: return 112;
+				case EQUAL_EQUAL: return 113;
+				case NOT_EQUAL: return 114;
+			}
+			break;
+		case 134: //CHECK STAGE 134
+			switch(input)
+			{
+				case RIGHT_SQUARE: return -35;
+				case SEMI_COLON: return -35;
+				case RIGHT_PARENTHESIS: return -35;
+				case COMMA: return -35;
+				case AND: return -35;
+				case OR: return -35;
+				case LESS_THAN: return 109;
+				case GREATER_THAN: return 110;
+				case LESS_OR_EQUAL: return 111;
+				case GREATER_OR_EQUAL: return 112;
+				case EQUAL_EQUAL: return 113;
+				case NOT_EQUAL: return 114;
+			}
+			break;
+		case 135: //CHECK STAGE 135
+			switch(input)
+			{
+				case RIGHT_SQUARE: return -37;
+				case SEMI_COLON: return -37;
+				case RIGHT_PARENTHESIS: return -37;
+				case COMMA: return -37;
+				case AND: return -37;
+				case OR: return -37;
+				case LESS_THAN: return -37;
+				case GREATER_THAN: return -37;
+				case LESS_OR_EQUAL: return -37;
+				case GREATER_OR_EQUAL: return -37;
+				case EQUAL_EQUAL: return -37;
+				case NOT_EQUAL: return -37;
+				case PLUS: return 115;
+				case MINUS: return 116;
+			}
+			break;
+		case 136: //CHECK STAGE 136
+			switch(input)
+			{
+				case RIGHT_SQUARE: return -38;
+				case SEMI_COLON: return -38;
+				case RIGHT_PARENTHESIS: return -38;
+				case COMMA: return -38;
+				case AND: return -38;
+				case OR: return -38;
+				case LESS_THAN: return -38;
+				case GREATER_THAN: return -38;
+				case LESS_OR_EQUAL: return -38;
+				case GREATER_OR_EQUAL: return -38;
+				case EQUAL_EQUAL: return -38;
+				case NOT_EQUAL: return -38;
+				case PLUS: return 115;
+				case MINUS: return 116;
+			}
+			break;
+		case 137: //CHECK STAGE 137
+			switch(input)
+			{
+				case RIGHT_SQUARE: return -39;
+				case SEMI_COLON: return -39;
+				case RIGHT_PARENTHESIS: return -39;
+				case COMMA: return -39;
+				case AND: return -39;
+				case OR: return -39;
+				case LESS_THAN: return -39;
+				case GREATER_THAN: return -39;
+				case LESS_OR_EQUAL: return -39;
+				case GREATER_OR_EQUAL: return -39;
+				case EQUAL_EQUAL: return -39;
+				case NOT_EQUAL: return -39;
+				case PLUS: return 115;
+				case MINUS: return 116;
+			}
+			break;
+		case 138: //CHECK STAGE 138
+			switch(input)
+			{
+				case RIGHT_SQUARE: return -40;
+				case SEMI_COLON: return -40;
+				case RIGHT_PARENTHESIS: return -40;
+				case COMMA: return -40;
+				case AND: return -40;
+				case OR: return -40;
+				case LESS_THAN: return -40;
+				case GREATER_THAN: return -40;
+				case LESS_OR_EQUAL: return -40;
+				case GREATER_OR_EQUAL: return -40;
+				case EQUAL_EQUAL: return -40;
+				case NOT_EQUAL: return -40;
+				case PLUS: return 115;
+				case MINUS: return 116;
+			}
+			break;
+		case 139: //CHECK STAGE 139
+			switch(input)
+			{
+				case RIGHT_SQUARE: return -41;
+				case SEMI_COLON: return -41;
+				case RIGHT_PARENTHESIS: return -41;
+				case COMMA: return -41;
+				case AND: return -41;
+				case OR: return -41;
+				case LESS_THAN: return -41;
+				case GREATER_THAN: return -41;
+				case LESS_OR_EQUAL: return -41;
+				case GREATER_OR_EQUAL: return -41;
+				case EQUAL_EQUAL: return -41;
+				case NOT_EQUAL: return -41;
+				case PLUS: return 115;
+				case MINUS: return 116;
+			}
+			break;
+		case 140: //CHECK STAGE 140
+			switch(input)
+			{
+				case RIGHT_SQUARE: return -42;
+				case SEMI_COLON: return -42;
+				case RIGHT_PARENTHESIS: return -42;
+				case COMMA: return -42;
+				case AND: return -42;
+				case OR: return -42;
+				case LESS_THAN: return -42;
+				case GREATER_THAN: return -42;
+				case LESS_OR_EQUAL: return -42;
+				case GREATER_OR_EQUAL: return -42;
+				case EQUAL_EQUAL: return -42;
+				case NOT_EQUAL: return -42;
+				case PLUS: return 115;
+				case MINUS: return 116;
+			}
+			break;
+		case 141: //CHECK STAGE 141
+			switch(input)
+			{
+				case RIGHT_SQUARE: return -44;
+				case SEMI_COLON: return -44;
+				case RIGHT_PARENTHESIS: return -44;
+				case COMMA: return -44;
+				case AND: return -44;
+				case OR: return -44;
+				case LESS_THAN: return -44;
+				case GREATER_THAN: return -44;
+				case LESS_OR_EQUAL: return -44;
+				case GREATER_OR_EQUAL: return -44;
+				case EQUAL_EQUAL: return -44;
+				case NOT_EQUAL: return -44;
+				case PLUS: return -44;
+				case MINUS: return -44;
+				case TIMES: return 117;
+				case DIVIDE: return 118;
+			}
+			break;
+		case 142: //CHECK STAGE 142
+			switch(input)
+			{
+				case RIGHT_SQUARE: return -45;
+				case SEMI_COLON: return -45;
+				case RIGHT_PARENTHESIS: return -45;
+				case COMMA: return -45;
+				case AND: return -45;
+				case OR: return -45;
+				case LESS_THAN: return -45;
+				case GREATER_THAN: return -45;
+				case LESS_OR_EQUAL: return -45;
+				case GREATER_OR_EQUAL: return -45;
+				case EQUAL_EQUAL: return -45;
+				case NOT_EQUAL: return -45;
+				case PLUS: return -45;
+				case MINUS: return -45;
+				case TIMES: return 117;
+				case DIVIDE: return 118;
+			}
+			break;
+		case 143: //CHECK STAGE 143
+			switch(input)
+			{
+				case RIGHT_SQUARE: return -47;
+				case SEMI_COLON: return -47;
+				case RIGHT_PARENTHESIS: return -47;
+				case COMMA: return -47;
+				case AND: return -47;
+				case OR: return -47;
+				case LESS_THAN: return -47;
+				case GREATER_THAN: return -47;
+				case LESS_OR_EQUAL: return -47;
+				case GREATER_OR_EQUAL: return -47;
+				case EQUAL_EQUAL: return -47;
+				case NOT_EQUAL: return -47;
+				case PLUS: return -47;
+				case MINUS: return -47;
+				case TIMES: return -47;
+				case DIVIDE: return -47;
+			}
+			break;
+		case 144: //CHECK STAGE 144
+			switch(input)
+			{
+				case RIGHT_SQUARE: return -48;
+				case SEMI_COLON: return -48;
+				case RIGHT_PARENTHESIS: return -48;
+				case COMMA: return -48;
+				case AND: return -48;
+				case OR: return -48;
+				case LESS_THAN: return -48;
+				case GREATER_THAN: return -48;
+				case LESS_OR_EQUAL: return -48;
+				case GREATER_OR_EQUAL: return -48;
+				case EQUAL_EQUAL: return -48;
+				case NOT_EQUAL: return -48;
+				case PLUS: return -48;
+				case MINUS: return -48;
+				case TIMES: return -48;
+				case DIVIDE: return -48;
+			}
+			break;
+		case 145: //CHECK STAGE 145
+			switch(input)
+			{
+				case RIGHT_SQUARE: return -55;
+				case SEMI_COLON: return -55;
+				case RIGHT_PARENTHESIS: return -55;
+				case COMMA: return -55;
+				case AND: return -55;
+				case OR: return -55;
+				case LESS_THAN: return -55;
+				case GREATER_THAN: return -55;
+				case LESS_OR_EQUAL: return -55;
+				case GREATER_OR_EQUAL: return -55;
+				case EQUAL_EQUAL: return -55;
+				case NOT_EQUAL: return -55;
+				case PLUS: return -55;
+				case MINUS: return -55;
+				case TIMES: return -55;
+				case DIVIDE: return -55;
+			}
+			break;
+		case 146: //CHECK STAGE 146
+			switch(input)
+			{
+				case RIGHT_PARENTHESIS: return 151;
+				case COMMA: return 152;
+			}
+			break;
+		case 147: //CHECK STAGE 147
+			switch(input)
+			{
+				case RIGHT_PARENTHESIS: return -65;
+				case COMMA: return -65;
+				case AND: return 107;
+				case OR: return 108;
+			}
+			break;
+		case 148: //CHECK STAGE 148
+			switch(input)
+			{
+				case LEFT_BRACES: return -28;
+				case RIGHT_BRACES: return -28;
+				case IF: return -28;
+				case ELSE: return -28;
+				case WHILE: return -28;
+				case DO: return -28;
+				case BREAK: return -28;
+				case CONTINUE: return -28;
+				case ID: return -28;
+			}
+			break;
+		case 149: //CHECK STAGE 149
+			switch(input)
+			{
+				case RIGHT_PARENTHESIS: return 153;
+				case AND: return 107;
+				case OR: return 108;
+			}
+			break;
+		case 150: //CHECK STAGE 150
+			switch(input)
+			{
+				case LEFT_BRACES: return 44;
+				case IF: return 58;
+				case WHILE: return 59;
+				case DO: return 60;
+				case BREAK: return 63;
+				case CONTINUE: return 64;
+				case ID: return 9;
+				case B: return 61;
+				case S: return 154;
+				case LV: return 62;
+				case ID: return 65;
+			}
+			break;
+		case 151: //CHECK STAGE 151
+			switch(input)
+			{
+				case RIGHT_SQUARE: return -56;
+				case SEMI_COLON: return -56;
+				case RIGHT_PARENTHESIS: return -56;
+				case COMMA: return -56;
+				case AND: return -56;
+				case OR: return -56;
+				case LESS_THAN: return -56;
+				case GREATER_THAN: return -56;
+				case LESS_OR_EQUAL: return -56;
+				case GREATER_OR_EQUAL: return -56;
+				case EQUAL_EQUAL: return -56;
+				case NOT_EQUAL: return -56;
+				case PLUS: return -56;
+				case MINUS: return -56;
+				case TIMES: return -56;
+				case DIVIDE: return -56;
+			}
+			break;
+		case 152: //CHECK STAGE 152
+			switch(input)
+			{
+				case LEFT_PARENTHESIS: return 87;
+				case MINUS: return 89;
+				case PLUS_PLUS: return 85;
+				case MINUS_MINUS: return 86;
+				case NOT: return 90;
+				case ID: return 9;
+				case TRUE: return 96;
+				case FALSE: return 97;
+				case CHARACTER: return 98;
+				case STRINGVAL: return 99;
+				case NUMERAL: return 32;
+				case E: return 155;
+				case L: return 80;
+				case R: return 81;
+				case Y: return 82;
+				case F: return 83;
+				case LV: return 84;
+				case ID: return 88;
+				case TRU: return 91;
+				case FAL: return 92;
+				case CHR: return 93;
+				case STR: return 94;
+				case NUM: return 95;
+			}
+			break;
+		case 153: //CHECK STAGE 153
+			switch(input)
+			{
+				case SEMI_COLON: return 156;
+			}
+			break;
+		case 154: //CHECK STAGE 154
+			switch(input)
+			{
+				case LEFT_BRACES: return -27;
+				case RIGHT_BRACES: return -27;
+				case IF: return -27;
+				case ELSE: return -27;
+				case WHILE: return -27;
+				case DO: return -27;
+				case BREAK: return -27;
+				case CONTINUE: return -27;
+				case ID: return -27;
+			}
+			break;
+		case 155: //CHECK STAGE 155
+			switch(input)
+			{
+				case RIGHT_PARENTHESIS: return -64;
+				case COMMA: return -64;
+				case AND: return 107;
+				case OR: return 108;
+			}
+			break;
+		case 156: //CHECK STAGE 156
+			switch(input)
+			{
+				case LEFT_BRACES: return -29;
+				case RIGHT_BRACES: return -29;
+				case IF: return -29;
+				case ELSE: return -29;
+				case WHILE: return -29;
+				case DO: return -29;
+				case BREAK: return -29;
+				case CONTINUE: return -29;
+				case ID: return -29;
+			}
+			break;
+	}
+}
