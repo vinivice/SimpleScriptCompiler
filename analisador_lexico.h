@@ -29,7 +29,7 @@ typedef struct {
     union Value {
         char cVal;
         int nVal;
-        char *sVal;
+        char sVal[MAX_ID_LEN + 1];
     } value;
 } t_const;
 

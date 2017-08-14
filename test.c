@@ -4,7 +4,7 @@
 //#include "analisador_sintatico.h"
 
 int main(){
-    tokens_Generator("foo.txt");
+    tokens_Generator("analisador_lexico.h");
  //   analiseSintatica();
     return 0;
 }
