@@ -2806,4 +2806,5 @@ int action(int state, int input)
 			}
 			break;
 	}
+    return ERROR;
 }

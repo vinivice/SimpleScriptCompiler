@@ -4,7 +4,6 @@
 #include <vector>
 #include <stdio.h>
 #include <stdlib.h>
-#define FINAL 10000
 
 std::vector<int> stateStack;
 FILE *fr;
@@ -61,7 +60,7 @@ bool isReduction(int input)
 
 void syntaxError()
 {
-    printf("Erroooooooo!");
+    printf("Erroooooooo!\n");
     exit(5);
 }
 
@@ -84,10 +83,10 @@ void analiseSintatica()
         printf("=============\n");
         printf("q: %d\n", q);
         printf("a: %d\n", a);
-        printf("p: %d\n", p);
-        printf("=============\n");
         //implementado em tabelaAcao
         p = action(q, a);
+        printf("p: %d\n", p);
+        printf("=============\n");
         
         if(a == ID)
         {
@@ -114,6 +113,8 @@ void analiseSintatica()
             syntaxError();
         }
         q = top();
-    } while (q != FINAL);
+        getchar();
+    } while (q != ACC);
+    printf("\nANALISE SINTATICA OK\n");
 }
 
