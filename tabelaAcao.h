@@ -421,7 +421,7 @@ elementoTabelaAuxiliar rule(int p)
 		case 69:
 		{
 			eta.len = 1;
-			eta.left = ID ;
+			eta.left = ID_N_TERMINAL ;
 			break;
 		}
 		case 70:
@@ -454,6 +454,7 @@ elementoTabelaAuxiliar rule(int p)
 			eta.left = NUM ;
 			break;
 		}
+
 	}
     return eta;
 }
