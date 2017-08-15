@@ -479,7 +479,7 @@ int action(int state, int input)
 			{
 				case TYPE: return 6;
 				case FUNCTION: return 5;
-				case $: return acc;
+				case $: return ACC;
 				case DE: return 7;
 				case DT: return 4;
 				case DF: return 3;

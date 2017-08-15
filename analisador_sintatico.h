@@ -43,7 +43,7 @@ int top()
 
 bool isShift(int input)
 {
-    if(input >= 0)
+    if(input >= 0 && input < 11000)
     {
         return true;
     }
