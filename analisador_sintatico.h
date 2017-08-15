@@ -13,8 +13,12 @@ elementoTabelaAuxiliar r;
 int nextToken()
 {
     int *a;
-    fread(a, 4, 1, fr);
-    printf("*%d*", *a);
+    a = new int;
+    if(fread(a, 4, 1, fr) < 1)
+    {
+        return $;
+    }
+    //printf("*%d*", *a);
     return *a;
 }
 
@@ -27,6 +31,7 @@ void pop(int n)
 {
     for(int i = 0; i < n; i++)
     {
+        printf("POP\n");
         stateStack.pop_back();
     }
 }
@@ -76,8 +81,20 @@ void analiseSintatica()
 
     do 
     {
+        printf("=============\n");
+        printf("q: %d\n", q);
+        printf("a: %d\n", a);
+        printf("p: %d\n", p);
+        printf("=============\n");
         //implementado em tabelaAcao
         p = action(q, a);
+        
+        if(a == ID)
+        {
+            //PEGA TOKEN SECUNDARIO
+            a = nextToken();
+        }
+
         if(isShift(p))
         {
             push(p);
@@ -87,6 +104,8 @@ void analiseSintatica()
         {
             //r e rule em tabelaAcao.h
             r = rule(p);
+            printf("r.len: %d\n", r.len);
+            printf("r.left: %d\n", r.left);
             pop(r.len);
             push(action(top(), r.left));
         }
