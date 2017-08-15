@@ -5,6 +5,10 @@
 #define MAX_NUM_LEN 20
 #define MAX_STR_LEN 200
 
+#define $ 10000
+#define ACC 9000
+#define ERROR 11001
+
 typedef enum {
     //palavras reservadas
     ARRAY = 0, BOOLEAN, BREAK, CHAR, CONTINUE, DO, ELSE, FALSE, FUNCTION, IF, INTEGER,
