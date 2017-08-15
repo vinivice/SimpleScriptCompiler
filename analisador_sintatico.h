@@ -69,7 +69,7 @@ void syntaxError()
 void analiseSintatica()
 {
     int q, a, p;
-    fr = fopen("lexical.bin", "rb");
+    fr = fopen("lexico.bin", "rb");
     if(!fr)
     {
         exit(2);
