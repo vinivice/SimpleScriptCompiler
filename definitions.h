@@ -43,7 +43,7 @@ typedef struct tokensSecundarios {
 
 typedef enum {
 	P = 1000, LDE, DE, T, DT, DC, DF, LP, B, LDV, LS, DV, LI, S,
-	E, L, R, Y, F, LE, LV, ID_TERMINAL, TRU, FAL, CHR, STR, NUM
+	E, L, R, Y, F, LE, LV, ID_N_TERMINAL, TRU, FAL, CHR, STR, NUM
 } t_nonTerminalCode;
 
 typedef struct 
