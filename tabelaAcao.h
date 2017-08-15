@@ -513,14 +513,14 @@ int action(int state, int input)
 			switch(input)
 			{
 				case ID: return 9;
-				case ID_TERMINAL: return 8;
+				case ID_N_TERMINAL: return 8;
 			}
 			break;
 		case 6: //CHECK STAGE 6
 			switch(input)
 			{
 				case ID: return 9;
-				case ID_TERMINAL: return 10;
+				case ID_N_TERMINAL: return 10;
 			}
 			break;
 		case 7: //CHECK STAGE 7
@@ -581,7 +581,7 @@ int action(int state, int input)
 			{
 				case ID: return 9;
 				case LP: return 13;
-				case ID_TERMINAL: return 14;
+				case ID_N_TERMINAL: return 14;
 			}
 			break;
 		case 12: //CHECK STAGE 12
@@ -595,7 +595,7 @@ int action(int state, int input)
 				case STRUCT: return 16;
 				case ID: return 9;
 				case T: return 17;
-				case ID_TERMINAL: return 22;
+				case ID_N_TERMINAL: return 22;
 			}
 			break;
 		case 13: //CHECK STAGE 13
@@ -706,7 +706,7 @@ int action(int state, int input)
 			switch(input)
 			{
 				case ID: return 9;
-				case ID_TERMINAL: return 29;
+				case ID_N_TERMINAL: return 29;
 			}
 			break;
 		case 25: //CHECK STAGE 25
@@ -718,7 +718,7 @@ int action(int state, int input)
 				case STRING: return 21;
 				case ID: return 9;
 				case T: return 30;
-				case ID_TERMINAL: return 22;
+				case ID_N_TERMINAL: return 22;
 			}
 			break;
 		case 26: //CHECK STAGE 26
@@ -734,7 +734,7 @@ int action(int state, int input)
 				case ID: return 9;
 				case DC: return 33;
 				case LI: return 34;
-				case ID_TERMINAL: return 35;
+				case ID_N_TERMINAL: return 35;
 			}
 			break;
 		case 28: //CHECK STAGE 28
@@ -746,7 +746,7 @@ int action(int state, int input)
 				case STRING: return 21;
 				case ID: return 9;
 				case T: return 36;
-				case ID_TERMINAL: return 22;
+				case ID_N_TERMINAL: return 22;
 			}
 			break;
 		case 29: //CHECK STAGE 29
@@ -826,7 +826,7 @@ int action(int state, int input)
 				case STRING: return 21;
 				case ID: return 9;
 				case T: return 45;
-				case ID_TERMINAL: return 22;
+				case ID_N_TERMINAL: return 22;
 			}
 			break;
 		case 38: //CHECK STAGE 38
@@ -848,7 +848,7 @@ int action(int state, int input)
 			{
 				case ID: return 9;
 				case LI: return 47;
-				case ID_TERMINAL: return 35;
+				case ID_N_TERMINAL: return 35;
 			}
 			break;
 		case 41: //CHECK STAGE 41
@@ -860,14 +860,14 @@ int action(int state, int input)
 				case STRING: return 21;
 				case ID: return 9;
 				case T: return 48;
-				case ID_TERMINAL: return 22;
+				case ID_N_TERMINAL: return 22;
 			}
 			break;
 		case 42: //CHECK STAGE 42
 			switch(input)
 			{
 				case ID: return 9;
-				case ID_TERMINAL: return 49;
+				case ID_N_TERMINAL: return 49;
 			}
 			break;
 		case 43: //CHECK STAGE 43
@@ -902,7 +902,7 @@ int action(int state, int input)
 				case STRING: return 21;
 				case ID: return 9;
 				case T: return 53;
-				case ID_TERMINAL: return 22;
+				case ID_N_TERMINAL: return 22;
 			}
 			break;
 		case 47: //CHECK STAGE 47
@@ -942,7 +942,7 @@ int action(int state, int input)
 				case DV: return 56;
 				case S: return 57;
 				case LV: return 62;
-				case ID_TERMINAL: return 65;
+				case ID_N_TERMINAL: return 65;
 			}
 			break;
 		case 51: //CHECK STAGE 51
@@ -963,7 +963,7 @@ int action(int state, int input)
 			{
 				case ID: return 9;
 				case LI: return 66;
-				case ID_TERMINAL: return 35;
+				case ID_N_TERMINAL: return 35;
 			}
 			break;
 		case 53: //CHECK STAGE 53
@@ -983,7 +983,7 @@ int action(int state, int input)
 				case STRING: return 21;
 				case ID: return 9;
 				case T: return 67;
-				case ID_TERMINAL: return 22;
+				case ID_N_TERMINAL: return 22;
 			}
 			break;
 		case 55: //CHECK STAGE 55
@@ -1000,7 +1000,7 @@ int action(int state, int input)
 				case B: return 61;
 				case S: return 69;
 				case LV: return 62;
-				case ID_TERMINAL: return 65;
+				case ID_N_TERMINAL: return 65;
 			}
 			break;
 		case 56: //CHECK STAGE 56
@@ -1054,7 +1054,7 @@ int action(int state, int input)
 				case B: return 61;
 				case S: return 72;
 				case LV: return 62;
-				case ID_TERMINAL: return 65;
+				case ID_N_TERMINAL: return 65;
 			}
 			break;
 		case 61: //CHECK STAGE 61
@@ -1179,7 +1179,7 @@ int action(int state, int input)
 				case Y: return 82;
 				case F: return 83;
 				case LV: return 84;
-				case ID_TERMINAL: return 88;
+				case ID_N_TERMINAL: return 88;
 				case TRU: return 91;
 				case FAL: return 92;
 				case CHR: return 93;
@@ -1207,7 +1207,7 @@ int action(int state, int input)
 				case Y: return 82;
 				case F: return 83;
 				case LV: return 84;
-				case ID_TERMINAL: return 88;
+				case ID_N_TERMINAL: return 88;
 				case TRU: return 91;
 				case FAL: return 92;
 				case CHR: return 93;
@@ -1241,7 +1241,7 @@ int action(int state, int input)
 				case Y: return 82;
 				case F: return 83;
 				case LV: return 84;
-				case ID_TERMINAL: return 88;
+				case ID_N_TERMINAL: return 88;
 				case TRU: return 91;
 				case FAL: return 92;
 				case CHR: return 93;
@@ -1253,7 +1253,7 @@ int action(int state, int input)
 			switch(input)
 			{
 				case ID: return 9;
-				case ID_TERMINAL: return 103;
+				case ID_N_TERMINAL: return 103;
 			}
 			break;
 		case 75: //CHECK STAGE 75
@@ -1276,7 +1276,7 @@ int action(int state, int input)
 				case Y: return 82;
 				case F: return 83;
 				case LV: return 84;
-				case ID_TERMINAL: return 88;
+				case ID_N_TERMINAL: return 88;
 				case TRU: return 91;
 				case FAL: return 92;
 				case CHR: return 93;
@@ -1321,7 +1321,7 @@ int action(int state, int input)
 				case STRING: return 21;
 				case ID: return 9;
 				case T: return 105;
-				case ID_TERMINAL: return 22;
+				case ID_N_TERMINAL: return 22;
 			}
 			break;
 		case 79: //CHECK STAGE 79
@@ -1440,7 +1440,7 @@ int action(int state, int input)
 			{
 				case ID: return 9;
 				case LV: return 121;
-				case ID_TERMINAL: return 65;
+				case ID_N_TERMINAL: return 65;
 			}
 			break;
 		case 86: //CHECK STAGE 86
@@ -1448,7 +1448,7 @@ int action(int state, int input)
 			{
 				case ID: return 9;
 				case LV: return 122;
-				case ID_TERMINAL: return 65;
+				case ID_N_TERMINAL: return 65;
 			}
 			break;
 		case 87: //CHECK STAGE 87
@@ -1471,7 +1471,7 @@ int action(int state, int input)
 				case Y: return 82;
 				case F: return 83;
 				case LV: return 84;
-				case ID_TERMINAL: return 88;
+				case ID_N_TERMINAL: return 88;
 				case TRU: return 91;
 				case FAL: return 92;
 				case CHR: return 93;
@@ -1521,7 +1521,7 @@ int action(int state, int input)
 				case NUMERAL: return 32;
 				case F: return 125;
 				case LV: return 84;
-				case ID_TERMINAL: return 88;
+				case ID_N_TERMINAL: return 88;
 				case TRU: return 91;
 				case FAL: return 92;
 				case CHR: return 93;
@@ -1545,7 +1545,7 @@ int action(int state, int input)
 				case NUMERAL: return 32;
 				case F: return 126;
 				case LV: return 84;
-				case ID_TERMINAL: return 88;
+				case ID_N_TERMINAL: return 88;
 				case TRU: return 91;
 				case FAL: return 92;
 				case CHR: return 93;
@@ -1817,7 +1817,7 @@ int action(int state, int input)
 				case B: return 61;
 				case S: return 132;
 				case LV: return 62;
-				case ID_TERMINAL: return 65;
+				case ID_N_TERMINAL: return 65;
 			}
 			break;
 		case 107: //CHECK STAGE 107
@@ -1839,7 +1839,7 @@ int action(int state, int input)
 				case Y: return 82;
 				case F: return 83;
 				case LV: return 84;
-				case ID_TERMINAL: return 88;
+				case ID_N_TERMINAL: return 88;
 				case TRU: return 91;
 				case FAL: return 92;
 				case CHR: return 93;
@@ -1866,7 +1866,7 @@ int action(int state, int input)
 				case Y: return 82;
 				case F: return 83;
 				case LV: return 84;
-				case ID_TERMINAL: return 88;
+				case ID_N_TERMINAL: return 88;
 				case TRU: return 91;
 				case FAL: return 92;
 				case CHR: return 93;
@@ -1892,7 +1892,7 @@ int action(int state, int input)
 				case Y: return 82;
 				case F: return 83;
 				case LV: return 84;
-				case ID_TERMINAL: return 88;
+				case ID_N_TERMINAL: return 88;
 				case TRU: return 91;
 				case FAL: return 92;
 				case CHR: return 93;
@@ -1918,7 +1918,7 @@ int action(int state, int input)
 				case Y: return 82;
 				case F: return 83;
 				case LV: return 84;
-				case ID_TERMINAL: return 88;
+				case ID_N_TERMINAL: return 88;
 				case TRU: return 91;
 				case FAL: return 92;
 				case CHR: return 93;
@@ -1944,7 +1944,7 @@ int action(int state, int input)
 				case Y: return 82;
 				case F: return 83;
 				case LV: return 84;
-				case ID_TERMINAL: return 88;
+				case ID_N_TERMINAL: return 88;
 				case TRU: return 91;
 				case FAL: return 92;
 				case CHR: return 93;
@@ -1970,7 +1970,7 @@ int action(int state, int input)
 				case Y: return 82;
 				case F: return 83;
 				case LV: return 84;
-				case ID_TERMINAL: return 88;
+				case ID_N_TERMINAL: return 88;
 				case TRU: return 91;
 				case FAL: return 92;
 				case CHR: return 93;
@@ -1996,7 +1996,7 @@ int action(int state, int input)
 				case Y: return 82;
 				case F: return 83;
 				case LV: return 84;
-				case ID_TERMINAL: return 88;
+				case ID_N_TERMINAL: return 88;
 				case TRU: return 91;
 				case FAL: return 92;
 				case CHR: return 93;
@@ -2022,7 +2022,7 @@ int action(int state, int input)
 				case Y: return 82;
 				case F: return 83;
 				case LV: return 84;
-				case ID_TERMINAL: return 88;
+				case ID_N_TERMINAL: return 88;
 				case TRU: return 91;
 				case FAL: return 92;
 				case CHR: return 93;
@@ -2047,7 +2047,7 @@ int action(int state, int input)
 				case Y: return 141;
 				case F: return 83;
 				case LV: return 84;
-				case ID_TERMINAL: return 88;
+				case ID_N_TERMINAL: return 88;
 				case TRU: return 91;
 				case FAL: return 92;
 				case CHR: return 93;
@@ -2072,7 +2072,7 @@ int action(int state, int input)
 				case Y: return 142;
 				case F: return 83;
 				case LV: return 84;
-				case ID_TERMINAL: return 88;
+				case ID_N_TERMINAL: return 88;
 				case TRU: return 91;
 				case FAL: return 92;
 				case CHR: return 93;
@@ -2096,7 +2096,7 @@ int action(int state, int input)
 				case NUMERAL: return 32;
 				case F: return 143;
 				case LV: return 84;
-				case ID_TERMINAL: return 88;
+				case ID_N_TERMINAL: return 88;
 				case TRU: return 91;
 				case FAL: return 92;
 				case CHR: return 93;
@@ -2120,7 +2120,7 @@ int action(int state, int input)
 				case NUMERAL: return 32;
 				case F: return 144;
 				case LV: return 84;
-				case ID_TERMINAL: return 88;
+				case ID_N_TERMINAL: return 88;
 				case TRU: return 91;
 				case FAL: return 92;
 				case CHR: return 93;
@@ -2245,7 +2245,7 @@ int action(int state, int input)
 				case F: return 83;
 				case LE: return 146;
 				case LV: return 84;
-				case ID_TERMINAL: return 88;
+				case ID_N_TERMINAL: return 88;
 				case TRU: return 91;
 				case FAL: return 92;
 				case CHR: return 93;
@@ -2308,7 +2308,7 @@ int action(int state, int input)
 				case B: return 61;
 				case S: return 148;
 				case LV: return 62;
-				case ID_TERMINAL: return 65;
+				case ID_N_TERMINAL: return 65;
 			}
 			break;
 		case 128: //CHECK STAGE 128
@@ -2331,7 +2331,7 @@ int action(int state, int input)
 				case Y: return 82;
 				case F: return 83;
 				case LV: return 84;
-				case ID_TERMINAL: return 88;
+				case ID_N_TERMINAL: return 88;
 				case TRU: return 91;
 				case FAL: return 92;
 				case CHR: return 93;
@@ -2398,7 +2398,7 @@ int action(int state, int input)
 				case LEFT_BRACES: return -26;
 				case RIGHT_BRACES: return -26;
 				case IF: return -26;
-				case ELSE: return 150 / -26;
+				case ELSE: return -26;
 				case WHILE: return -26;
 				case DO: return -26;
 				case BREAK: return -26;
@@ -2710,7 +2710,7 @@ int action(int state, int input)
 				case B: return 61;
 				case S: return 154;
 				case LV: return 62;
-				case ID_TERMINAL: return 65;
+				case ID_N_TERMINAL: return 65;
 			}
 			break;
 		case 151: //CHECK STAGE 151
@@ -2754,7 +2754,7 @@ int action(int state, int input)
 				case Y: return 82;
 				case F: return 83;
 				case LV: return 84;
-				case ID_TERMINAL: return 88;
+				case ID_N_TERMINAL: return 88;
 				case TRU: return 91;
 				case FAL: return 92;
 				case CHR: return 93;
