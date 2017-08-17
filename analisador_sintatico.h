@@ -113,7 +113,7 @@ void analiseSintatica()
             syntaxError();
         }
         q = top();
-        getchar();
+ //       getchar();
     } while (q != ACC);
     printf("\nANALISE SINTATICA OK\n");
 }
