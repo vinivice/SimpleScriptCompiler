@@ -12,6 +12,6 @@ int main(int argc, char *argv[]){
     }
     tokens_Generator(argv[1]);
     printf("FIM DA LEXICA\n");
-    analiseSintatica();
+//    analiseSintatica();
     return 0;
 }
