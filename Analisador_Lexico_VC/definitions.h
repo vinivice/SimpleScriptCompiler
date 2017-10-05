@@ -1,11 +1,13 @@
 #pragma once
 
-
-//DEFINIÇÕES ANÁLISE LÉXICA
 #define MAX_ID_LEN 20
 #define MAX_CONSTS 200
 #define MAX_NUM_LEN 20
 #define MAX_STR_LEN 200
+
+#define $ 10000
+#define ACC 9000
+#define ERROR 11001
 
 typedef enum {
     //palavras reservadas
@@ -39,13 +41,6 @@ typedef struct tokensSecundarios {
     UT_hash_handle hh;
 } tokens_Secundarios;
 
-
-//DEFINIÇÕES ANÁLISE SINTÁTICA
-#define $ 10000
-#define ACC 9000
-#define ERROR 11001
-
-
 typedef enum {
 	P = 1000, LDE, DE, T, DT, DC, DF, LP, B, LDV, LS, DV, LI, S,
 	E, L, R, Y, F, LE, LV, ID_N_TERMINAL, TRU, FAL, CHR, STR, NUM
@@ -57,13 +52,4 @@ typedef struct
     int left;
 } elementoTabelaAuxiliar;
 
-
-//DEFINIÇÕES ANÁLISE DE ESCOPO
-#define MAX_NEST_LEVEL 10
-
-typedef struct
-{
-    int nName;
-    struct object *pNext;
-} object;
 

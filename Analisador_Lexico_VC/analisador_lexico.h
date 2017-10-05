@@ -98,12 +98,12 @@ t_token nextToken(FILE *fp) {
             text[i++] = nextChar;
             nextChar = readChar(fp);
         }
-        fseek(fp, -1, SEEK_CUR);
         text[i] = '\0';
         token = searchKeyWord(text);
         if ( token == ID  ) {
             tokenSecundario = searchName(text, &count);                            
-        }          
+        }
+           
     }
 
     else if ( isdigit(nextChar) ) {
@@ -112,8 +112,7 @@ t_token nextToken(FILE *fp) {
         while (isdigit(nextChar)) {
             numeral[i++] = nextChar;
             nextChar = readChar(fp);    
-        }           
-        fseek(fp, -1, SEEK_CUR);                 
+        }            
         numeral[i] = '\0';
         token = NUMERAL;
         tokenSecundario = addIntConst(numeral);            
@@ -126,8 +125,8 @@ t_token nextToken(FILE *fp) {
         while ( nextChar != '"' ) {
             str[i++] = nextChar;
             nextChar = readChar(fp);
+
         }
-        fseek(fp, -1, SEEK_CUR);
         str[i] = '\0';
         nextChar = readChar(fp); 
         token = STRINGVAL;

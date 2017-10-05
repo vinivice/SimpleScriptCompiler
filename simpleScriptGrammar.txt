@@ -10,19 +10,19 @@
 06 : T -> 'char'
 07 : T -> 'boolean'
 08 : T -> 'string'
-09 : T -> ID_TERMINAL 
+09 : T -> IDU 
 
-10 : DT -> 'type' ID_TERMINAL '=' 'array' '[' NUM ']' 'of' T
-11 : DT -> 'type' ID_TERMINAL '=' 'struct' '{' DC '}'
-12 : DT -> 'type' ID_TERMINAL '=' T
+10 : DT -> 'type' IDD '=' 'array' '[' NUM ']' 'of' T
+11 : DT -> 'type' IDD '=' 'struct' NB '{' DC '}'
+12 : DT -> 'type' IDD '=' T
 
 13 : DC -> DC ';' LI ':' T
 14 : DC -> LI ':' T
 
-15 : DF -> 'function' ID_TERMINAL '(' LP ')' ':' T B
+15 : DF -> 'function' IDD NB '(' LP ')' ':' T MF B
 
-16 : LP -> LP ',' ID_TERMINAL ':' T
-17 : LP -> ID_TERMINAL ':' T
+16 : LP -> LP ',' IDD ':' T
+17 : LP -> IDD ':' T
 
 18 : B -> '{' LDV LS '}'
 
@@ -34,14 +34,14 @@
 
 23 : DV -> 'var' LI ':' T ';'
 
-24 : LI -> LI ',' ID_TERMINAL
-25 : LI -> ID_TERMINAL
+24 : LI -> LI ',' IDD
+25 : LI -> IDD
 
 26 : S -> 'if' '(' E ')' S
 27 : S -> 'if' '(' E ')' S 'else' S
 28 : S -> 'while' '(' E ')' S
 29 : S -> 'do' S 'while' '(' E ')' ';'
-30 : S -> B
+30 : S -> NB B
 31 : S -> LV '=' E ';'
 32 : S -> 'break' ';'
 33 : S -> 'continue' ';'
@@ -72,7 +72,7 @@
 53 : F -> LV '++'
 54 : F -> LV '--'
 55 : F -> '(' E ')'
-56 : F -> ID_TERMINAL '(' LE ')'
+56 : F -> IDU MC '(' LE ')'
 57 : F -> '-' F
 58 : F -> '!' F
 59 : F -> TRUE
@@ -84,15 +84,18 @@
 64 : LE -> LE ',' E
 65 : LE -> E
 
-66 : LV -> LV '.' ID
+66 : LV -> LV '.' IDU
 67 : LV -> LV '[' E ']'
-68 : LV -> ID_TERMINAL
+68 : LV -> IDU
 
-69 : ID_TERMINAL ->'Id'
+69 : ID_N_TERMINAL -> 'Id'
 70 : TRU -> 'true'
 71 : FAL -> 'false'
 72 : CHR -> 'c'
 73 : STR -> 's'
 74 : NUM -> 'n'
-75
- 
+75 : IDD -> 'Id'
+76 : IDU -> 'Id'
+77 : NB -> ''
+78 : MF -> ''
+79 : MC -> ''
