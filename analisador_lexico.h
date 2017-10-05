@@ -89,7 +89,7 @@ t_token nextToken(FILE *fp) {
     while (isspace(nextChar)) {
         nextChar = readChar(fp);
         if ( nextChar == EOF )
-            return (t_token) 49;
+            return ACC;
     }
     if ( isalpha(nextChar) ) {
         char text[MAX_ID_LEN + 1];
