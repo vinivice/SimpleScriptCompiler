@@ -6,504 +6,588 @@ elementoTabelaAuxiliar rule(int p)
 	{
 		case 0:
 		{
+			eta.rule = 0;
 			eta.len = 1;
 			eta.left = P ;
 			break;
 		}
 		case 1:
 		{
+			eta.rule = 1;
 			eta.len = 2;
 			eta.left = LDE ;
 			break;
 		}
 		case 2:
 		{
+			eta.rule = 2;
 			eta.len = 1;
 			eta.left = LDE ;
 			break;
 		}
 		case 3:
 		{
+			eta.rule = 3;
 			eta.len = 1;
 			eta.left = DE ;
 			break;
 		}
 		case 4:
 		{
+			eta.rule = 4;
 			eta.len = 1;
 			eta.left = DE ;
 			break;
 		}
 		case 5:
 		{
+			eta.rule = 5;
 			eta.len = 1;
 			eta.left = T ;
 			break;
 		}
 		case 6:
 		{
+			eta.rule = 6;
 			eta.len = 1;
 			eta.left = T ;
 			break;
 		}
 		case 7:
 		{
+			eta.rule = 7;
 			eta.len = 1;
 			eta.left = T ;
 			break;
 		}
 		case 8:
 		{
+			eta.rule = 8;
 			eta.len = 1;
 			eta.left = T ;
 			break;
 		}
 		case 9:
 		{
+			eta.rule = 9;
 			eta.len = 1;
 			eta.left = T ;
 			break;
 		}
 		case 10:
 		{
+			eta.rule = 10;
 			eta.len = 9;
 			eta.left = DT ;
 			break;
 		}
 		case 11:
 		{
+			eta.rule = 11;
 			eta.len = 8;
 			eta.left = DT ;
 			break;
 		}
 		case 12:
 		{
+			eta.rule = 12;
 			eta.len = 4;
 			eta.left = DT ;
 			break;
 		}
 		case 13:
 		{
+			eta.rule = 13;
 			eta.len = 5;
 			eta.left = DC ;
 			break;
 		}
 		case 14:
 		{
+			eta.rule = 14;
 			eta.len = 3;
 			eta.left = DC ;
 			break;
 		}
 		case 15:
 		{
+			eta.rule = 15;
 			eta.len = 10;
 			eta.left = DF ;
 			break;
 		}
 		case 16:
 		{
+			eta.rule = 16;
 			eta.len = 5;
 			eta.left = LP ;
 			break;
 		}
 		case 17:
 		{
+			eta.rule = 17;
 			eta.len = 3;
 			eta.left = LP ;
 			break;
 		}
 		case 18:
 		{
+			eta.rule = 18;
 			eta.len = 4;
 			eta.left = B ;
 			break;
 		}
 		case 19:
 		{
+			eta.rule = 19;
 			eta.len = 2;
 			eta.left = LDV ;
 			break;
 		}
 		case 20:
 		{
+			eta.rule = 20;
 			eta.len = 1;
 			eta.left = LDV ;
 			break;
 		}
 		case 21:
 		{
+			eta.rule = 21;
 			eta.len = 2;
 			eta.left = LS ;
 			break;
 		}
 		case 22:
 		{
+			eta.rule = 22;
 			eta.len = 1;
 			eta.left = LS ;
 			break;
 		}
 		case 23:
 		{
+			eta.rule = 23;
 			eta.len = 5;
 			eta.left = DV ;
 			break;
 		}
 		case 24:
 		{
+			eta.rule = 24;
 			eta.len = 3;
 			eta.left = LI ;
 			break;
 		}
 		case 25:
 		{
+			eta.rule = 25;
 			eta.len = 1;
 			eta.left = LI ;
 			break;
 		}
 		case 26:
 		{
+			eta.rule = 26;
 			eta.len = 6;
 			eta.left = S ;
 			break;
 		}
 		case 27:
 		{
+			eta.rule = 27;
 			eta.len = 9;
 			eta.left = S ;
 			break;
 		}
 		case 28:
 		{
+			eta.rule = 28;
 			eta.len = 6;
 			eta.left = S ;
 			break;
 		}
 		case 29:
 		{
+			eta.rule = 29;
 			eta.len = 8;
 			eta.left = S ;
 			break;
 		}
 		case 30:
 		{
+			eta.rule = 30;
 			eta.len = 2;
 			eta.left = S ;
 			break;
 		}
 		case 31:
 		{
+			eta.rule = 31;
 			eta.len = 4;
 			eta.left = S ;
 			break;
 		}
 		case 32:
 		{
+			eta.rule = 32;
 			eta.len = 2;
 			eta.left = S ;
 			break;
 		}
 		case 33:
 		{
+			eta.rule = 33;
 			eta.len = 2;
 			eta.left = S ;
 			break;
 		}
 		case 34:
 		{
+			eta.rule = 34;
 			eta.len = 3;
 			eta.left = E ;
 			break;
 		}
 		case 35:
 		{
+			eta.rule = 35;
 			eta.len = 3;
 			eta.left = E ;
 			break;
 		}
 		case 36:
 		{
+			eta.rule = 36;
 			eta.len = 1;
 			eta.left = E ;
 			break;
 		}
 		case 37:
 		{
+			eta.rule = 37;
 			eta.len = 3;
 			eta.left = L ;
 			break;
 		}
 		case 38:
 		{
+			eta.rule = 38;
 			eta.len = 3;
 			eta.left = L ;
 			break;
 		}
 		case 39:
 		{
+			eta.rule = 39;
 			eta.len = 3;
 			eta.left = L ;
 			break;
 		}
 		case 40:
 		{
+			eta.rule = 40;
 			eta.len = 3;
 			eta.left = L ;
 			break;
 		}
 		case 41:
 		{
+			eta.rule = 41;
 			eta.len = 3;
 			eta.left = L ;
 			break;
 		}
 		case 42:
 		{
+			eta.rule = 42;
 			eta.len = 3;
 			eta.left = L ;
 			break;
 		}
 		case 43:
 		{
+			eta.rule = 43;
 			eta.len = 1;
 			eta.left = L ;
 			break;
 		}
 		case 44:
 		{
+			eta.rule = 44;
 			eta.len = 3;
 			eta.left = R ;
 			break;
 		}
 		case 45:
 		{
+			eta.rule = 45;
 			eta.len = 3;
 			eta.left = R ;
 			break;
 		}
 		case 46:
 		{
+			eta.rule = 46;
 			eta.len = 1;
 			eta.left = R ;
 			break;
 		}
 		case 47:
 		{
+			eta.rule = 47;
 			eta.len = 3;
 			eta.left = Y ;
 			break;
 		}
 		case 48:
 		{
+			eta.rule = 48;
 			eta.len = 3;
 			eta.left = Y ;
 			break;
 		}
 		case 49:
 		{
+			eta.rule = 49;
 			eta.len = 1;
 			eta.left = Y ;
 			break;
 		}
 		case 50:
 		{
+			eta.rule = 50;
 			eta.len = 1;
 			eta.left = F ;
 			break;
 		}
 		case 51:
 		{
+			eta.rule = 51;
 			eta.len = 2;
 			eta.left = F ;
 			break;
 		}
 		case 52:
 		{
+			eta.rule = 52;
 			eta.len = 2;
 			eta.left = F ;
 			break;
 		}
 		case 53:
 		{
+			eta.rule = 53;
 			eta.len = 2;
 			eta.left = F ;
 			break;
 		}
 		case 54:
 		{
+			eta.rule = 54;
 			eta.len = 2;
 			eta.left = F ;
 			break;
 		}
 		case 55:
 		{
+			eta.rule = 55;
 			eta.len = 3;
 			eta.left = F ;
 			break;
 		}
 		case 56:
 		{
+			eta.rule = 56;
 			eta.len = 5;
 			eta.left = F ;
 			break;
 		}
 		case 57:
 		{
+			eta.rule = 57;
 			eta.len = 2;
 			eta.left = F ;
 			break;
 		}
 		case 58:
 		{
+			eta.rule = 58;
 			eta.len = 2;
 			eta.left = F ;
 			break;
 		}
 		case 59:
 		{
+			eta.rule = 59;
 			eta.len = 1;
 			eta.left = F ;
 			break;
 		}
 		case 60:
 		{
+			eta.rule = 60;
 			eta.len = 1;
 			eta.left = F ;
 			break;
 		}
 		case 61:
 		{
+			eta.rule = 61;
 			eta.len = 1;
 			eta.left = F ;
 			break;
 		}
 		case 62:
 		{
+			eta.rule = 62;
 			eta.len = 1;
 			eta.left = F ;
 			break;
 		}
 		case 63:
 		{
+			eta.rule = 63;
 			eta.len = 1;
 			eta.left = F ;
 			break;
 		}
 		case 64:
 		{
+			eta.rule = 64;
 			eta.len = 3;
 			eta.left = LE ;
 			break;
 		}
 		case 65:
 		{
+			eta.rule = 65;
 			eta.len = 1;
 			eta.left = LE ;
 			break;
 		}
 		case 66:
 		{
+			eta.rule = 66;
 			eta.len = 3;
 			eta.left = LV ;
 			break;
 		}
 		case 67:
 		{
+			eta.rule = 67;
 			eta.len = 4;
 			eta.left = LV ;
 			break;
 		}
 		case 68:
 		{
+			eta.rule = 68;
 			eta.len = 1;
 			eta.left = LV ;
 			break;
 		}
 		case 69:
 		{
+			eta.rule = 69;
 			eta.len = 1;
 			eta.left = ID_N_TERMINAL ;
 			break;
 		}
 		case 70:
 		{
+			eta.rule = 70;
 			eta.len = 1;
 			eta.left = TRU ;
 			break;
 		}
 		case 71:
 		{
+			eta.rule = 71;
 			eta.len = 1;
 			eta.left = FAL ;
 			break;
 		}
 		case 72:
 		{
+			eta.rule = 72;
 			eta.len = 1;
 			eta.left = CHR ;
 			break;
 		}
 		case 73:
 		{
+			eta.rule = 73;
 			eta.len = 1;
 			eta.left = STR ;
 			break;
 		}
 		case 74:
 		{
+			eta.rule = 74;
 			eta.len = 1;
 			eta.left = NUM ;
 			break;
 		}
 		case 75:
 		{
+			eta.rule = 75;
 			eta.len = 1;
 			eta.left = IDD ;
 			break;
 		}
 		case 76:
 		{
+			eta.rule = 76;
 			eta.len = 1;
 			eta.left = IDU ;
 			break;
 		}
 		case 77:
 		{
+			eta.rule = 77;
 			eta.len = 0;
 			eta.left = NB ;
 			break;
 		}
 		case 78:
 		{
+			eta.rule = 78;
 			eta.len = 0;
 			eta.left = MF ;
 			break;
 		}
 		case 79:
 		{
+			eta.rule = 79;
 			eta.len = 0;
 			eta.left = MC ;
 			break;
 		}
 		case 80:
 		{
+			eta.rule = 80;
 			eta.len = 0;
 			eta.left = NF ;
 			break;
 		}
 		case 81:
 		{
+			eta.rule = 81;
 			eta.len = 0;
 			eta.left = MT ;
 			break;
 		}
 		case 82:
 		{
+			eta.rule = 82;
 			eta.len = 0;
 			eta.left = ME ;
 			break;
 		}
 		case 83:
 		{
+			eta.rule = 83;
 			eta.len = 0;
 			eta.left = MW ;
 			break;
