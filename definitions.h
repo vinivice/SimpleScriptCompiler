@@ -57,6 +57,7 @@ typedef enum {
 
 typedef struct 
 {
+    int rule;
     int len;
     int left;
 } elementoTabelaAuxiliar;

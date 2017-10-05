@@ -21,7 +21,7 @@ int endBlock(void)
 
 object* define(int aName)
 {
-    object *obj = new object*;
+    object *obj = new object;
 
     obj->nName = aName;
     obj->pNext = NULL;

@@ -2888,7 +2888,7 @@ int action(int state, int input)
 				case LEFT_BRACES: return -26;
 				case RIGHT_BRACES: return -26;
 				case IF: return -26;
-				case ELSE: return 159 / -26;
+				case ELSE: return -26;
 				case WHILE: return -26;
 				case DO: return -26;
 				case BREAK: return -26;
@@ -3058,4 +3058,5 @@ int action(int state, int input)
 			}
 			break;
 	}
+    return ERROR;
 }

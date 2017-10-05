@@ -122,7 +122,7 @@ int main(int argc, char *argv[])
                     syntaxError();
                 }
                 q = top();
- //               getchar();
+                getchar();
             } while (q != 49);
             //} while (q != ACC);
     }
