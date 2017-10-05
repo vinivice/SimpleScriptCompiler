@@ -2,6 +2,7 @@
 
 
 //DEFINIÇÕES ANÁLISE LÉXICA
+#include "uthash.h"
 #define MAX_ID_LEN 20
 #define MAX_CONSTS 200
 #define MAX_NUM_LEN 20
@@ -22,7 +23,10 @@ typedef enum {
     CHARACTER, NUMERAL, STRINGVAL, ID,
 
     //token desconhecido
-    UNKNOWN } t_token;
+    UNKNOWN,
+
+    //token de aceitação
+    ACC = 9000 } t_token;
 
 typedef struct {
     char type;
@@ -42,13 +46,13 @@ typedef struct tokensSecundarios {
 
 //DEFINIÇÕES ANÁLISE SINTÁTICA
 #define $ 10000
-#define ACC 9000
 #define ERROR 11001
 
 
 typedef enum {
 	P = 1000, LDE, DE, T, DT, DC, DF, LP, B, LDV, LS, DV, LI, S,
-	E, L, R, Y, F, LE, LV, ID_N_TERMINAL, TRU, FAL, CHR, STR, NUM
+	E, L, R, Y, F, LE, LV, ID_N_TERMINAL, TRU, FAL, CHR, STR, NUM, 
+    IDD, IDU, NB, MF, MC, NF, MT, ME, MW
 } t_nonTerminalCode;
 
 typedef struct 
@@ -61,8 +65,8 @@ typedef struct
 //DEFINIÇÕES ANÁLISE DE ESCOPO
 #define MAX_NEST_LEVEL 10
 
-typedef struct
+struct object
 {
     int nName;
     struct object *pNext;
-} object;
+};

@@ -1,5 +1,6 @@
 function myFunction(){
     var str = "This is my foo file!";
     if (str == "It is equal!")
-        do something;
+     str  do something str;
 }
+$
