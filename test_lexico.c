@@ -25,8 +25,9 @@ int main(int argc, char *argv[]) {
 
 /*    if (fp = fopen("lexico.bin", "rb")){
         printf("Tokens do arquivo: \n");
-        while (!feof(fp)) {
-            fread(&i, 4, 1, fp);
+        //while (!feof(fp)) {
+        while (1 == fread(&i, 4, 1, fp)) {
+            //fread(&i, 4, 1, fp);
             printf("%d ", i);        
         }
     } else {
