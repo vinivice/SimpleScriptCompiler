@@ -66,13 +66,13 @@ elementoTabelaAuxiliar rule(int p)
 		}
 		case 10:
 		{
-			eta.len = 5;
+			eta.len = 9;
 			eta.left = DT ;
 			break;
 		}
 		case 11:
 		{
-			eta.len = 5;
+			eta.len = 8;
 			eta.left = DT ;
 			break;
 		}
@@ -96,7 +96,7 @@ elementoTabelaAuxiliar rule(int p)
 		}
 		case 15:
 		{
-			eta.len = 5;
+			eta.len = 10;
 			eta.left = DF ;
 			break;
 		}
@@ -162,31 +162,31 @@ elementoTabelaAuxiliar rule(int p)
 		}
 		case 26:
 		{
-			eta.len = 5;
+			eta.len = 6;
 			eta.left = S ;
 			break;
 		}
 		case 27:
 		{
-			eta.len = 7;
+			eta.len = 9;
 			eta.left = S ;
 			break;
 		}
 		case 28:
 		{
-			eta.len = 5;
+			eta.len = 6;
 			eta.left = S ;
 			break;
 		}
 		case 29:
 		{
-			eta.len = 7;
+			eta.len = 8;
 			eta.left = S ;
 			break;
 		}
 		case 30:
 		{
-			eta.len = 1;
+			eta.len = 2;
 			eta.left = S ;
 			break;
 		}
@@ -342,7 +342,7 @@ elementoTabelaAuxiliar rule(int p)
 		}
 		case 56:
 		{
-			eta.len = 4;
+			eta.len = 5;
 			eta.left = F ;
 			break;
 		}
@@ -454,7 +454,60 @@ elementoTabelaAuxiliar rule(int p)
 			eta.left = NUM ;
 			break;
 		}
-
+		case 75:
+		{
+			eta.len = 1;
+			eta.left = IDD ;
+			break;
+		}
+		case 76:
+		{
+			eta.len = 1;
+			eta.left = IDU ;
+			break;
+		}
+		case 77:
+		{
+			eta.len = 0;
+			eta.left = NB ;
+			break;
+		}
+		case 78:
+		{
+			eta.len = 0;
+			eta.left = MF ;
+			break;
+		}
+		case 79:
+		{
+			eta.len = 0;
+			eta.left = MC ;
+			break;
+		}
+		case 80:
+		{
+			eta.len = 0;
+			eta.left = NF ;
+			break;
+		}
+		case 81:
+		{
+			eta.len = 0;
+			eta.left = MT ;
+			break;
+		}
+		case 82:
+		{
+			eta.len = 0;
+			eta.left = ME ;
+			break;
+		}
+		case 83:
+		{
+			eta.len = 0;
+			eta.left = MW ;
+			break;
+		}
 	}
     return eta;
 }
@@ -479,7 +532,7 @@ int action(int state, int input)
 			{
 				case TYPE: return 6;
 				case FUNCTION: return 5;
-				case $: return ACC;
+				case $: return acc;
 				case DE: return 7;
 				case DT: return 4;
 				case DF: return 3;
@@ -513,14 +566,14 @@ int action(int state, int input)
 			switch(input)
 			{
 				case ID: return 9;
-				case ID_N_TERMINAL: return 8;
+				case IDD: return 8;
 			}
 			break;
 		case 6: //CHECK STAGE 6
 			switch(input)
 			{
 				case ID: return 9;
-				case ID_N_TERMINAL: return 10;
+				case IDD: return 10;
 			}
 			break;
 		case 7: //CHECK STAGE 7
@@ -534,40 +587,20 @@ int action(int state, int input)
 		case 8: //CHECK STAGE 8
 			switch(input)
 			{
-				case LEFT_PARENTHESIS: return 11;
+				case LEFT_PARENTHESIS: return -80;
+				case NF: return 11;
 			}
 			break;
 		case 9: //CHECK STAGE 9
 			switch(input)
 			{
-				case TYPE: return -69;
-				case EQUALS: return -69;
-				case LEFT_SQUARE: return -69;
-				case RIGHT_SQUARE: return -69;
-				case LEFT_BRACES: return -69;
-				case RIGHT_BRACES: return -69;
-				case SEMI_COLON: return -69;
-				case COLON: return -69;
-				case FUNCTION: return -69;
-				case LEFT_PARENTHESIS: return -69;
-				case RIGHT_PARENTHESIS: return -69;
-				case COMMA: return -69;
-				case AND: return -69;
-				case OR: return -69;
-				case LESS_THAN: return -69;
-				case GREATER_THAN: return -69;
-				case LESS_OR_EQUAL: return -69;
-				case GREATER_OR_EQUAL: return -69;
-				case EQUAL_EQUAL: return -69;
-				case NOT_EQUAL: return -69;
-				case PLUS: return -69;
-				case MINUS: return -69;
-				case TIMES: return -69;
-				case DIVIDE: return -69;
-				case PLUS_PLUS: return -69;
-				case MINUS_MINUS: return -69;
-				case DOT: return -69;
-				case $: return -69;
+				case TYPE: return -75;
+				case EQUALS: return -75;
+				case COLON: return -75;
+				case FUNCTION: return -75;
+				case LEFT_PARENTHESIS: return -75;
+				case COMMA: return -75;
+				case $: return -75;
 			}
 			break;
 		case 10: //CHECK STAGE 10
@@ -579,51 +612,45 @@ int action(int state, int input)
 		case 11: //CHECK STAGE 11
 			switch(input)
 			{
-				case ID: return 9;
-				case LP: return 13;
-				case ID_N_TERMINAL: return 14;
+				case LEFT_PARENTHESIS: return 13;
 			}
 			break;
 		case 12: //CHECK STAGE 12
 			switch(input)
 			{
-				case INTEGER: return 18;
-				case CHAR: return 19;
-				case BOOLEAN: return 20;
-				case STRING: return 21;
-				case ARRAY: return 15;
-				case STRUCT: return 16;
-				case ID: return 9;
-				case T: return 17;
-				case ID_N_TERMINAL: return 22;
+				case INTEGER: return 17;
+				case CHAR: return 18;
+				case BOOLEAN: return 19;
+				case STRING: return 20;
+				case ARRAY: return 14;
+				case STRUCT: return 15;
+				case ID: return 22;
+				case T: return 16;
+				case IDU: return 21;
 			}
 			break;
 		case 13: //CHECK STAGE 13
 			switch(input)
 			{
-				case RIGHT_PARENTHESIS: return 23;
-				case COMMA: return 24;
+				case ID: return 9;
+				case LP: return 23;
+				case IDD: return 24;
 			}
 			break;
 		case 14: //CHECK STAGE 14
 			switch(input)
 			{
-				case COLON: return 25;
+				case LEFT_SQUARE: return 25;
 			}
 			break;
 		case 15: //CHECK STAGE 15
 			switch(input)
 			{
-				case LEFT_SQUARE: return 26;
+				case LEFT_BRACES: return -77;
+				case NB: return 26;
 			}
 			break;
 		case 16: //CHECK STAGE 16
-			switch(input)
-			{
-				case LEFT_BRACES: return 27;
-			}
-			break;
-		case 17: //CHECK STAGE 17
 			switch(input)
 			{
 				case TYPE: return -12;
@@ -631,7 +658,7 @@ int action(int state, int input)
 				case $: return -12;
 			}
 			break;
-		case 18: //CHECK STAGE 18
+		case 17: //CHECK STAGE 17
 			switch(input)
 			{
 				case TYPE: return -5;
@@ -644,7 +671,7 @@ int action(int state, int input)
 				case $: return -5;
 			}
 			break;
-		case 19: //CHECK STAGE 19
+		case 18: //CHECK STAGE 18
 			switch(input)
 			{
 				case TYPE: return -6;
@@ -657,7 +684,7 @@ int action(int state, int input)
 				case $: return -6;
 			}
 			break;
-		case 20: //CHECK STAGE 20
+		case 19: //CHECK STAGE 19
 			switch(input)
 			{
 				case TYPE: return -7;
@@ -670,7 +697,7 @@ int action(int state, int input)
 				case $: return -7;
 			}
 			break;
-		case 21: //CHECK STAGE 21
+		case 20: //CHECK STAGE 20
 			switch(input)
 			{
 				case TYPE: return -8;
@@ -683,7 +710,7 @@ int action(int state, int input)
 				case $: return -8;
 			}
 			break;
-		case 22: //CHECK STAGE 22
+		case 21: //CHECK STAGE 21
 			switch(input)
 			{
 				case TYPE: return -9;
@@ -696,79 +723,96 @@ int action(int state, int input)
 				case $: return -9;
 			}
 			break;
+		case 22: //CHECK STAGE 22
+			switch(input)
+			{
+				case TYPE: return -76;
+				case EQUALS: return -76;
+				case LEFT_SQUARE: return -76;
+				case RIGHT_SQUARE: return -76;
+				case LEFT_BRACES: return -76;
+				case RIGHT_BRACES: return -76;
+				case SEMI_COLON: return -76;
+				case FUNCTION: return -76;
+				case LEFT_PARENTHESIS: return -76;
+				case RIGHT_PARENTHESIS: return -76;
+				case COMMA: return -76;
+				case AND: return -76;
+				case OR: return -76;
+				case LESS_THAN: return -76;
+				case GREATER_THAN: return -76;
+				case LESS_OR_EQUAL: return -76;
+				case GREATER_OR_EQUAL: return -76;
+				case EQUAL_EQUAL: return -76;
+				case NOT_EQUAL: return -76;
+				case PLUS: return -76;
+				case MINUS: return -76;
+				case TIMES: return -76;
+				case DIVIDE: return -76;
+				case PLUS_PLUS: return -76;
+				case MINUS_MINUS: return -76;
+				case DOT: return -76;
+				case $: return -76;
+			}
+			break;
 		case 23: //CHECK STAGE 23
 			switch(input)
 			{
-				case COLON: return 28;
+				case RIGHT_PARENTHESIS: return 27;
+				case COMMA: return 28;
 			}
 			break;
 		case 24: //CHECK STAGE 24
 			switch(input)
 			{
-				case ID: return 9;
-				case ID_N_TERMINAL: return 29;
+				case COLON: return 29;
 			}
 			break;
 		case 25: //CHECK STAGE 25
 			switch(input)
 			{
-				case INTEGER: return 18;
-				case CHAR: return 19;
-				case BOOLEAN: return 20;
-				case STRING: return 21;
-				case ID: return 9;
-				case T: return 30;
-				case ID_N_TERMINAL: return 22;
+				case NUMERAL: return 31;
+				case NUM: return 30;
 			}
 			break;
 		case 26: //CHECK STAGE 26
 			switch(input)
 			{
-				case NUMERAL: return 32;
-				case NUM: return 31;
+				case LEFT_BRACES: return 32;
 			}
 			break;
 		case 27: //CHECK STAGE 27
 			switch(input)
 			{
-				case ID: return 9;
-				case DC: return 33;
-				case LI: return 34;
-				case ID_N_TERMINAL: return 35;
+				case COLON: return 33;
 			}
 			break;
 		case 28: //CHECK STAGE 28
 			switch(input)
 			{
-				case INTEGER: return 18;
-				case CHAR: return 19;
-				case BOOLEAN: return 20;
-				case STRING: return 21;
 				case ID: return 9;
-				case T: return 36;
-				case ID_N_TERMINAL: return 22;
+				case IDD: return 34;
 			}
 			break;
 		case 29: //CHECK STAGE 29
 			switch(input)
 			{
-				case COLON: return 37;
+				case INTEGER: return 17;
+				case CHAR: return 18;
+				case BOOLEAN: return 19;
+				case STRING: return 20;
+				case ID: return 22;
+				case T: return 35;
+				case IDU: return 21;
 			}
 			break;
 		case 30: //CHECK STAGE 30
 			switch(input)
 			{
-				case RIGHT_PARENTHESIS: return -17;
-				case COMMA: return -17;
+				case RIGHT_SQUARE: return 36;
 			}
 			break;
 		case 31: //CHECK STAGE 31
-			switch(input)
-			{
-				case RIGHT_SQUARE: return 38;
-			}
-			break;
-		case 32: //CHECK STAGE 32
 			switch(input)
 			{
 				case RIGHT_SQUARE: return -74;
@@ -789,53 +833,99 @@ int action(int state, int input)
 				case DIVIDE: return -74;
 			}
 			break;
+		case 32: //CHECK STAGE 32
+			switch(input)
+			{
+				case ID: return 9;
+				case DC: return 37;
+				case LI: return 38;
+				case IDD: return 39;
+			}
+			break;
 		case 33: //CHECK STAGE 33
 			switch(input)
 			{
-				case RIGHT_BRACES: return 39;
-				case SEMI_COLON: return 40;
+				case INTEGER: return 17;
+				case CHAR: return 18;
+				case BOOLEAN: return 19;
+				case STRING: return 20;
+				case ID: return 22;
+				case T: return 40;
+				case IDU: return 21;
 			}
 			break;
 		case 34: //CHECK STAGE 34
 			switch(input)
 			{
 				case COLON: return 41;
-				case COMMA: return 42;
 			}
 			break;
 		case 35: //CHECK STAGE 35
+			switch(input)
+			{
+				case RIGHT_PARENTHESIS: return -17;
+				case COMMA: return -17;
+			}
+			break;
+		case 36: //CHECK STAGE 36
+			switch(input)
+			{
+				case OF: return 42;
+			}
+			break;
+		case 37: //CHECK STAGE 37
+			switch(input)
+			{
+				case RIGHT_BRACES: return 43;
+				case SEMI_COLON: return 44;
+			}
+			break;
+		case 38: //CHECK STAGE 38
+			switch(input)
+			{
+				case COLON: return 45;
+				case COMMA: return 46;
+			}
+			break;
+		case 39: //CHECK STAGE 39
 			switch(input)
 			{
 				case COLON: return -25;
 				case COMMA: return -25;
 			}
 			break;
-		case 36: //CHECK STAGE 36
+		case 40: //CHECK STAGE 40
 			switch(input)
 			{
-				case LEFT_BRACES: return 44;
-				case B: return 43;
+				case LEFT_BRACES: return -78;
+				case MF: return 47;
 			}
 			break;
-		case 37: //CHECK STAGE 37
+		case 41: //CHECK STAGE 41
 			switch(input)
 			{
-				case INTEGER: return 18;
-				case CHAR: return 19;
-				case BOOLEAN: return 20;
-				case STRING: return 21;
-				case ID: return 9;
-				case T: return 45;
-				case ID_N_TERMINAL: return 22;
+				case INTEGER: return 17;
+				case CHAR: return 18;
+				case BOOLEAN: return 19;
+				case STRING: return 20;
+				case ID: return 22;
+				case T: return 48;
+				case IDU: return 21;
 			}
 			break;
-		case 38: //CHECK STAGE 38
+		case 42: //CHECK STAGE 42
 			switch(input)
 			{
-				case OF: return 46;
+				case INTEGER: return 17;
+				case CHAR: return 18;
+				case BOOLEAN: return 19;
+				case STRING: return 20;
+				case ID: return 22;
+				case T: return 49;
+				case IDU: return 21;
 			}
 			break;
-		case 39: //CHECK STAGE 39
+		case 43: //CHECK STAGE 43
 			switch(input)
 			{
 				case TYPE: return -11;
@@ -843,130 +933,48 @@ int action(int state, int input)
 				case $: return -11;
 			}
 			break;
-		case 40: //CHECK STAGE 40
-			switch(input)
-			{
-				case ID: return 9;
-				case LI: return 47;
-				case ID_N_TERMINAL: return 35;
-			}
-			break;
-		case 41: //CHECK STAGE 41
-			switch(input)
-			{
-				case INTEGER: return 18;
-				case CHAR: return 19;
-				case BOOLEAN: return 20;
-				case STRING: return 21;
-				case ID: return 9;
-				case T: return 48;
-				case ID_N_TERMINAL: return 22;
-			}
-			break;
-		case 42: //CHECK STAGE 42
-			switch(input)
-			{
-				case ID: return 9;
-				case ID_N_TERMINAL: return 49;
-			}
-			break;
-		case 43: //CHECK STAGE 43
-			switch(input)
-			{
-				case TYPE: return -15;
-				case FUNCTION: return -15;
-				case $: return -15;
-			}
-			break;
 		case 44: //CHECK STAGE 44
 			switch(input)
 			{
-				case VAR: return 52;
-				case LDV: return 50;
-				case DV: return 51;
+				case ID: return 9;
+				case LI: return 50;
+				case IDD: return 39;
 			}
 			break;
 		case 45: //CHECK STAGE 45
+			switch(input)
+			{
+				case INTEGER: return 17;
+				case CHAR: return 18;
+				case BOOLEAN: return 19;
+				case STRING: return 20;
+				case ID: return 22;
+				case T: return 51;
+				case IDU: return 21;
+			}
+			break;
+		case 46: //CHECK STAGE 46
+			switch(input)
+			{
+				case ID: return 9;
+				case IDD: return 52;
+			}
+			break;
+		case 47: //CHECK STAGE 47
+			switch(input)
+			{
+				case LEFT_BRACES: return 54;
+				case B: return 53;
+			}
+			break;
+		case 48: //CHECK STAGE 48
 			switch(input)
 			{
 				case RIGHT_PARENTHESIS: return -16;
 				case COMMA: return -16;
 			}
 			break;
-		case 46: //CHECK STAGE 46
-			switch(input)
-			{
-				case INTEGER: return 18;
-				case CHAR: return 19;
-				case BOOLEAN: return 20;
-				case STRING: return 21;
-				case ID: return 9;
-				case T: return 53;
-				case ID_N_TERMINAL: return 22;
-			}
-			break;
-		case 47: //CHECK STAGE 47
-			switch(input)
-			{
-				case COLON: return 54;
-				case COMMA: return 42;
-			}
-			break;
-		case 48: //CHECK STAGE 48
-			switch(input)
-			{
-				case RIGHT_BRACES: return -14;
-				case SEMI_COLON: return -14;
-			}
-			break;
 		case 49: //CHECK STAGE 49
-			switch(input)
-			{
-				case COLON: return -24;
-				case COMMA: return -24;
-			}
-			break;
-		case 50: //CHECK STAGE 50
-			switch(input)
-			{
-				case LEFT_BRACES: return 44;
-				case VAR: return 52;
-				case IF: return 58;
-				case WHILE: return 59;
-				case DO: return 60;
-				case BREAK: return 63;
-				case CONTINUE: return 64;
-				case ID: return 9;
-				case B: return 61;
-				case LS: return 55;
-				case DV: return 56;
-				case S: return 57;
-				case LV: return 62;
-				case ID_N_TERMINAL: return 65;
-			}
-			break;
-		case 51: //CHECK STAGE 51
-			switch(input)
-			{
-				case LEFT_BRACES: return -20;
-				case VAR: return -20;
-				case IF: return -20;
-				case WHILE: return -20;
-				case DO: return -20;
-				case BREAK: return -20;
-				case CONTINUE: return -20;
-				case ID: return -20;
-			}
-			break;
-		case 52: //CHECK STAGE 52
-			switch(input)
-			{
-				case ID: return 9;
-				case LI: return 66;
-				case ID_N_TERMINAL: return 35;
-			}
-			break;
-		case 53: //CHECK STAGE 53
 			switch(input)
 			{
 				case TYPE: return -10;
@@ -974,49 +982,143 @@ int action(int state, int input)
 				case $: return -10;
 			}
 			break;
+		case 50: //CHECK STAGE 50
+			switch(input)
+			{
+				case COLON: return 55;
+				case COMMA: return 46;
+			}
+			break;
+		case 51: //CHECK STAGE 51
+			switch(input)
+			{
+				case RIGHT_BRACES: return -14;
+				case SEMI_COLON: return -14;
+			}
+			break;
+		case 52: //CHECK STAGE 52
+			switch(input)
+			{
+				case COLON: return -24;
+				case COMMA: return -24;
+			}
+			break;
+		case 53: //CHECK STAGE 53
+			switch(input)
+			{
+				case TYPE: return -15;
+				case FUNCTION: return -15;
+				case $: return -15;
+			}
+			break;
 		case 54: //CHECK STAGE 54
 			switch(input)
 			{
-				case INTEGER: return 18;
-				case CHAR: return 19;
-				case BOOLEAN: return 20;
-				case STRING: return 21;
-				case ID: return 9;
-				case T: return 67;
-				case ID_N_TERMINAL: return 22;
+				case VAR: return 58;
+				case LDV: return 56;
+				case DV: return 57;
 			}
 			break;
 		case 55: //CHECK STAGE 55
 			switch(input)
 			{
-				case LEFT_BRACES: return 44;
-				case RIGHT_BRACES: return 68;
-				case IF: return 58;
-				case WHILE: return 59;
-				case DO: return 60;
-				case BREAK: return 63;
-				case CONTINUE: return 64;
-				case ID: return 9;
-				case B: return 61;
-				case S: return 69;
-				case LV: return 62;
-				case ID_N_TERMINAL: return 65;
+				case INTEGER: return 17;
+				case CHAR: return 18;
+				case BOOLEAN: return 19;
+				case STRING: return 20;
+				case ID: return 22;
+				case T: return 59;
+				case IDU: return 21;
 			}
 			break;
 		case 56: //CHECK STAGE 56
 			switch(input)
 			{
+				case LEFT_BRACES: return -77;
+				case VAR: return 58;
+				case IF: return 63;
+				case WHILE: return 64;
+				case DO: return 65;
+				case BREAK: return 68;
+				case CONTINUE: return 69;
+				case ID: return 22;
+				case LS: return 60;
+				case DV: return 61;
+				case S: return 62;
+				case LV: return 67;
+				case IDU: return 70;
+				case NB: return 66;
+			}
+			break;
+		case 57: //CHECK STAGE 57
+			switch(input)
+			{
+				case TYPE: return -20;
+				case LEFT_BRACES: return -20;
+				case RIGHT_BRACES: return -20;
+				case FUNCTION: return -20;
+				case VAR: return -20;
+				case IF: return -20;
+				case ELSE: return -20;
+				case WHILE: return -20;
+				case DO: return -20;
+				case BREAK: return -20;
+				case CONTINUE: return -20;
+				case ID: return -20;
+				case $: return -20;
+			}
+			break;
+		case 58: //CHECK STAGE 58
+			switch(input)
+			{
+				case ID: return 9;
+				case LI: return 71;
+				case IDD: return 39;
+			}
+			break;
+		case 59: //CHECK STAGE 59
+			switch(input)
+			{
+				case RIGHT_BRACES: return -13;
+				case SEMI_COLON: return -13;
+			}
+			break;
+		case 60: //CHECK STAGE 60
+			switch(input)
+			{
+				case LEFT_BRACES: return -77;
+				case RIGHT_BRACES: return 72;
+				case IF: return 63;
+				case WHILE: return 64;
+				case DO: return 65;
+				case BREAK: return 68;
+				case CONTINUE: return 69;
+				case ID: return 22;
+				case S: return 73;
+				case LV: return 67;
+				case IDU: return 70;
+				case NB: return 66;
+			}
+			break;
+		case 61: //CHECK STAGE 61
+			switch(input)
+			{
+				case TYPE: return -19;
 				case LEFT_BRACES: return -19;
+				case RIGHT_BRACES: return -19;
+				case FUNCTION: return -19;
 				case VAR: return -19;
 				case IF: return -19;
+				case ELSE: return -19;
 				case WHILE: return -19;
 				case DO: return -19;
 				case BREAK: return -19;
 				case CONTINUE: return -19;
 				case ID: return -19;
+				case $: return -19;
 			}
 			break;
-		case 57: //CHECK STAGE 57
+		case 62: //CHECK STAGE 62
 			switch(input)
 			{
 				case LEFT_BRACES: return -22;
@@ -1029,69 +1131,62 @@ int action(int state, int input)
 				case ID: return -22;
 			}
 			break;
-		case 58: //CHECK STAGE 58
-			switch(input)
-			{
-				case LEFT_PARENTHESIS: return 70;
-			}
-			break;
-		case 59: //CHECK STAGE 59
-			switch(input)
-			{
-				case LEFT_PARENTHESIS: return 71;
-			}
-			break;
-		case 60: //CHECK STAGE 60
-			switch(input)
-			{
-				case LEFT_BRACES: return 44;
-				case IF: return 58;
-				case WHILE: return 59;
-				case DO: return 60;
-				case BREAK: return 63;
-				case CONTINUE: return 64;
-				case ID: return 9;
-				case B: return 61;
-				case S: return 72;
-				case LV: return 62;
-				case ID_N_TERMINAL: return 65;
-			}
-			break;
-		case 61: //CHECK STAGE 61
-			switch(input)
-			{
-				case LEFT_BRACES: return -30;
-				case RIGHT_BRACES: return -30;
-				case IF: return -30;
-				case ELSE: return -30;
-				case WHILE: return -30;
-				case DO: return -30;
-				case BREAK: return -30;
-				case CONTINUE: return -30;
-				case ID: return -30;
-			}
-			break;
-		case 62: //CHECK STAGE 62
-			switch(input)
-			{
-				case EQUALS: return 73;
-				case LEFT_SQUARE: return 75;
-				case DOT: return 74;
-			}
-			break;
 		case 63: //CHECK STAGE 63
 			switch(input)
 			{
-				case SEMI_COLON: return 76;
+				case LEFT_PARENTHESIS: return 74;
 			}
 			break;
 		case 64: //CHECK STAGE 64
 			switch(input)
 			{
-				case SEMI_COLON: return 77;
+				case LEFT_PARENTHESIS: return -83;
+				case MW: return 75;
 			}
 			break;
 		case 65: //CHECK STAGE 65
+			switch(input)
+			{
+				case LEFT_BRACES: return -83;
+				case RIGHT_BRACES: return -83;
+				case IF: return -83;
+				case ELSE: return -83;
+				case WHILE: return -83;
+				case DO: return -83;
+				case BREAK: return -83;
+				case CONTINUE: return -83;
+				case ID: return -83;
+				case MW: return 76;
+			}
+			break;
+		case 66: //CHECK STAGE 66
+			switch(input)
+			{
+				case LEFT_BRACES: return 54;
+				case B: return 77;
+			}
+			break;
+		case 67: //CHECK STAGE 67
+			switch(input)
+			{
+				case EQUALS: return 78;
+				case LEFT_SQUARE: return 80;
+				case DOT: return 79;
+			}
+			break;
+		case 68: //CHECK STAGE 68
+			switch(input)
+			{
+				case SEMI_COLON: return 81;
+			}
+			break;
+		case 69: //CHECK STAGE 69
+			switch(input)
+			{
+				case SEMI_COLON: return 82;
+			}
+			break;
+		case 70: //CHECK STAGE 70
 			switch(input)
 			{
 				case EQUALS: return -68;
@@ -1115,21 +1210,14 @@ int action(int state, int input)
 				case DOT: return -68;
 			}
 			break;
-		case 66: //CHECK STAGE 66
+		case 71: //CHECK STAGE 71
 			switch(input)
 			{
-				case COLON: return 78;
-				case COMMA: return 42;
+				case COLON: return 83;
+				case COMMA: return 46;
 			}
 			break;
-		case 67: //CHECK STAGE 67
-			switch(input)
-			{
-				case RIGHT_BRACES: return -13;
-				case SEMI_COLON: return -13;
-			}
-			break;
-		case 68: //CHECK STAGE 68
+		case 72: //CHECK STAGE 72
 			switch(input)
 			{
 				case TYPE: return -18;
@@ -1146,7 +1234,7 @@ int action(int state, int input)
 				case $: return -18;
 			}
 			break;
-		case 69: //CHECK STAGE 69
+		case 73: //CHECK STAGE 73
 			switch(input)
 			{
 				case LEFT_BRACES: return -21;
@@ -1159,132 +1247,134 @@ int action(int state, int input)
 				case ID: return -21;
 			}
 			break;
-		case 70: //CHECK STAGE 70
-			switch(input)
-			{
-				case LEFT_PARENTHESIS: return 87;
-				case MINUS: return 89;
-				case PLUS_PLUS: return 85;
-				case MINUS_MINUS: return 86;
-				case NOT: return 90;
-				case ID: return 9;
-				case TRUE: return 96;
-				case FALSE: return 97;
-				case CHARACTER: return 98;
-				case STRINGVAL: return 99;
-				case NUMERAL: return 32;
-				case E: return 79;
-				case L: return 80;
-				case R: return 81;
-				case Y: return 82;
-				case F: return 83;
-				case LV: return 84;
-				case ID_N_TERMINAL: return 88;
-				case TRU: return 91;
-				case FAL: return 92;
-				case CHR: return 93;
-				case STR: return 94;
-				case NUM: return 95;
-			}
-			break;
-		case 71: //CHECK STAGE 71
-			switch(input)
-			{
-				case LEFT_PARENTHESIS: return 87;
-				case MINUS: return 89;
-				case PLUS_PLUS: return 85;
-				case MINUS_MINUS: return 86;
-				case NOT: return 90;
-				case ID: return 9;
-				case TRUE: return 96;
-				case FALSE: return 97;
-				case CHARACTER: return 98;
-				case STRINGVAL: return 99;
-				case NUMERAL: return 32;
-				case E: return 100;
-				case L: return 80;
-				case R: return 81;
-				case Y: return 82;
-				case F: return 83;
-				case LV: return 84;
-				case ID_N_TERMINAL: return 88;
-				case TRU: return 91;
-				case FAL: return 92;
-				case CHR: return 93;
-				case STR: return 94;
-				case NUM: return 95;
-			}
-			break;
-		case 72: //CHECK STAGE 72
-			switch(input)
-			{
-				case WHILE: return 101;
-			}
-			break;
-		case 73: //CHECK STAGE 73
-			switch(input)
-			{
-				case LEFT_PARENTHESIS: return 87;
-				case MINUS: return 89;
-				case PLUS_PLUS: return 85;
-				case MINUS_MINUS: return 86;
-				case NOT: return 90;
-				case ID: return 9;
-				case TRUE: return 96;
-				case FALSE: return 97;
-				case CHARACTER: return 98;
-				case STRINGVAL: return 99;
-				case NUMERAL: return 32;
-				case E: return 102;
-				case L: return 80;
-				case R: return 81;
-				case Y: return 82;
-				case F: return 83;
-				case LV: return 84;
-				case ID_N_TERMINAL: return 88;
-				case TRU: return 91;
-				case FAL: return 92;
-				case CHR: return 93;
-				case STR: return 94;
-				case NUM: return 95;
-			}
-			break;
 		case 74: //CHECK STAGE 74
 			switch(input)
 			{
-				case ID: return 9;
-				case ID_N_TERMINAL: return 103;
+				case LEFT_PARENTHESIS: return 92;
+				case MINUS: return 94;
+				case PLUS_PLUS: return 90;
+				case MINUS_MINUS: return 91;
+				case NOT: return 95;
+				case ID: return 22;
+				case TRUE: return 101;
+				case FALSE: return 102;
+				case CHARACTER: return 103;
+				case STRINGVAL: return 104;
+				case NUMERAL: return 31;
+				case E: return 84;
+				case L: return 85;
+				case R: return 86;
+				case Y: return 87;
+				case F: return 88;
+				case LV: return 89;
+				case TRU: return 96;
+				case FAL: return 97;
+				case CHR: return 98;
+				case STR: return 99;
+				case NUM: return 100;
+				case IDU: return 93;
 			}
 			break;
 		case 75: //CHECK STAGE 75
 			switch(input)
 			{
-				case LEFT_PARENTHESIS: return 87;
-				case MINUS: return 89;
-				case PLUS_PLUS: return 85;
-				case MINUS_MINUS: return 86;
-				case NOT: return 90;
-				case ID: return 9;
-				case TRUE: return 96;
-				case FALSE: return 97;
-				case CHARACTER: return 98;
-				case STRINGVAL: return 99;
-				case NUMERAL: return 32;
-				case E: return 104;
-				case L: return 80;
-				case R: return 81;
-				case Y: return 82;
-				case F: return 83;
-				case LV: return 84;
-				case ID_N_TERMINAL: return 88;
-				case TRU: return 91;
-				case FAL: return 92;
-				case CHR: return 93;
-				case STR: return 94;
-				case NUM: return 95;
+				case LEFT_PARENTHESIS: return 105;
 			}
 			break;
 		case 76: //CHECK STAGE 76
+			switch(input)
+			{
+				case LEFT_BRACES: return -77;
+				case IF: return 63;
+				case WHILE: return 64;
+				case DO: return 65;
+				case BREAK: return 68;
+				case CONTINUE: return 69;
+				case ID: return 22;
+				case S: return 106;
+				case LV: return 67;
+				case IDU: return 70;
+				case NB: return 66;
+			}
+			break;
+		case 77: //CHECK STAGE 77
+			switch(input)
+			{
+				case LEFT_BRACES: return -30;
+				case RIGHT_BRACES: return -30;
+				case IF: return -30;
+				case ELSE: return -30;
+				case WHILE: return -30;
+				case DO: return -30;
+				case BREAK: return -30;
+				case CONTINUE: return -30;
+				case ID: return -30;
+			}
+			break;
+		case 78: //CHECK STAGE 78
+			switch(input)
+			{
+				case LEFT_PARENTHESIS: return 92;
+				case MINUS: return 94;
+				case PLUS_PLUS: return 90;
+				case MINUS_MINUS: return 91;
+				case NOT: return 95;
+				case ID: return 22;
+				case TRUE: return 101;
+				case FALSE: return 102;
+				case CHARACTER: return 103;
+				case STRINGVAL: return 104;
+				case NUMERAL: return 31;
+				case E: return 107;
+				case L: return 85;
+				case R: return 86;
+				case Y: return 87;
+				case F: return 88;
+				case LV: return 89;
+				case TRU: return 96;
+				case FAL: return 97;
+				case CHR: return 98;
+				case STR: return 99;
+				case NUM: return 100;
+				case IDU: return 93;
+			}
+			break;
+		case 79: //CHECK STAGE 79
+			switch(input)
+			{
+				case ID: return 22;
+				case IDU: return 108;
+			}
+			break;
+		case 80: //CHECK STAGE 80
+			switch(input)
+			{
+				case LEFT_PARENTHESIS: return 92;
+				case MINUS: return 94;
+				case PLUS_PLUS: return 90;
+				case MINUS_MINUS: return 91;
+				case NOT: return 95;
+				case ID: return 22;
+				case TRUE: return 101;
+				case FALSE: return 102;
+				case CHARACTER: return 103;
+				case STRINGVAL: return 104;
+				case NUMERAL: return 31;
+				case E: return 109;
+				case L: return 85;
+				case R: return 86;
+				case Y: return 87;
+				case F: return 88;
+				case LV: return 89;
+				case TRU: return 96;
+				case FAL: return 97;
+				case CHR: return 98;
+				case STR: return 99;
+				case NUM: return 100;
+				case IDU: return 93;
+			}
+			break;
+		case 81: //CHECK STAGE 81
 			switch(input)
 			{
 				case LEFT_BRACES: return -32;
@@ -1298,7 +1388,7 @@ int action(int state, int input)
 				case ID: return -32;
 			}
 			break;
-		case 77: //CHECK STAGE 77
+		case 82: //CHECK STAGE 82
 			switch(input)
 			{
 				case LEFT_BRACES: return -33;
@@ -1312,27 +1402,27 @@ int action(int state, int input)
 				case ID: return -33;
 			}
 			break;
-		case 78: //CHECK STAGE 78
+		case 83: //CHECK STAGE 83
 			switch(input)
 			{
-				case INTEGER: return 18;
-				case CHAR: return 19;
-				case BOOLEAN: return 20;
-				case STRING: return 21;
-				case ID: return 9;
-				case T: return 105;
-				case ID_N_TERMINAL: return 22;
+				case INTEGER: return 17;
+				case CHAR: return 18;
+				case BOOLEAN: return 19;
+				case STRING: return 20;
+				case ID: return 22;
+				case T: return 110;
+				case IDU: return 21;
 			}
 			break;
-		case 79: //CHECK STAGE 79
+		case 84: //CHECK STAGE 84
 			switch(input)
 			{
-				case RIGHT_PARENTHESIS: return 106;
-				case AND: return 107;
-				case OR: return 108;
+				case RIGHT_PARENTHESIS: return 111;
+				case AND: return 112;
+				case OR: return 113;
 			}
 			break;
-		case 80: //CHECK STAGE 80
+		case 85: //CHECK STAGE 85
 			switch(input)
 			{
 				case RIGHT_SQUARE: return -36;
@@ -1341,15 +1431,15 @@ int action(int state, int input)
 				case COMMA: return -36;
 				case AND: return -36;
 				case OR: return -36;
-				case LESS_THAN: return 109;
-				case GREATER_THAN: return 110;
-				case LESS_OR_EQUAL: return 111;
-				case GREATER_OR_EQUAL: return 112;
-				case EQUAL_EQUAL: return 113;
-				case NOT_EQUAL: return 114;
+				case LESS_THAN: return 114;
+				case GREATER_THAN: return 115;
+				case LESS_OR_EQUAL: return 116;
+				case GREATER_OR_EQUAL: return 117;
+				case EQUAL_EQUAL: return 118;
+				case NOT_EQUAL: return 119;
 			}
 			break;
-		case 81: //CHECK STAGE 81
+		case 86: //CHECK STAGE 86
 			switch(input)
 			{
 				case RIGHT_SQUARE: return -43;
@@ -1364,11 +1454,11 @@ int action(int state, int input)
 				case GREATER_OR_EQUAL: return -43;
 				case EQUAL_EQUAL: return -43;
 				case NOT_EQUAL: return -43;
-				case PLUS: return 115;
-				case MINUS: return 116;
+				case PLUS: return 120;
+				case MINUS: return 121;
 			}
 			break;
-		case 82: //CHECK STAGE 82
+		case 87: //CHECK STAGE 87
 			switch(input)
 			{
 				case RIGHT_SQUARE: return -46;
@@ -1385,11 +1475,11 @@ int action(int state, int input)
 				case NOT_EQUAL: return -46;
 				case PLUS: return -46;
 				case MINUS: return -46;
-				case TIMES: return 117;
-				case DIVIDE: return 118;
+				case TIMES: return 122;
+				case DIVIDE: return 123;
 			}
 			break;
-		case 83: //CHECK STAGE 83
+		case 88: //CHECK STAGE 88
 			switch(input)
 			{
 				case RIGHT_SQUARE: return -49;
@@ -1410,10 +1500,10 @@ int action(int state, int input)
 				case DIVIDE: return -49;
 			}
 			break;
-		case 84: //CHECK STAGE 84
+		case 89: //CHECK STAGE 89
 			switch(input)
 			{
-				case LEFT_SQUARE: return 75;
+				case LEFT_SQUARE: return 80;
 				case RIGHT_SQUARE: return -50;
 				case SEMI_COLON: return -50;
 				case RIGHT_PARENTHESIS: return -50;
@@ -1430,62 +1520,62 @@ int action(int state, int input)
 				case MINUS: return -50;
 				case TIMES: return -50;
 				case DIVIDE: return -50;
-				case PLUS_PLUS: return 119;
-				case MINUS_MINUS: return 120;
-				case DOT: return 74;
+				case PLUS_PLUS: return 124;
+				case MINUS_MINUS: return 125;
+				case DOT: return 79;
 			}
 			break;
-		case 85: //CHECK STAGE 85
+		case 90: //CHECK STAGE 90
 			switch(input)
 			{
-				case ID: return 9;
-				case LV: return 121;
-				case ID_N_TERMINAL: return 65;
+				case ID: return 22;
+				case LV: return 126;
+				case IDU: return 70;
 			}
 			break;
-		case 86: //CHECK STAGE 86
+		case 91: //CHECK STAGE 91
 			switch(input)
 			{
-				case ID: return 9;
-				case LV: return 122;
-				case ID_N_TERMINAL: return 65;
+				case ID: return 22;
+				case LV: return 127;
+				case IDU: return 70;
 			}
 			break;
-		case 87: //CHECK STAGE 87
+		case 92: //CHECK STAGE 92
 			switch(input)
 			{
-				case LEFT_PARENTHESIS: return 87;
-				case MINUS: return 89;
-				case PLUS_PLUS: return 85;
-				case MINUS_MINUS: return 86;
-				case NOT: return 90;
-				case ID: return 9;
-				case TRUE: return 96;
-				case FALSE: return 97;
-				case CHARACTER: return 98;
-				case STRINGVAL: return 99;
-				case NUMERAL: return 32;
-				case E: return 123;
-				case L: return 80;
-				case R: return 81;
-				case Y: return 82;
-				case F: return 83;
-				case LV: return 84;
-				case ID_N_TERMINAL: return 88;
-				case TRU: return 91;
-				case FAL: return 92;
-				case CHR: return 93;
-				case STR: return 94;
-				case NUM: return 95;
+				case LEFT_PARENTHESIS: return 92;
+				case MINUS: return 94;
+				case PLUS_PLUS: return 90;
+				case MINUS_MINUS: return 91;
+				case NOT: return 95;
+				case ID: return 22;
+				case TRUE: return 101;
+				case FALSE: return 102;
+				case CHARACTER: return 103;
+				case STRINGVAL: return 104;
+				case NUMERAL: return 31;
+				case E: return 128;
+				case L: return 85;
+				case R: return 86;
+				case Y: return 87;
+				case F: return 88;
+				case LV: return 89;
+				case TRU: return 96;
+				case FAL: return 97;
+				case CHR: return 98;
+				case STR: return 99;
+				case NUM: return 100;
+				case IDU: return 93;
 			}
 			break;
-		case 88: //CHECK STAGE 88
+		case 93: //CHECK STAGE 93
 			switch(input)
 			{
 				case LEFT_SQUARE: return -68;
 				case RIGHT_SQUARE: return -68;
 				case SEMI_COLON: return -68;
-				case LEFT_PARENTHESIS: return 124;
+				case LEFT_PARENTHESIS: return -79;
 				case RIGHT_PARENTHESIS: return -68;
 				case COMMA: return -68;
 				case AND: return -68;
@@ -1503,57 +1593,58 @@ int action(int state, int input)
 				case PLUS_PLUS: return -68;
 				case MINUS_MINUS: return -68;
 				case DOT: return -68;
+				case MC: return 129;
 			}
 			break;
-		case 89: //CHECK STAGE 89
+		case 94: //CHECK STAGE 94
 			switch(input)
 			{
-				case LEFT_PARENTHESIS: return 87;
-				case MINUS: return 89;
-				case PLUS_PLUS: return 85;
-				case MINUS_MINUS: return 86;
-				case NOT: return 90;
-				case ID: return 9;
-				case TRUE: return 96;
-				case FALSE: return 97;
-				case CHARACTER: return 98;
-				case STRINGVAL: return 99;
-				case NUMERAL: return 32;
-				case F: return 125;
-				case LV: return 84;
-				case ID_N_TERMINAL: return 88;
-				case TRU: return 91;
-				case FAL: return 92;
-				case CHR: return 93;
-				case STR: return 94;
-				case NUM: return 95;
+				case LEFT_PARENTHESIS: return 92;
+				case MINUS: return 94;
+				case PLUS_PLUS: return 90;
+				case MINUS_MINUS: return 91;
+				case NOT: return 95;
+				case ID: return 22;
+				case TRUE: return 101;
+				case FALSE: return 102;
+				case CHARACTER: return 103;
+				case STRINGVAL: return 104;
+				case NUMERAL: return 31;
+				case F: return 130;
+				case LV: return 89;
+				case TRU: return 96;
+				case FAL: return 97;
+				case CHR: return 98;
+				case STR: return 99;
+				case NUM: return 100;
+				case IDU: return 93;
 			}
 			break;
-		case 90: //CHECK STAGE 90
+		case 95: //CHECK STAGE 95
 			switch(input)
 			{
-				case LEFT_PARENTHESIS: return 87;
-				case MINUS: return 89;
-				case PLUS_PLUS: return 85;
-				case MINUS_MINUS: return 86;
-				case NOT: return 90;
-				case ID: return 9;
-				case TRUE: return 96;
-				case FALSE: return 97;
-				case CHARACTER: return 98;
-				case STRINGVAL: return 99;
-				case NUMERAL: return 32;
-				case F: return 126;
-				case LV: return 84;
-				case ID_N_TERMINAL: return 88;
-				case TRU: return 91;
-				case FAL: return 92;
-				case CHR: return 93;
-				case STR: return 94;
-				case NUM: return 95;
+				case LEFT_PARENTHESIS: return 92;
+				case MINUS: return 94;
+				case PLUS_PLUS: return 90;
+				case MINUS_MINUS: return 91;
+				case NOT: return 95;
+				case ID: return 22;
+				case TRUE: return 101;
+				case FALSE: return 102;
+				case CHARACTER: return 103;
+				case STRINGVAL: return 104;
+				case NUMERAL: return 31;
+				case F: return 131;
+				case LV: return 89;
+				case TRU: return 96;
+				case FAL: return 97;
+				case CHR: return 98;
+				case STR: return 99;
+				case NUM: return 100;
+				case IDU: return 93;
 			}
 			break;
-		case 91: //CHECK STAGE 91
+		case 96: //CHECK STAGE 96
 			switch(input)
 			{
 				case RIGHT_SQUARE: return -59;
@@ -1574,7 +1665,7 @@ int action(int state, int input)
 				case DIVIDE: return -59;
 			}
 			break;
-		case 92: //CHECK STAGE 92
+		case 97: //CHECK STAGE 97
 			switch(input)
 			{
 				case RIGHT_SQUARE: return -60;
@@ -1595,7 +1686,7 @@ int action(int state, int input)
 				case DIVIDE: return -60;
 			}
 			break;
-		case 93: //CHECK STAGE 93
+		case 98: //CHECK STAGE 98
 			switch(input)
 			{
 				case RIGHT_SQUARE: return -61;
@@ -1616,7 +1707,7 @@ int action(int state, int input)
 				case DIVIDE: return -61;
 			}
 			break;
-		case 94: //CHECK STAGE 94
+		case 99: //CHECK STAGE 99
 			switch(input)
 			{
 				case RIGHT_SQUARE: return -62;
@@ -1637,7 +1728,7 @@ int action(int state, int input)
 				case DIVIDE: return -62;
 			}
 			break;
-		case 95: //CHECK STAGE 95
+		case 100: //CHECK STAGE 100
 			switch(input)
 			{
 				case RIGHT_SQUARE: return -63;
@@ -1658,7 +1749,7 @@ int action(int state, int input)
 				case DIVIDE: return -63;
 			}
 			break;
-		case 96: //CHECK STAGE 96
+		case 101: //CHECK STAGE 101
 			switch(input)
 			{
 				case RIGHT_SQUARE: return -70;
@@ -1679,7 +1770,7 @@ int action(int state, int input)
 				case DIVIDE: return -70;
 			}
 			break;
-		case 97: //CHECK STAGE 97
+		case 102: //CHECK STAGE 102
 			switch(input)
 			{
 				case RIGHT_SQUARE: return -71;
@@ -1700,7 +1791,7 @@ int action(int state, int input)
 				case DIVIDE: return -71;
 			}
 			break;
-		case 98: //CHECK STAGE 98
+		case 103: //CHECK STAGE 103
 			switch(input)
 			{
 				case RIGHT_SQUARE: return -72;
@@ -1721,7 +1812,7 @@ int action(int state, int input)
 				case DIVIDE: return -72;
 			}
 			break;
-		case 99: //CHECK STAGE 99
+		case 104: //CHECK STAGE 104
 			switch(input)
 			{
 				case RIGHT_SQUARE: return -73;
@@ -1742,29 +1833,49 @@ int action(int state, int input)
 				case DIVIDE: return -73;
 			}
 			break;
-		case 100: //CHECK STAGE 100
+		case 105: //CHECK STAGE 105
 			switch(input)
 			{
-				case RIGHT_PARENTHESIS: return 127;
-				case AND: return 107;
-				case OR: return 108;
+				case LEFT_PARENTHESIS: return 92;
+				case MINUS: return 94;
+				case PLUS_PLUS: return 90;
+				case MINUS_MINUS: return 91;
+				case NOT: return 95;
+				case ID: return 22;
+				case TRUE: return 101;
+				case FALSE: return 102;
+				case CHARACTER: return 103;
+				case STRINGVAL: return 104;
+				case NUMERAL: return 31;
+				case E: return 132;
+				case L: return 85;
+				case R: return 86;
+				case Y: return 87;
+				case F: return 88;
+				case LV: return 89;
+				case TRU: return 96;
+				case FAL: return 97;
+				case CHR: return 98;
+				case STR: return 99;
+				case NUM: return 100;
+				case IDU: return 93;
 			}
 			break;
-		case 101: //CHECK STAGE 101
+		case 106: //CHECK STAGE 106
 			switch(input)
 			{
-				case LEFT_PARENTHESIS: return 128;
+				case WHILE: return 133;
 			}
 			break;
-		case 102: //CHECK STAGE 102
+		case 107: //CHECK STAGE 107
 			switch(input)
 			{
-				case SEMI_COLON: return 129;
-				case AND: return 107;
-				case OR: return 108;
+				case SEMI_COLON: return 134;
+				case AND: return 112;
+				case OR: return 113;
 			}
 			break;
-		case 103: //CHECK STAGE 103
+		case 108: //CHECK STAGE 108
 			switch(input)
 			{
 				case EQUALS: return -66;
@@ -1790,345 +1901,344 @@ int action(int state, int input)
 				case DOT: return -66;
 			}
 			break;
-		case 104: //CHECK STAGE 104
-			switch(input)
-			{
-				case RIGHT_SQUARE: return 130;
-				case AND: return 107;
-				case OR: return 108;
-			}
-			break;
-		case 105: //CHECK STAGE 105
-			switch(input)
-			{
-				case SEMI_COLON: return 131;
-			}
-			break;
-		case 106: //CHECK STAGE 106
-			switch(input)
-			{
-				case LEFT_BRACES: return 44;
-				case IF: return 58;
-				case WHILE: return 59;
-				case DO: return 60;
-				case BREAK: return 63;
-				case CONTINUE: return 64;
-				case ID: return 9;
-				case B: return 61;
-				case S: return 132;
-				case LV: return 62;
-				case ID_N_TERMINAL: return 65;
-			}
-			break;
-		case 107: //CHECK STAGE 107
-			switch(input)
-			{
-				case LEFT_PARENTHESIS: return 87;
-				case MINUS: return 89;
-				case PLUS_PLUS: return 85;
-				case MINUS_MINUS: return 86;
-				case NOT: return 90;
-				case ID: return 9;
-				case TRUE: return 96;
-				case FALSE: return 97;
-				case CHARACTER: return 98;
-				case STRINGVAL: return 99;
-				case NUMERAL: return 32;
-				case L: return 133;
-				case R: return 81;
-				case Y: return 82;
-				case F: return 83;
-				case LV: return 84;
-				case ID_N_TERMINAL: return 88;
-				case TRU: return 91;
-				case FAL: return 92;
-				case CHR: return 93;
-				case STR: return 94;
-				case NUM: return 95;
-			}
-			break;
-		case 108: //CHECK STAGE 108
-			switch(input)
-			{
-				case LEFT_PARENTHESIS: return 87;
-				case MINUS: return 89;
-				case PLUS_PLUS: return 85;
-				case MINUS_MINUS: return 86;
-				case NOT: return 90;
-				case ID: return 9;
-				case TRUE: return 96;
-				case FALSE: return 97;
-				case CHARACTER: return 98;
-				case STRINGVAL: return 99;
-				case NUMERAL: return 32;
-				case L: return 134;
-				case R: return 81;
-				case Y: return 82;
-				case F: return 83;
-				case LV: return 84;
-				case ID_N_TERMINAL: return 88;
-				case TRU: return 91;
-				case FAL: return 92;
-				case CHR: return 93;
-				case STR: return 94;
-				case NUM: return 95;
-			}
-			break;
 		case 109: //CHECK STAGE 109
 			switch(input)
 			{
-				case LEFT_PARENTHESIS: return 87;
-				case MINUS: return 89;
-				case PLUS_PLUS: return 85;
-				case MINUS_MINUS: return 86;
-				case NOT: return 90;
-				case ID: return 9;
-				case TRUE: return 96;
-				case FALSE: return 97;
-				case CHARACTER: return 98;
-				case STRINGVAL: return 99;
-				case NUMERAL: return 32;
-				case R: return 135;
-				case Y: return 82;
-				case F: return 83;
-				case LV: return 84;
-				case ID_N_TERMINAL: return 88;
-				case TRU: return 91;
-				case FAL: return 92;
-				case CHR: return 93;
-				case STR: return 94;
-				case NUM: return 95;
+				case RIGHT_SQUARE: return 135;
+				case AND: return 112;
+				case OR: return 113;
 			}
 			break;
 		case 110: //CHECK STAGE 110
 			switch(input)
 			{
-				case LEFT_PARENTHESIS: return 87;
-				case MINUS: return 89;
-				case PLUS_PLUS: return 85;
-				case MINUS_MINUS: return 86;
-				case NOT: return 90;
-				case ID: return 9;
-				case TRUE: return 96;
-				case FALSE: return 97;
-				case CHARACTER: return 98;
-				case STRINGVAL: return 99;
-				case NUMERAL: return 32;
-				case R: return 136;
-				case Y: return 82;
-				case F: return 83;
-				case LV: return 84;
-				case ID_N_TERMINAL: return 88;
-				case TRU: return 91;
-				case FAL: return 92;
-				case CHR: return 93;
-				case STR: return 94;
-				case NUM: return 95;
+				case SEMI_COLON: return 136;
 			}
 			break;
 		case 111: //CHECK STAGE 111
 			switch(input)
 			{
-				case LEFT_PARENTHESIS: return 87;
-				case MINUS: return 89;
-				case PLUS_PLUS: return 85;
-				case MINUS_MINUS: return 86;
-				case NOT: return 90;
-				case ID: return 9;
-				case TRUE: return 96;
-				case FALSE: return 97;
-				case CHARACTER: return 98;
-				case STRINGVAL: return 99;
-				case NUMERAL: return 32;
-				case R: return 137;
-				case Y: return 82;
-				case F: return 83;
-				case LV: return 84;
-				case ID_N_TERMINAL: return 88;
-				case TRU: return 91;
-				case FAL: return 92;
-				case CHR: return 93;
-				case STR: return 94;
-				case NUM: return 95;
+				case LEFT_BRACES: return -81;
+				case RIGHT_BRACES: return -81;
+				case IF: return -81;
+				case ELSE: return -81;
+				case WHILE: return -81;
+				case DO: return -81;
+				case BREAK: return -81;
+				case CONTINUE: return -81;
+				case ID: return -81;
+				case MT: return 137;
 			}
 			break;
 		case 112: //CHECK STAGE 112
 			switch(input)
 			{
-				case LEFT_PARENTHESIS: return 87;
-				case MINUS: return 89;
-				case PLUS_PLUS: return 85;
-				case MINUS_MINUS: return 86;
-				case NOT: return 90;
-				case ID: return 9;
-				case TRUE: return 96;
-				case FALSE: return 97;
-				case CHARACTER: return 98;
-				case STRINGVAL: return 99;
-				case NUMERAL: return 32;
-				case R: return 138;
-				case Y: return 82;
-				case F: return 83;
-				case LV: return 84;
-				case ID_N_TERMINAL: return 88;
-				case TRU: return 91;
-				case FAL: return 92;
-				case CHR: return 93;
-				case STR: return 94;
-				case NUM: return 95;
+				case LEFT_PARENTHESIS: return 92;
+				case MINUS: return 94;
+				case PLUS_PLUS: return 90;
+				case MINUS_MINUS: return 91;
+				case NOT: return 95;
+				case ID: return 22;
+				case TRUE: return 101;
+				case FALSE: return 102;
+				case CHARACTER: return 103;
+				case STRINGVAL: return 104;
+				case NUMERAL: return 31;
+				case L: return 138;
+				case R: return 86;
+				case Y: return 87;
+				case F: return 88;
+				case LV: return 89;
+				case TRU: return 96;
+				case FAL: return 97;
+				case CHR: return 98;
+				case STR: return 99;
+				case NUM: return 100;
+				case IDU: return 93;
 			}
 			break;
 		case 113: //CHECK STAGE 113
 			switch(input)
 			{
-				case LEFT_PARENTHESIS: return 87;
-				case MINUS: return 89;
-				case PLUS_PLUS: return 85;
-				case MINUS_MINUS: return 86;
-				case NOT: return 90;
-				case ID: return 9;
-				case TRUE: return 96;
-				case FALSE: return 97;
-				case CHARACTER: return 98;
-				case STRINGVAL: return 99;
-				case NUMERAL: return 32;
-				case R: return 139;
-				case Y: return 82;
-				case F: return 83;
-				case LV: return 84;
-				case ID_N_TERMINAL: return 88;
-				case TRU: return 91;
-				case FAL: return 92;
-				case CHR: return 93;
-				case STR: return 94;
-				case NUM: return 95;
+				case LEFT_PARENTHESIS: return 92;
+				case MINUS: return 94;
+				case PLUS_PLUS: return 90;
+				case MINUS_MINUS: return 91;
+				case NOT: return 95;
+				case ID: return 22;
+				case TRUE: return 101;
+				case FALSE: return 102;
+				case CHARACTER: return 103;
+				case STRINGVAL: return 104;
+				case NUMERAL: return 31;
+				case L: return 139;
+				case R: return 86;
+				case Y: return 87;
+				case F: return 88;
+				case LV: return 89;
+				case TRU: return 96;
+				case FAL: return 97;
+				case CHR: return 98;
+				case STR: return 99;
+				case NUM: return 100;
+				case IDU: return 93;
 			}
 			break;
 		case 114: //CHECK STAGE 114
 			switch(input)
 			{
-				case LEFT_PARENTHESIS: return 87;
-				case MINUS: return 89;
-				case PLUS_PLUS: return 85;
-				case MINUS_MINUS: return 86;
-				case NOT: return 90;
-				case ID: return 9;
-				case TRUE: return 96;
-				case FALSE: return 97;
-				case CHARACTER: return 98;
-				case STRINGVAL: return 99;
-				case NUMERAL: return 32;
+				case LEFT_PARENTHESIS: return 92;
+				case MINUS: return 94;
+				case PLUS_PLUS: return 90;
+				case MINUS_MINUS: return 91;
+				case NOT: return 95;
+				case ID: return 22;
+				case TRUE: return 101;
+				case FALSE: return 102;
+				case CHARACTER: return 103;
+				case STRINGVAL: return 104;
+				case NUMERAL: return 31;
 				case R: return 140;
-				case Y: return 82;
-				case F: return 83;
-				case LV: return 84;
-				case ID_N_TERMINAL: return 88;
-				case TRU: return 91;
-				case FAL: return 92;
-				case CHR: return 93;
-				case STR: return 94;
-				case NUM: return 95;
+				case Y: return 87;
+				case F: return 88;
+				case LV: return 89;
+				case TRU: return 96;
+				case FAL: return 97;
+				case CHR: return 98;
+				case STR: return 99;
+				case NUM: return 100;
+				case IDU: return 93;
 			}
 			break;
 		case 115: //CHECK STAGE 115
 			switch(input)
 			{
-				case LEFT_PARENTHESIS: return 87;
-				case MINUS: return 89;
-				case PLUS_PLUS: return 85;
-				case MINUS_MINUS: return 86;
-				case NOT: return 90;
-				case ID: return 9;
-				case TRUE: return 96;
-				case FALSE: return 97;
-				case CHARACTER: return 98;
-				case STRINGVAL: return 99;
-				case NUMERAL: return 32;
-				case Y: return 141;
-				case F: return 83;
-				case LV: return 84;
-				case ID_N_TERMINAL: return 88;
-				case TRU: return 91;
-				case FAL: return 92;
-				case CHR: return 93;
-				case STR: return 94;
-				case NUM: return 95;
+				case LEFT_PARENTHESIS: return 92;
+				case MINUS: return 94;
+				case PLUS_PLUS: return 90;
+				case MINUS_MINUS: return 91;
+				case NOT: return 95;
+				case ID: return 22;
+				case TRUE: return 101;
+				case FALSE: return 102;
+				case CHARACTER: return 103;
+				case STRINGVAL: return 104;
+				case NUMERAL: return 31;
+				case R: return 141;
+				case Y: return 87;
+				case F: return 88;
+				case LV: return 89;
+				case TRU: return 96;
+				case FAL: return 97;
+				case CHR: return 98;
+				case STR: return 99;
+				case NUM: return 100;
+				case IDU: return 93;
 			}
 			break;
 		case 116: //CHECK STAGE 116
 			switch(input)
 			{
-				case LEFT_PARENTHESIS: return 87;
-				case MINUS: return 89;
-				case PLUS_PLUS: return 85;
-				case MINUS_MINUS: return 86;
-				case NOT: return 90;
-				case ID: return 9;
-				case TRUE: return 96;
-				case FALSE: return 97;
-				case CHARACTER: return 98;
-				case STRINGVAL: return 99;
-				case NUMERAL: return 32;
-				case Y: return 142;
-				case F: return 83;
-				case LV: return 84;
-				case ID_N_TERMINAL: return 88;
-				case TRU: return 91;
-				case FAL: return 92;
-				case CHR: return 93;
-				case STR: return 94;
-				case NUM: return 95;
+				case LEFT_PARENTHESIS: return 92;
+				case MINUS: return 94;
+				case PLUS_PLUS: return 90;
+				case MINUS_MINUS: return 91;
+				case NOT: return 95;
+				case ID: return 22;
+				case TRUE: return 101;
+				case FALSE: return 102;
+				case CHARACTER: return 103;
+				case STRINGVAL: return 104;
+				case NUMERAL: return 31;
+				case R: return 142;
+				case Y: return 87;
+				case F: return 88;
+				case LV: return 89;
+				case TRU: return 96;
+				case FAL: return 97;
+				case CHR: return 98;
+				case STR: return 99;
+				case NUM: return 100;
+				case IDU: return 93;
 			}
 			break;
 		case 117: //CHECK STAGE 117
 			switch(input)
 			{
-				case LEFT_PARENTHESIS: return 87;
-				case MINUS: return 89;
-				case PLUS_PLUS: return 85;
-				case MINUS_MINUS: return 86;
-				case NOT: return 90;
-				case ID: return 9;
-				case TRUE: return 96;
-				case FALSE: return 97;
-				case CHARACTER: return 98;
-				case STRINGVAL: return 99;
-				case NUMERAL: return 32;
-				case F: return 143;
-				case LV: return 84;
-				case ID_N_TERMINAL: return 88;
-				case TRU: return 91;
-				case FAL: return 92;
-				case CHR: return 93;
-				case STR: return 94;
-				case NUM: return 95;
+				case LEFT_PARENTHESIS: return 92;
+				case MINUS: return 94;
+				case PLUS_PLUS: return 90;
+				case MINUS_MINUS: return 91;
+				case NOT: return 95;
+				case ID: return 22;
+				case TRUE: return 101;
+				case FALSE: return 102;
+				case CHARACTER: return 103;
+				case STRINGVAL: return 104;
+				case NUMERAL: return 31;
+				case R: return 143;
+				case Y: return 87;
+				case F: return 88;
+				case LV: return 89;
+				case TRU: return 96;
+				case FAL: return 97;
+				case CHR: return 98;
+				case STR: return 99;
+				case NUM: return 100;
+				case IDU: return 93;
 			}
 			break;
 		case 118: //CHECK STAGE 118
 			switch(input)
 			{
-				case LEFT_PARENTHESIS: return 87;
-				case MINUS: return 89;
-				case PLUS_PLUS: return 85;
-				case MINUS_MINUS: return 86;
-				case NOT: return 90;
-				case ID: return 9;
-				case TRUE: return 96;
-				case FALSE: return 97;
-				case CHARACTER: return 98;
-				case STRINGVAL: return 99;
-				case NUMERAL: return 32;
-				case F: return 144;
-				case LV: return 84;
-				case ID_N_TERMINAL: return 88;
-				case TRU: return 91;
-				case FAL: return 92;
-				case CHR: return 93;
-				case STR: return 94;
-				case NUM: return 95;
+				case LEFT_PARENTHESIS: return 92;
+				case MINUS: return 94;
+				case PLUS_PLUS: return 90;
+				case MINUS_MINUS: return 91;
+				case NOT: return 95;
+				case ID: return 22;
+				case TRUE: return 101;
+				case FALSE: return 102;
+				case CHARACTER: return 103;
+				case STRINGVAL: return 104;
+				case NUMERAL: return 31;
+				case R: return 144;
+				case Y: return 87;
+				case F: return 88;
+				case LV: return 89;
+				case TRU: return 96;
+				case FAL: return 97;
+				case CHR: return 98;
+				case STR: return 99;
+				case NUM: return 100;
+				case IDU: return 93;
 			}
 			break;
 		case 119: //CHECK STAGE 119
+			switch(input)
+			{
+				case LEFT_PARENTHESIS: return 92;
+				case MINUS: return 94;
+				case PLUS_PLUS: return 90;
+				case MINUS_MINUS: return 91;
+				case NOT: return 95;
+				case ID: return 22;
+				case TRUE: return 101;
+				case FALSE: return 102;
+				case CHARACTER: return 103;
+				case STRINGVAL: return 104;
+				case NUMERAL: return 31;
+				case R: return 145;
+				case Y: return 87;
+				case F: return 88;
+				case LV: return 89;
+				case TRU: return 96;
+				case FAL: return 97;
+				case CHR: return 98;
+				case STR: return 99;
+				case NUM: return 100;
+				case IDU: return 93;
+			}
+			break;
+		case 120: //CHECK STAGE 120
+			switch(input)
+			{
+				case LEFT_PARENTHESIS: return 92;
+				case MINUS: return 94;
+				case PLUS_PLUS: return 90;
+				case MINUS_MINUS: return 91;
+				case NOT: return 95;
+				case ID: return 22;
+				case TRUE: return 101;
+				case FALSE: return 102;
+				case CHARACTER: return 103;
+				case STRINGVAL: return 104;
+				case NUMERAL: return 31;
+				case Y: return 146;
+				case F: return 88;
+				case LV: return 89;
+				case TRU: return 96;
+				case FAL: return 97;
+				case CHR: return 98;
+				case STR: return 99;
+				case NUM: return 100;
+				case IDU: return 93;
+			}
+			break;
+		case 121: //CHECK STAGE 121
+			switch(input)
+			{
+				case LEFT_PARENTHESIS: return 92;
+				case MINUS: return 94;
+				case PLUS_PLUS: return 90;
+				case MINUS_MINUS: return 91;
+				case NOT: return 95;
+				case ID: return 22;
+				case TRUE: return 101;
+				case FALSE: return 102;
+				case CHARACTER: return 103;
+				case STRINGVAL: return 104;
+				case NUMERAL: return 31;
+				case Y: return 147;
+				case F: return 88;
+				case LV: return 89;
+				case TRU: return 96;
+				case FAL: return 97;
+				case CHR: return 98;
+				case STR: return 99;
+				case NUM: return 100;
+				case IDU: return 93;
+			}
+			break;
+		case 122: //CHECK STAGE 122
+			switch(input)
+			{
+				case LEFT_PARENTHESIS: return 92;
+				case MINUS: return 94;
+				case PLUS_PLUS: return 90;
+				case MINUS_MINUS: return 91;
+				case NOT: return 95;
+				case ID: return 22;
+				case TRUE: return 101;
+				case FALSE: return 102;
+				case CHARACTER: return 103;
+				case STRINGVAL: return 104;
+				case NUMERAL: return 31;
+				case F: return 148;
+				case LV: return 89;
+				case TRU: return 96;
+				case FAL: return 97;
+				case CHR: return 98;
+				case STR: return 99;
+				case NUM: return 100;
+				case IDU: return 93;
+			}
+			break;
+		case 123: //CHECK STAGE 123
+			switch(input)
+			{
+				case LEFT_PARENTHESIS: return 92;
+				case MINUS: return 94;
+				case PLUS_PLUS: return 90;
+				case MINUS_MINUS: return 91;
+				case NOT: return 95;
+				case ID: return 22;
+				case TRUE: return 101;
+				case FALSE: return 102;
+				case CHARACTER: return 103;
+				case STRINGVAL: return 104;
+				case NUMERAL: return 31;
+				case F: return 149;
+				case LV: return 89;
+				case TRU: return 96;
+				case FAL: return 97;
+				case CHR: return 98;
+				case STR: return 99;
+				case NUM: return 100;
+				case IDU: return 93;
+			}
+			break;
+		case 124: //CHECK STAGE 124
 			switch(input)
 			{
 				case RIGHT_SQUARE: return -53;
@@ -2149,7 +2259,7 @@ int action(int state, int input)
 				case DIVIDE: return -53;
 			}
 			break;
-		case 120: //CHECK STAGE 120
+		case 125: //CHECK STAGE 125
 			switch(input)
 			{
 				case RIGHT_SQUARE: return -54;
@@ -2170,10 +2280,10 @@ int action(int state, int input)
 				case DIVIDE: return -54;
 			}
 			break;
-		case 121: //CHECK STAGE 121
+		case 126: //CHECK STAGE 126
 			switch(input)
 			{
-				case LEFT_SQUARE: return 75;
+				case LEFT_SQUARE: return 80;
 				case RIGHT_SQUARE: return -51;
 				case SEMI_COLON: return -51;
 				case RIGHT_PARENTHESIS: return -51;
@@ -2190,13 +2300,13 @@ int action(int state, int input)
 				case MINUS: return -51;
 				case TIMES: return -51;
 				case DIVIDE: return -51;
-				case DOT: return 74;
+				case DOT: return 79;
 			}
 			break;
-		case 122: //CHECK STAGE 122
+		case 127: //CHECK STAGE 127
 			switch(input)
 			{
-				case LEFT_SQUARE: return 75;
+				case LEFT_SQUARE: return 80;
 				case RIGHT_SQUARE: return -52;
 				case SEMI_COLON: return -52;
 				case RIGHT_PARENTHESIS: return -52;
@@ -2213,47 +2323,24 @@ int action(int state, int input)
 				case MINUS: return -52;
 				case TIMES: return -52;
 				case DIVIDE: return -52;
-				case DOT: return 74;
+				case DOT: return 79;
 			}
 			break;
-		case 123: //CHECK STAGE 123
+		case 128: //CHECK STAGE 128
 			switch(input)
 			{
-				case RIGHT_PARENTHESIS: return 145;
-				case AND: return 107;
-				case OR: return 108;
+				case RIGHT_PARENTHESIS: return 150;
+				case AND: return 112;
+				case OR: return 113;
 			}
 			break;
-		case 124: //CHECK STAGE 124
+		case 129: //CHECK STAGE 129
 			switch(input)
 			{
-				case LEFT_PARENTHESIS: return 87;
-				case MINUS: return 89;
-				case PLUS_PLUS: return 85;
-				case MINUS_MINUS: return 86;
-				case NOT: return 90;
-				case ID: return 9;
-				case TRUE: return 96;
-				case FALSE: return 97;
-				case CHARACTER: return 98;
-				case STRINGVAL: return 99;
-				case NUMERAL: return 32;
-				case E: return 147;
-				case L: return 80;
-				case R: return 81;
-				case Y: return 82;
-				case F: return 83;
-				case LE: return 146;
-				case LV: return 84;
-				case ID_N_TERMINAL: return 88;
-				case TRU: return 91;
-				case FAL: return 92;
-				case CHR: return 93;
-				case STR: return 94;
-				case NUM: return 95;
+				case LEFT_PARENTHESIS: return 151;
 			}
 			break;
-		case 125: //CHECK STAGE 125
+		case 130: //CHECK STAGE 130
 			switch(input)
 			{
 				case RIGHT_SQUARE: return -57;
@@ -2274,7 +2361,7 @@ int action(int state, int input)
 				case DIVIDE: return -57;
 			}
 			break;
-		case 126: //CHECK STAGE 126
+		case 131: //CHECK STAGE 131
 			switch(input)
 			{
 				case RIGHT_SQUARE: return -58;
@@ -2295,51 +2382,21 @@ int action(int state, int input)
 				case DIVIDE: return -58;
 			}
 			break;
-		case 127: //CHECK STAGE 127
+		case 132: //CHECK STAGE 132
 			switch(input)
 			{
-				case LEFT_BRACES: return 44;
-				case IF: return 58;
-				case WHILE: return 59;
-				case DO: return 60;
-				case BREAK: return 63;
-				case CONTINUE: return 64;
-				case ID: return 9;
-				case B: return 61;
-				case S: return 148;
-				case LV: return 62;
-				case ID_N_TERMINAL: return 65;
+				case RIGHT_PARENTHESIS: return 152;
+				case AND: return 112;
+				case OR: return 113;
 			}
 			break;
-		case 128: //CHECK STAGE 128
+		case 133: //CHECK STAGE 133
 			switch(input)
 			{
-				case LEFT_PARENTHESIS: return 87;
-				case MINUS: return 89;
-				case PLUS_PLUS: return 85;
-				case MINUS_MINUS: return 86;
-				case NOT: return 90;
-				case ID: return 9;
-				case TRUE: return 96;
-				case FALSE: return 97;
-				case CHARACTER: return 98;
-				case STRINGVAL: return 99;
-				case NUMERAL: return 32;
-				case E: return 149;
-				case L: return 80;
-				case R: return 81;
-				case Y: return 82;
-				case F: return 83;
-				case LV: return 84;
-				case ID_N_TERMINAL: return 88;
-				case TRU: return 91;
-				case FAL: return 92;
-				case CHR: return 93;
-				case STR: return 94;
-				case NUM: return 95;
+				case LEFT_PARENTHESIS: return 153;
 			}
 			break;
-		case 129: //CHECK STAGE 129
+		case 134: //CHECK STAGE 134
 			switch(input)
 			{
 				case LEFT_BRACES: return -31;
@@ -2353,7 +2410,7 @@ int action(int state, int input)
 				case ID: return -31;
 			}
 			break;
-		case 130: //CHECK STAGE 130
+		case 135: //CHECK STAGE 135
 			switch(input)
 			{
 				case EQUALS: return -67;
@@ -2379,34 +2436,41 @@ int action(int state, int input)
 				case DOT: return -67;
 			}
 			break;
-		case 131: //CHECK STAGE 131
+		case 136: //CHECK STAGE 136
 			switch(input)
 			{
+				case TYPE: return -23;
 				case LEFT_BRACES: return -23;
+				case RIGHT_BRACES: return -23;
+				case FUNCTION: return -23;
 				case VAR: return -23;
 				case IF: return -23;
+				case ELSE: return -23;
 				case WHILE: return -23;
 				case DO: return -23;
 				case BREAK: return -23;
 				case CONTINUE: return -23;
 				case ID: return -23;
+				case $: return -23;
 			}
 			break;
-		case 132: //CHECK STAGE 132
+		case 137: //CHECK STAGE 137
 			switch(input)
 			{
-				case LEFT_BRACES: return -26;
-				case RIGHT_BRACES: return -26;
-				case IF: return -26;
-				case ELSE: return -26;
-				case WHILE: return -26;
-				case DO: return -26;
-				case BREAK: return -26;
-				case CONTINUE: return -26;
-				case ID: return -26;
+				case LEFT_BRACES: return -77;
+				case IF: return 63;
+				case WHILE: return 64;
+				case DO: return 65;
+				case BREAK: return 68;
+				case CONTINUE: return 69;
+				case ID: return 22;
+				case S: return 154;
+				case LV: return 67;
+				case IDU: return 70;
+				case NB: return 66;
 			}
 			break;
-		case 133: //CHECK STAGE 133
+		case 138: //CHECK STAGE 138
 			switch(input)
 			{
 				case RIGHT_SQUARE: return -34;
@@ -2415,15 +2479,15 @@ int action(int state, int input)
 				case COMMA: return -34;
 				case AND: return -34;
 				case OR: return -34;
-				case LESS_THAN: return 109;
-				case GREATER_THAN: return 110;
-				case LESS_OR_EQUAL: return 111;
-				case GREATER_OR_EQUAL: return 112;
-				case EQUAL_EQUAL: return 113;
-				case NOT_EQUAL: return 114;
+				case LESS_THAN: return 114;
+				case GREATER_THAN: return 115;
+				case LESS_OR_EQUAL: return 116;
+				case GREATER_OR_EQUAL: return 117;
+				case EQUAL_EQUAL: return 118;
+				case NOT_EQUAL: return 119;
 			}
 			break;
-		case 134: //CHECK STAGE 134
+		case 139: //CHECK STAGE 139
 			switch(input)
 			{
 				case RIGHT_SQUARE: return -35;
@@ -2432,15 +2496,15 @@ int action(int state, int input)
 				case COMMA: return -35;
 				case AND: return -35;
 				case OR: return -35;
-				case LESS_THAN: return 109;
-				case GREATER_THAN: return 110;
-				case LESS_OR_EQUAL: return 111;
-				case GREATER_OR_EQUAL: return 112;
-				case EQUAL_EQUAL: return 113;
-				case NOT_EQUAL: return 114;
+				case LESS_THAN: return 114;
+				case GREATER_THAN: return 115;
+				case LESS_OR_EQUAL: return 116;
+				case GREATER_OR_EQUAL: return 117;
+				case EQUAL_EQUAL: return 118;
+				case NOT_EQUAL: return 119;
 			}
 			break;
-		case 135: //CHECK STAGE 135
+		case 140: //CHECK STAGE 140
 			switch(input)
 			{
 				case RIGHT_SQUARE: return -37;
@@ -2455,11 +2519,11 @@ int action(int state, int input)
 				case GREATER_OR_EQUAL: return -37;
 				case EQUAL_EQUAL: return -37;
 				case NOT_EQUAL: return -37;
-				case PLUS: return 115;
-				case MINUS: return 116;
+				case PLUS: return 120;
+				case MINUS: return 121;
 			}
 			break;
-		case 136: //CHECK STAGE 136
+		case 141: //CHECK STAGE 141
 			switch(input)
 			{
 				case RIGHT_SQUARE: return -38;
@@ -2474,11 +2538,11 @@ int action(int state, int input)
 				case GREATER_OR_EQUAL: return -38;
 				case EQUAL_EQUAL: return -38;
 				case NOT_EQUAL: return -38;
-				case PLUS: return 115;
-				case MINUS: return 116;
+				case PLUS: return 120;
+				case MINUS: return 121;
 			}
 			break;
-		case 137: //CHECK STAGE 137
+		case 142: //CHECK STAGE 142
 			switch(input)
 			{
 				case RIGHT_SQUARE: return -39;
@@ -2493,11 +2557,11 @@ int action(int state, int input)
 				case GREATER_OR_EQUAL: return -39;
 				case EQUAL_EQUAL: return -39;
 				case NOT_EQUAL: return -39;
-				case PLUS: return 115;
-				case MINUS: return 116;
+				case PLUS: return 120;
+				case MINUS: return 121;
 			}
 			break;
-		case 138: //CHECK STAGE 138
+		case 143: //CHECK STAGE 143
 			switch(input)
 			{
 				case RIGHT_SQUARE: return -40;
@@ -2512,11 +2576,11 @@ int action(int state, int input)
 				case GREATER_OR_EQUAL: return -40;
 				case EQUAL_EQUAL: return -40;
 				case NOT_EQUAL: return -40;
-				case PLUS: return 115;
-				case MINUS: return 116;
+				case PLUS: return 120;
+				case MINUS: return 121;
 			}
 			break;
-		case 139: //CHECK STAGE 139
+		case 144: //CHECK STAGE 144
 			switch(input)
 			{
 				case RIGHT_SQUARE: return -41;
@@ -2531,11 +2595,11 @@ int action(int state, int input)
 				case GREATER_OR_EQUAL: return -41;
 				case EQUAL_EQUAL: return -41;
 				case NOT_EQUAL: return -41;
-				case PLUS: return 115;
-				case MINUS: return 116;
+				case PLUS: return 120;
+				case MINUS: return 121;
 			}
 			break;
-		case 140: //CHECK STAGE 140
+		case 145: //CHECK STAGE 145
 			switch(input)
 			{
 				case RIGHT_SQUARE: return -42;
@@ -2550,11 +2614,11 @@ int action(int state, int input)
 				case GREATER_OR_EQUAL: return -42;
 				case EQUAL_EQUAL: return -42;
 				case NOT_EQUAL: return -42;
-				case PLUS: return 115;
-				case MINUS: return 116;
+				case PLUS: return 120;
+				case MINUS: return 121;
 			}
 			break;
-		case 141: //CHECK STAGE 141
+		case 146: //CHECK STAGE 146
 			switch(input)
 			{
 				case RIGHT_SQUARE: return -44;
@@ -2571,11 +2635,11 @@ int action(int state, int input)
 				case NOT_EQUAL: return -44;
 				case PLUS: return -44;
 				case MINUS: return -44;
-				case TIMES: return 117;
-				case DIVIDE: return 118;
+				case TIMES: return 122;
+				case DIVIDE: return 123;
 			}
 			break;
-		case 142: //CHECK STAGE 142
+		case 147: //CHECK STAGE 147
 			switch(input)
 			{
 				case RIGHT_SQUARE: return -45;
@@ -2592,11 +2656,11 @@ int action(int state, int input)
 				case NOT_EQUAL: return -45;
 				case PLUS: return -45;
 				case MINUS: return -45;
-				case TIMES: return 117;
-				case DIVIDE: return 118;
+				case TIMES: return 122;
+				case DIVIDE: return 123;
 			}
 			break;
-		case 143: //CHECK STAGE 143
+		case 148: //CHECK STAGE 148
 			switch(input)
 			{
 				case RIGHT_SQUARE: return -47;
@@ -2617,7 +2681,7 @@ int action(int state, int input)
 				case DIVIDE: return -47;
 			}
 			break;
-		case 144: //CHECK STAGE 144
+		case 149: //CHECK STAGE 149
 			switch(input)
 			{
 				case RIGHT_SQUARE: return -48;
@@ -2638,7 +2702,7 @@ int action(int state, int input)
 				case DIVIDE: return -48;
 			}
 			break;
-		case 145: //CHECK STAGE 145
+		case 150: //CHECK STAGE 150
 			switch(input)
 			{
 				case RIGHT_SQUARE: return -55;
@@ -2659,23 +2723,110 @@ int action(int state, int input)
 				case DIVIDE: return -55;
 			}
 			break;
-		case 146: //CHECK STAGE 146
+		case 151: //CHECK STAGE 151
 			switch(input)
 			{
-				case RIGHT_PARENTHESIS: return 151;
-				case COMMA: return 152;
+				case LEFT_PARENTHESIS: return 92;
+				case MINUS: return 94;
+				case PLUS_PLUS: return 90;
+				case MINUS_MINUS: return 91;
+				case NOT: return 95;
+				case ID: return 22;
+				case TRUE: return 101;
+				case FALSE: return 102;
+				case CHARACTER: return 103;
+				case STRINGVAL: return 104;
+				case NUMERAL: return 31;
+				case E: return 156;
+				case L: return 85;
+				case R: return 86;
+				case Y: return 87;
+				case F: return 88;
+				case LE: return 155;
+				case LV: return 89;
+				case TRU: return 96;
+				case FAL: return 97;
+				case CHR: return 98;
+				case STR: return 99;
+				case NUM: return 100;
+				case IDU: return 93;
 			}
 			break;
-		case 147: //CHECK STAGE 147
+		case 152: //CHECK STAGE 152
+			switch(input)
+			{
+				case LEFT_BRACES: return -77;
+				case IF: return 63;
+				case WHILE: return 64;
+				case DO: return 65;
+				case BREAK: return 68;
+				case CONTINUE: return 69;
+				case ID: return 22;
+				case S: return 157;
+				case LV: return 67;
+				case IDU: return 70;
+				case NB: return 66;
+			}
+			break;
+		case 153: //CHECK STAGE 153
+			switch(input)
+			{
+				case LEFT_PARENTHESIS: return 92;
+				case MINUS: return 94;
+				case PLUS_PLUS: return 90;
+				case MINUS_MINUS: return 91;
+				case NOT: return 95;
+				case ID: return 22;
+				case TRUE: return 101;
+				case FALSE: return 102;
+				case CHARACTER: return 103;
+				case STRINGVAL: return 104;
+				case NUMERAL: return 31;
+				case E: return 158;
+				case L: return 85;
+				case R: return 86;
+				case Y: return 87;
+				case F: return 88;
+				case LV: return 89;
+				case TRU: return 96;
+				case FAL: return 97;
+				case CHR: return 98;
+				case STR: return 99;
+				case NUM: return 100;
+				case IDU: return 93;
+			}
+			break;
+		case 154: //CHECK STAGE 154
+			switch(input)
+			{
+				case LEFT_BRACES: return -26;
+				case RIGHT_BRACES: return -26;
+				case IF: return -26;
+				case ELSE: return 159 / -26;
+				case WHILE: return -26;
+				case DO: return -26;
+				case BREAK: return -26;
+				case CONTINUE: return -26;
+				case ID: return -26;
+			}
+			break;
+		case 155: //CHECK STAGE 155
+			switch(input)
+			{
+				case RIGHT_PARENTHESIS: return 160;
+				case COMMA: return 161;
+			}
+			break;
+		case 156: //CHECK STAGE 156
 			switch(input)
 			{
 				case RIGHT_PARENTHESIS: return -65;
 				case COMMA: return -65;
-				case AND: return 107;
-				case OR: return 108;
+				case AND: return 112;
+				case OR: return 113;
 			}
 			break;
-		case 148: //CHECK STAGE 148
+		case 157: //CHECK STAGE 157
 			switch(input)
 			{
 				case LEFT_BRACES: return -28;
@@ -2689,31 +2840,30 @@ int action(int state, int input)
 				case ID: return -28;
 			}
 			break;
-		case 149: //CHECK STAGE 149
+		case 158: //CHECK STAGE 158
 			switch(input)
 			{
-				case RIGHT_PARENTHESIS: return 153;
-				case AND: return 107;
-				case OR: return 108;
+				case RIGHT_PARENTHESIS: return 162;
+				case AND: return 112;
+				case OR: return 113;
 			}
 			break;
-		case 150: //CHECK STAGE 150
+		case 159: //CHECK STAGE 159
 			switch(input)
 			{
-				case LEFT_BRACES: return 44;
-				case IF: return 58;
-				case WHILE: return 59;
-				case DO: return 60;
-				case BREAK: return 63;
-				case CONTINUE: return 64;
-				case ID: return 9;
-				case B: return 61;
-				case S: return 154;
-				case LV: return 62;
-				case ID_N_TERMINAL: return 65;
+				case LEFT_BRACES: return -82;
+				case RIGHT_BRACES: return -82;
+				case IF: return -82;
+				case ELSE: return -82;
+				case WHILE: return -82;
+				case DO: return -82;
+				case BREAK: return -82;
+				case CONTINUE: return -82;
+				case ID: return -82;
+				case ME: return 163;
 			}
 			break;
-		case 151: //CHECK STAGE 151
+		case 160: //CHECK STAGE 160
 			switch(input)
 			{
 				case RIGHT_SQUARE: return -56;
@@ -2734,64 +2884,66 @@ int action(int state, int input)
 				case DIVIDE: return -56;
 			}
 			break;
-		case 152: //CHECK STAGE 152
+		case 161: //CHECK STAGE 161
 			switch(input)
 			{
-				case LEFT_PARENTHESIS: return 87;
-				case MINUS: return 89;
-				case PLUS_PLUS: return 85;
-				case MINUS_MINUS: return 86;
-				case NOT: return 90;
-				case ID: return 9;
-				case TRUE: return 96;
-				case FALSE: return 97;
-				case CHARACTER: return 98;
-				case STRINGVAL: return 99;
-				case NUMERAL: return 32;
-				case E: return 155;
-				case L: return 80;
-				case R: return 81;
-				case Y: return 82;
-				case F: return 83;
-				case LV: return 84;
-				case ID_N_TERMINAL: return 88;
-				case TRU: return 91;
-				case FAL: return 92;
-				case CHR: return 93;
-				case STR: return 94;
-				case NUM: return 95;
+				case LEFT_PARENTHESIS: return 92;
+				case MINUS: return 94;
+				case PLUS_PLUS: return 90;
+				case MINUS_MINUS: return 91;
+				case NOT: return 95;
+				case ID: return 22;
+				case TRUE: return 101;
+				case FALSE: return 102;
+				case CHARACTER: return 103;
+				case STRINGVAL: return 104;
+				case NUMERAL: return 31;
+				case E: return 164;
+				case L: return 85;
+				case R: return 86;
+				case Y: return 87;
+				case F: return 88;
+				case LV: return 89;
+				case TRU: return 96;
+				case FAL: return 97;
+				case CHR: return 98;
+				case STR: return 99;
+				case NUM: return 100;
+				case IDU: return 93;
 			}
 			break;
-		case 153: //CHECK STAGE 153
+		case 162: //CHECK STAGE 162
 			switch(input)
 			{
-				case SEMI_COLON: return 156;
+				case SEMI_COLON: return 165;
 			}
 			break;
-		case 154: //CHECK STAGE 154
+		case 163: //CHECK STAGE 163
 			switch(input)
 			{
-				case LEFT_BRACES: return -27;
-				case RIGHT_BRACES: return -27;
-				case IF: return -27;
-				case ELSE: return -27;
-				case WHILE: return -27;
-				case DO: return -27;
-				case BREAK: return -27;
-				case CONTINUE: return -27;
-				case ID: return -27;
+				case LEFT_BRACES: return -77;
+				case IF: return 63;
+				case WHILE: return 64;
+				case DO: return 65;
+				case BREAK: return 68;
+				case CONTINUE: return 69;
+				case ID: return 22;
+				case S: return 166;
+				case LV: return 67;
+				case IDU: return 70;
+				case NB: return 66;
 			}
 			break;
-		case 155: //CHECK STAGE 155
+		case 164: //CHECK STAGE 164
 			switch(input)
 			{
 				case RIGHT_PARENTHESIS: return -64;
 				case COMMA: return -64;
-				case AND: return 107;
-				case OR: return 108;
+				case AND: return 112;
+				case OR: return 113;
 			}
 			break;
-		case 156: //CHECK STAGE 156
+		case 165: //CHECK STAGE 165
 			switch(input)
 			{
 				case LEFT_BRACES: return -29;
@@ -2805,6 +2957,19 @@ int action(int state, int input)
 				case ID: return -29;
 			}
 			break;
+		case 166: //CHECK STAGE 166
+			switch(input)
+			{
+				case LEFT_BRACES: return -27;
+				case RIGHT_BRACES: return -27;
+				case IF: return -27;
+				case ELSE: return -27;
+				case WHILE: return -27;
+				case DO: return -27;
+				case BREAK: return -27;
+				case CONTINUE: return -27;
+				case ID: return -27;
+			}
+			break;
 	}
-    return ERROR;
 }
