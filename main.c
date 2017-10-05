@@ -94,6 +94,7 @@ int main(int argc, char *argv[])
                 p = action(q, a);
 
                 printf("p: %d\n", p);
+                PTS();
                 printf("=============\n");
                 
                 /*if(a == ID)

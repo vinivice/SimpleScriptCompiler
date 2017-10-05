@@ -65,9 +65,26 @@ typedef struct
 
 //DEFINIÇÕES ANÁLISE DE ESCOPO
 #define MAX_NEST_LEVEL 10
+typedef enum
+{
+    ERR_REDECL, ERR_NOT_DECL
+} t_error;
 
 struct object
 {
     int nName;
     struct object *pNext;
 };
+
+void Error(t_error e)
+{
+    switch(e)
+    {
+        case ERR_REDECL:
+                        printf("Redeclarado.\n");
+                        break;
+        case ERR_NOT_DECL:
+                        printf("Não declarado.\n");
+                        break;
+    }
+}
