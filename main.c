@@ -123,9 +123,9 @@ int main(int argc, char *argv[])
                     syntaxError();
                 }
                 q = top();
-                getchar();
-            } while (q != 49);
-            //} while (q != ACC);
+ //               getchar();
+            //} while (q != 49);
+            } while (q != ACC);
     }
             printf("\nANALISE SINTATICA OK\n");
 return 0;

@@ -26,7 +26,7 @@ typedef enum {
     UNKNOWN,
 
     //token de aceitação
-    ACC = 9000 } t_token;
+    ACC = 9000, $ = 10000 } t_token;
 
 typedef struct {
     char type;
@@ -45,7 +45,6 @@ typedef struct tokensSecundarios {
 
 
 //DEFINIÇÕES ANÁLISE SINTÁTICA
-#define $ 10000
 #define ERROR 11001
 
 

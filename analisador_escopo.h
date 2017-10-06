@@ -3,7 +3,7 @@
 
 object* symbolTable[MAX_NEST_LEVEL];
 object* symbolTableLast[MAX_NEST_LEVEL];
-int nCurrentLevel = -1;
+int nCurrentLevel = 0;
 
 int newBlock(void)
 {
@@ -41,7 +41,15 @@ object* define(int aName)
 
 object* Search(int aName)
 {
-    object *obj = symbolTable[nCurrentLevel];
+    object *obj;
+    if(nCurrentLevel < 0)
+    {
+        obj = NULL;
+    }
+    else
+    {
+        obj = symbolTable[nCurrentLevel];
+    }
 
     while(obj != NULL)
     {

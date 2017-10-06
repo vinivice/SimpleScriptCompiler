@@ -7,7 +7,7 @@ void semantics(elementoTabelaAuxiliar r)
     int name;
     object obj, *p;
 
-    printf("%d\n", tokenSecundario);
+    printf("-*%d*-\n", tokenSecundario);
     switch(r.rule)
     {
         case 69: 

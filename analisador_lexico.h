@@ -92,7 +92,7 @@ t_token nextToken(FILE *fp) {
         nextChar = readChar(fp);
         printf("*%c*", nextChar);
         if ( nextChar == EOF )
-            return ACC;
+            return $;
     }
     if ( isalpha(nextChar) ) {
         char text[MAX_ID_LEN + 1];
