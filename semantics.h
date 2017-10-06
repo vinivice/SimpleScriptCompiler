@@ -10,6 +10,9 @@ void semantics(elementoTabelaAuxiliar r)
     printf("-*%d*-\n", tokenSecundario);
     switch(r.rule)
     {
+        case 11:
+                endBlock();
+                break;
         case 69: 
                 name = tokenSecundario;
                 obj.nName = name;
@@ -26,6 +29,7 @@ void semantics(elementoTabelaAuxiliar r)
                 {
                     p=define(name);
                 }
+                p->eKind = NO_KIND_DEF_;
                 obj.pNext = p;
                 break;
                 
@@ -38,6 +42,9 @@ void semantics(elementoTabelaAuxiliar r)
                     p=define(name);
                 }
                 obj.pNext = p;
+                break;
+        case 77:
+                newBlock();
                 break;
                 
             

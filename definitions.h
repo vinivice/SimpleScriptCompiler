@@ -61,6 +61,10 @@ typedef struct
     int left;
 } elementoTabelaAuxiliar;
 
+//DEFINIÇÕES ANÁLISE DE TIPO
+typedef enum { NO_KIND_DEF_=-1, VAR_, PARAM_, FUNCTION_, FIELD_,
+ARRAY_TYPE_, STRUCT_TYPE_, ALIAS_TYPE_, SCALAR_TYPE_ ,
+UNIVERSAL_} t_kind;
 
 //DEFINIÇÕES ANÁLISE DE ESCOPO
 #define MAX_NEST_LEVEL 10
@@ -114,7 +118,4 @@ void Error(t_error e)
     }
 }
 
-//DEFINIÇÕES ANÁLISE DE TIPO
-typedef enum { NO_KIND_DEF_=-1, VAR_, PARAM_, FUNCTION_, FIELD_,
-ARRAY_TYPE_, STRUCT_TYPE_, ALIAS_TYPE_, SCALAR_TYPE_ ,
-UNIVERSAL_} t_kind;
+
