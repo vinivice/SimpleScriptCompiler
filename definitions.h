@@ -73,6 +73,32 @@ struct object
 {
     int nName;
     struct object *pNext;
+    t_kind eKind;
+    union 
+    {
+	struct 
+	{
+		struct object *pType;
+	} Var, Param, Field;
+	struct 
+	{
+		struct object *pRetType;
+		struct object *pParams;
+	} Function;
+	struct 
+	{
+		struct object *pElemType;
+		int nNumElems;
+	} Array;
+	struct 
+	{
+		struct object *pFields;
+	} Struct;
+	struct 
+	{
+		struct object *pBaseType;
+	} Alias;
+    }_;
 };
 
 void Error(t_error e)
