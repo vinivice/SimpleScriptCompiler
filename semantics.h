@@ -6,38 +6,24 @@
 void semantics(elementoTabelaAuxiliar r)
 {
     int name, n;
- /*   object oIDD, oIDU, oT, oNUM, oLI, oLI0, oLI1, oDC, oDC0, oDC1, oSTR, oCHR, oTRUE, oFALSE, oNB, oLV0, oLV1, oID, oLE, oLE0, oLE1, oF0, oF1, oMC, oF, oY0, oY1, oY, oR0, oR1, oR, oL, oL0, oL1, oE0, oE1, oE, oLV, oLP, oLP0, oLP1;
-    object *p, *t, *f, *t1, *t2;
-
-    object int_ = {-1, NULL, SCALAR_TYPE_};
-    object *pInt = &int_;
-
-    object char_ = {-1, NULL, SCALAR_TYPE_};
-    object *pChar = &char_;
-
-    object bool_ = {-1, NULL, SCALAR_TYPE_};
-    object *pBool = &bool_;
-
-    object string_ = {-1, NULL, SCALAR_TYPE_};
-    object *pString = &string_;
-
-    object universal_ = {-1, NULL, SCALAR_TYPE_};
-    object *pUniversal = &universal_;
-*/
     printf("-*%d*-\n", tokenSecundario);
     switch(r.rule)
     {
         case 5:
                 oT.type = pInt;
+                PushSem(oT);
                 break;
         case 6:
                 oT.type = pChar;
+                PushSem(oT);
                 break;
         case 7:
                 oT.type = pBool;
+                PushSem(oT);
                 break;
         case 8:
                 oT.type = pString;
+                PushSem(oT);
                 break;
         case 9:
                 p = oIDU.obj;
@@ -50,6 +36,7 @@ void semantics(elementoTabelaAuxiliar r)
                     oT.type = pUniversal;
                     Error(ERR_TYPE_EXPECTED);
                 }
+                PushSem(oT);
                 break;
         case 10:
                 p = oIDD.obj;
@@ -58,6 +45,12 @@ void semantics(elementoTabelaAuxiliar r)
                 p->eKind = ARRAY_TYPE_;
                 p->_.Array.nNumElems = n;
                 p->_.Array.pElemType = t;
+                break;
+         case 11:		
+                p = oIDD.obj;
+                p->eKind = STRUCT_TYPE_;
+                p->_.Struct.pFields = oDC.list;
+                endBlock();
                 break;
         case 12:
                 p = oIDD.obj;
@@ -75,6 +68,7 @@ void semantics(elementoTabelaAuxiliar r)
                     p = p->pNext;
                 }
                 oDC0.list = oDC1.list;
+                PushSem(oDC0);
                 break;
         case 14:
                 p = oLI.list;
@@ -86,12 +80,7 @@ void semantics(elementoTabelaAuxiliar r)
                     p = p->pNext;
                 }
                 oDC.list = oLI.list;
-                break;
-        case 11:		
-                p = oIDD.obj;
-                p->eKind = STRUCT_TYPE_;
-                p->_.Struct.pFields = oDC.list;
-                endBlock();
+                PushSem(DC);
                 break;
         case 15:
                 endBlock();
@@ -102,6 +91,7 @@ void semantics(elementoTabelaAuxiliar r)
                 p->eKind = PARAM_;
                 p->_.Param.pType = t;
                 oLP0.list = oLP1.list;
+                PushSem(oLP0);
                 break;
          
         case 17:
@@ -110,6 +100,7 @@ void semantics(elementoTabelaAuxiliar r)
                 p->eKind = PARAM_;
                 p->_.Param.pType = t;
                 oLP.list = p;
+                PushSem(oLP);
                 break;
         
         case 23:
@@ -124,9 +115,11 @@ void semantics(elementoTabelaAuxiliar r)
                 break;
         case 24:
                 oLI0.list = oLI1.list;
+                PushSem(oLI0);
                 break;
         case 25:
                 oLI.list = oIDD.obj;
+                PushSem(oLI);
                 break;
         case 26:
                 t = oE.type;
@@ -181,6 +174,7 @@ void semantics(elementoTabelaAuxiliar r)
                     Error( ERR_BOOL_TYPE_EXPECTED );
                 }
                 oE0.type = pBool;
+                PushSem(oE0);
                 break;
                 
         case 35:
@@ -193,10 +187,12 @@ void semantics(elementoTabelaAuxiliar r)
                     Error( ERR_BOOL_TYPE_EXPECTED );
                 }
                 oE0.type = pBool;
+                PushSem(oE0);
                 break;
                 
         case 36:
                 oE.type = oL.type;
+                PushSem(oE);
                 break;
                 
         case 37:
@@ -205,6 +201,7 @@ void semantics(elementoTabelaAuxiliar r)
                     Error( ERR_TYPE_MISMATCH );
                 }
                 oL0.type = pBool;
+                PushSem(oL0);
                 break;
                 
         case 38:
@@ -213,6 +210,7 @@ void semantics(elementoTabelaAuxiliar r)
                     Error( ERR_TYPE_MISMATCH );
                 }
                 oL0.type = pBool;
+                PushSem(oL0);
                 break;
                 
         case 39:
@@ -221,6 +219,7 @@ void semantics(elementoTabelaAuxiliar r)
                     Error( ERR_TYPE_MISMATCH );
                 }
                 oL0.type = pBool;
+                PushSem(oL0);
                 break;
                 
         case 40:
@@ -229,6 +228,7 @@ void semantics(elementoTabelaAuxiliar r)
                     Error( ERR_TYPE_MISMATCH );
                 }
                 oL0.type = pBool;
+                PushSem(oL0);
                 break;
                 
         case 41:
@@ -237,6 +237,7 @@ void semantics(elementoTabelaAuxiliar r)
                     Error( ERR_TYPE_MISMATCH );
                 }
                 oL0.type = pBool;
+                PushSem(oL0);
                 break;
                 
         case 42:
@@ -245,10 +246,12 @@ void semantics(elementoTabelaAuxiliar r)
                     Error( ERR_TYPE_MISMATCH );
                 }
                 oL0.type = pBool;
+                PushSem(oL0);
                 break;
                 
         case 43:
                 oL.type = oR.type;
+                PushSem(oL);
                 break;
 
         case 44:
@@ -262,6 +265,7 @@ void semantics(elementoTabelaAuxiliar r)
                     Error( ERR_INVALID_TYPE );
                 }
                 oR0.type = oR1.type;
+                PushSem(oR0);
                 break;
                 
         case 45:
@@ -274,10 +278,12 @@ void semantics(elementoTabelaAuxiliar r)
                     Error( ERR_INVALID_TYPE );
                 }
                 oR0.type = oR1.type;
+                PushSem(oR0);
                 break;
                 
         case 46:
                 oR.type = oY.type;
+                PushSem(oR);
                 break;
                 
         case 47:
@@ -290,6 +296,7 @@ void semantics(elementoTabelaAuxiliar r)
                     Error( ERR_INVALID_TYPE );
                 }
                 oY0.type = oY1.type;
+                PushSem(oY0);
                 break;
                 
         case 48:
@@ -302,14 +309,17 @@ void semantics(elementoTabelaAuxiliar r)
                     Error( ERR_INVALID_TYPE );
                 }
                 oY0.type = oY1.type;
+                PushSem(oY0);
                 break;
                 
         case 49:
                 oY.type = oF.type;
+                PushSem(oY);
                 break;
                 
         case 50:
                 oF.type = oLV.type;
+                PushSem(oF);
                 break;
                 
         case 51:
@@ -319,6 +329,7 @@ void semantics(elementoTabelaAuxiliar r)
                     Error( ERR_INVALID_TYPE );
                 }
                 oF.type = pInt;
+                PushSem(oF);
                 break;
                 
         case 52:
@@ -328,6 +339,7 @@ void semantics(elementoTabelaAuxiliar r)
                     Error( ERR_INVALID_TYPE );
                 }
                 oF.type = pInt;
+                PushSem(oF);
                 break;
                 
         case 53:
@@ -337,6 +349,7 @@ void semantics(elementoTabelaAuxiliar r)
                     Error( ERR_INVALID_TYPE );
                 }
                 oF.type = pInt;
+                PushSem(oF);
                 break;
                 
         case 54:
@@ -346,10 +359,12 @@ void semantics(elementoTabelaAuxiliar r)
                     Error( ERR_INVALID_TYPE );
                 }
                 oF.type = pInt;
+                PushSem(oF);
                 break;
                 
         case 55:
                 oF.type = oE.type;
+                PushSem(oF);
                 break;
         case 56:
                 oF.type = oMC.type;
@@ -358,6 +373,7 @@ void semantics(elementoTabelaAuxiliar r)
                     if( oLE.param != NULL )
                         Error( ERR_TOO_FEW_ARGS );
                 }
+                PushSem(oF);
                 break;
          
         case 57:
@@ -367,6 +383,7 @@ void semantics(elementoTabelaAuxiliar r)
                     Error( ERR_INVALID_TYPE );
                 }
                 oF.type = pInt;
+                PushSem(oF);
                 break;
                 
         case 58:
@@ -376,26 +393,32 @@ void semantics(elementoTabelaAuxiliar r)
                     Error( ERR_INVALID_TYPE );
                 }
                 oF0.type = pBool;
+                PushSem(oF0);
                 break;
                 
         case 59:
                 oF.type = pBool;
+                PushSem(oF);
                 break;
                 
         case 60:
                 oF.type = pBool;
+                PushSem(oF);
                 break;
                 
         case 61:
                 oF.type = pChar;
+                PushSem(oF);
                 break;
                 
         case 62:
                 oF.type = pString;
+                PushSem(oF);
                 break;
                 
         case 63:
                 oF.type = pInt;
+                PushSem(oF);
                 break;
         case 64:
                 oLE0.param = NULL;
@@ -421,6 +444,7 @@ void semantics(elementoTabelaAuxiliar r)
                     oLE0.param = p->pNext;
                     oLE0.n = n+1;
                 }
+                PushSem(oLE0);
                 break;
                
         case 65:
@@ -449,6 +473,7 @@ void semantics(elementoTabelaAuxiliar r)
                     oLE.param = p->pNext;
                     oLE.n = n+1;
                 }
+                PushSem(oLE);
                 break;
           
         case 66:
@@ -482,6 +507,7 @@ void semantics(elementoTabelaAuxiliar r)
                         oLV0.type = p->_.Field.pType;
                     }
                 }
+                PushSem(oLV0);
                 break;
                 
         case 67:
@@ -507,6 +533,7 @@ void semantics(elementoTabelaAuxiliar r)
                 {
                     Error( ERR_INVALID_INDEX_TYPE );
                 }
+                PushSem(oLV0);
                 break;
                 
         case 68:
@@ -524,35 +551,42 @@ void semantics(elementoTabelaAuxiliar r)
                 {
                     oLV.type = p->_.Var.pType;
                 }
+                PushSem(oLV);
                 break;
          
         case 69: 
                 name = tokenSecundario;
                 oIDU.nName = name;
                 oIDU.pNext = NULL;
+                PushSem(oIDU);
                 break;
         case 70:
                 oTRUE.type = pBool;
                 oTRUE.bVal = true;
+                PushSem(oTRUE);
                 break; 
         case 71:
                 oFALSE.type = pBool;
                 oFALSE.bVal = false;
+                PushSem(oFALSE);
                 break; 
         case 72:
                 oCHR.type = pChar;
                 oCHR.pos = tokenSecundario;
                 oCHR.cVal = getCharConst(oCHR.pos);
+                PushSem(oCHR);
                 break;
         case 73:
                 oSTR.type = pString;
                 oSTR.pos = tokenSecundario;
                 oSTR.sVal = getStringConst(oSTR.pos);
+                PushSem(oSTR);
                 break;
         case 74:
                 oNUM.type = pInt;
                 oNUM.pos = tokenSecundario;
                 oNUM.iVal = getIntConst(oNUM.pos);
+                PushSem(oNUM);
                 break;
         case 75:
                 name = tokenSecundario;
@@ -567,6 +601,7 @@ void semantics(elementoTabelaAuxiliar r)
                 }
                 p->eKind = NO_KIND_DEF_;
                 oIDD.pNext = p;
+                PushSem(oIDD);
                 break;
                 
         case 76:
@@ -578,6 +613,7 @@ void semantics(elementoTabelaAuxiliar r)
                     p=define(name);
                 }
                 oIDU.pNext = p;
+                PushSem(oIDU);
                 break;
         case 77:
                 newBlock();
