@@ -7,6 +7,7 @@
 #define MAX_CONSTS 200
 #define MAX_NUM_LEN 20
 #define MAX_STR_LEN 200
+#define MAX_STACK_SIZE 20
 
 typedef enum {
     //palavras reservadas
@@ -136,3 +137,22 @@ boolean CheckTypes(pobject t1, pobject t2)
 	else
 		return false;
 }
+
+struct object StackSem[MAX_STACK_SIZE];
+
+int top_Stack_Sem = -1;
+
+int PushSem( struct object &obj ) {
+    StackSem[++top_Stack_Sem] = obj;
+    return top_Stack_Sem;
+}
+
+int PopSem( int nToPop ) {
+    top_Stack_Sem = top_Stack_Sem - nToPop;
+    return top_Stack_Sem;
+}
+
+struct object TopSem( int offFromTop ) {
+    return StackSem[top_Stack_Sem - offFromTop];
+}
+    
