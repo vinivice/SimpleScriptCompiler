@@ -41,6 +41,23 @@ int addStringConst(char *s) {
     return nNumConsts;
 }
 
+char getCharConst(int n) {
+    t_const CharConst = vConst[n];
+    return CharConst.value.cVal;
+}
+
+int getIntConst(int n) {
+    t_const IntConst = vConst[n];
+    return IntConst.value.nVal;
+}
+
+char *getStringConst(int n) {
+    t_const element = vConst[n];
+    char *StringConst = (char*)  malloc (sizeof(char) * MAX_STR_LEN);
+    strcpy(StringConst, element.value.sVal);    
+    return StringConst;
+}
+
 const char *reserved_words[] = {"array", "boolean", "break", "char", "continue", "do", "else", "false", "function", "if",
                                  "integer", "of", "string", "struct", "true", "type", "var", "while"};
 
