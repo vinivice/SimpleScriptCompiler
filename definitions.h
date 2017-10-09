@@ -70,7 +70,7 @@ UNIVERSAL_} t_kind;
 #define MAX_NEST_LEVEL 10
 typedef enum
 {
-    ERR_REDECL, ERR_NOT_DECL
+    ERR_REDECL, ERR_NOT_DECL, ERR_TYPE_EXPECTED
 } t_error;
 
 struct object
@@ -103,6 +103,11 @@ struct object
 		struct object *pBaseType;
 	} Alias;
     }_;
+
+    struct object *obj, *type, *list;
+    bool bVal;
+    char cVal, *sVal;
+    int iVal, pos;
 };
 
 void Error(t_error e)
@@ -118,4 +123,16 @@ void Error(t_error e)
     }
 }
 
-
+boolean CheckTypes(pobject t1, pobject t2)
+{
+	if( t1 == t2 )
+		return true;
+	else
+		if( t1 == pUniversal || t2 == pUniversal )
+			return true;
+	else
+		if( t1->eKind == UNIVERSAL_ || t2->eKind == UNIVERSAL_ )
+			return true;
+	else
+		return false;
+}
