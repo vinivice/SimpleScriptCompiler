@@ -71,7 +71,7 @@ UNIVERSAL_} t_kind;
 #define MAX_NEST_LEVEL 10
 typedef enum
 {
-    ERR_REDECL, ERR_NOT_DECL, ERR_TYPE_EXPECTED
+    ERR_REDECL, ERR_NOT_DECL, ERR_TYPE_EXPECTED, ERR_TOO_FEW_ARGS, ERR_TOO_MANY_ARGS, ERR_PARAM_TYPE, ERR_KIND_NOT_FUNC, ERR_KIND_NOT_VAR, ERR_INVALID_INDEX_TYPE, ERR_KIND_NOT_ARRAY, ERR_FIELD_NOT_DECL, ERR_KIND_NOT_STRUCT, ERR_INVALID_TYPE, ERR_TYPE_MISMATCH, ERR_BOOL_TYPE_EXPECTED
 } t_error;
 
 struct object
@@ -105,13 +105,33 @@ struct object
 	} Alias;
     }_;
 
-    struct object *obj, *type, *list;
-    bool bVal;
+    struct object *obj, *type, *list, *param;
+    bool bVal, err;
     char cVal, *sVal;
-    int iVal, pos;
+    int iVal, pos, n;
 };
 
-void Error(t_error e)
+object oIDD, oIDU, oT, oNUM, oLI, oLI0, oLI1, oDC, oDC0, oDC1, oSTR, oCHR, oTRUE, oFALSE, oNB, oLV0, oLV1, oID, oLE, oLE0, oLE1, oF0, oF1, oMC, oF, oY0, oY1, oY, oR0, oR1, oR, oL, oL0, oL1, oE0, oE1, oE, oLV, oLP, oLP0, oLP1;
+object *p, *t, *f, *t1, *t2;
+
+object int_ = {-1, NULL, SCALAR_TYPE_};
+object *pInt = &int_;
+
+object char_ = {-1, NULL, SCALAR_TYPE_};
+object *pChar = &char_;
+
+object bool_ = {-1, NULL, SCALAR_TYPE_};
+object *pBool = &bool_;
+
+object string_ = {-1, NULL, SCALAR_TYPE_};
+object *pString = &string_;
+
+object universal_ = {-1, NULL, SCALAR_TYPE_};
+object *pUniversal = &universal_;
+
+
+
+void Error(t_error e, int n = 1)
 {
     switch(e)
     {
@@ -124,18 +144,24 @@ void Error(t_error e)
     }
 }
 
-boolean CheckTypes(pobject t1, pobject t2)
+bool CheckTypes(object *t1, object *t2)
 {
 	if( t1 == t2 )
+    {
 		return true;
+    }
+	else if( t1 == pUniversal || t2 == pUniversal )
+    {
+        return true;
+    }
+	else if( t1->eKind == UNIVERSAL_ || t2->eKind == UNIVERSAL_ )
+    {
+		return true;
+    }
 	else
-		if( t1 == pUniversal || t2 == pUniversal )
-			return true;
-	else
-		if( t1->eKind == UNIVERSAL_ || t2->eKind == UNIVERSAL_ )
-			return true;
-	else
+    {
 		return false;
+    }
 }
 
 struct object StackSem[MAX_STACK_SIZE];

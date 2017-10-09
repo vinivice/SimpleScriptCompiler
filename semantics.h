@@ -6,8 +6,8 @@
 void semantics(elementoTabelaAuxiliar r)
 {
     int name, n;
-    object oIDD, oIDU, oT, oNUM, oLI, oLI0, oLI1, oDC, oDC0, oDC1, oSTR, oCHR, oTRUE, oFALSE;
-    object *p, *t;
+ /*   object oIDD, oIDU, oT, oNUM, oLI, oLI0, oLI1, oDC, oDC0, oDC1, oSTR, oCHR, oTRUE, oFALSE, oNB, oLV0, oLV1, oID, oLE, oLE0, oLE1, oF0, oF1, oMC, oF, oY0, oY1, oY, oR0, oR1, oR, oL, oL0, oL1, oE0, oE1, oE, oLV, oLP, oLP0, oLP1;
+    object *p, *t, *f, *t1, *t2;
 
     object int_ = {-1, NULL, SCALAR_TYPE_};
     object *pInt = &int_;
@@ -23,7 +23,7 @@ void semantics(elementoTabelaAuxiliar r)
 
     object universal_ = {-1, NULL, SCALAR_TYPE_};
     object *pUniversal = &universal_;
-
+*/
     printf("-*%d*-\n", tokenSecundario);
     switch(r.rule)
     {
@@ -87,10 +87,31 @@ void semantics(elementoTabelaAuxiliar r)
                 }
                 oDC.list = oLI.list;
                 break;
-        case 11:
+        case 11:		
+                p = oIDD.obj;
+                p->eKind = STRUCT_TYPE_;
+                p->_.Struct.pFields = oDC.list;
+                endBlock();
+                break;
         case 15:
                 endBlock();
                 break;
+        case 16:
+                p = oIDD.obj;
+                t = oT.type;
+                p->eKind = PARAM_;
+                p->_.Param.pType = t;
+                oLP0.list = oLP1.list;
+                break;
+         
+        case 17:
+                p = oIDD.obj;
+                t = oT.type;
+                p->eKind = PARAM_;
+                p->_.Param.pType = t;
+                oLP.list = p;
+                break;
+        
         case 23:
                 p = oLI.list;
                 t = oT.type;
@@ -107,6 +128,404 @@ void semantics(elementoTabelaAuxiliar r)
         case 25:
                 oLI.list = oIDD.obj;
                 break;
+        case 26:
+                t = oE.type;
+                if( !CheckTypes(t, pBool) )
+                {
+                    Error( ERR_BOOL_TYPE_EXPECTED );
+                }
+                break;
+                
+        case 27:
+                t = oE.type;
+                if( !CheckTypes(t, pBool) )
+                {
+                    Error( ERR_BOOL_TYPE_EXPECTED );
+                }
+                break;
+                
+        case 28:
+                t = oE.type;
+                if( !CheckTypes(t, pBool) )
+                {
+                    Error( ERR_BOOL_TYPE_EXPECTED );
+                }
+                break;
+                
+        case 29:
+                t = oE.type;
+                if( !CheckTypes(t, pBool) )
+                {
+                    Error( ERR_BOOL_TYPE_EXPECTED );
+                }
+                break;
+         
+        case 30:
+                endBlock();
+                break;
+        case 31:
+                t1 = oLV.type;
+                t2 = oE.type;
+                if( ! CheckTypes( t1, t2 ) )
+                {
+                    Error( ERR_TYPE_MISMATCH );
+                }
+                break;
+        case 34:
+                if( !CheckTypes( oE1.type, pBool ) )
+                {
+                    Error( ERR_BOOL_TYPE_EXPECTED );
+                }
+                if( !CheckTypes( oL.type, pBool ) )
+                {
+                    Error( ERR_BOOL_TYPE_EXPECTED );
+                }
+                oE0.type = pBool;
+                break;
+                
+        case 35:
+                if( !CheckTypes( oE1.type, pBool ) )
+                {
+                    Error( ERR_BOOL_TYPE_EXPECTED );
+                }
+                if( !CheckTypes( oL.type, pBool ) )
+                {
+                    Error( ERR_BOOL_TYPE_EXPECTED );
+                }
+                oE0.type = pBool;
+                break;
+                
+        case 36:
+                oE.type = oL.type;
+                break;
+                
+        case 37:
+                if( !CheckTypes( oL1.type, oR.type ) )
+                {
+                    Error( ERR_TYPE_MISMATCH );
+                }
+                oL0.type = pBool;
+                break;
+                
+        case 38:
+                if( !CheckTypes( oL1.type, oR.type ) )
+                {
+                    Error( ERR_TYPE_MISMATCH );
+                }
+                oL0.type = pBool;
+                break;
+                
+        case 39:
+                if( !CheckTypes( oL1.type, oR.type ) )
+                {
+                    Error( ERR_TYPE_MISMATCH );
+                }
+                oL0.type = pBool;
+                break;
+                
+        case 40:
+                if( !CheckTypes( oL1.type, oR.type ) )
+                {
+                    Error( ERR_TYPE_MISMATCH );
+                }
+                oL0.type = pBool;
+                break;
+                
+        case 41:
+                if( !CheckTypes( oL1.type, oR.type ) )
+                {
+                    Error( ERR_TYPE_MISMATCH );
+                }
+                oL0.type = pBool;
+                break;
+                
+        case 42:
+                if( !CheckTypes( oL1.type, oR.type ) )
+                {
+                    Error( ERR_TYPE_MISMATCH );
+                }
+                oL0.type = pBool;
+                break;
+                
+        case 43:
+                oL.type = oR.type;
+                break;
+
+        case 44:
+                if( !CheckTypes( oR1.type, oY.type ) )
+                {
+                    Error( ERR_TYPE_MISMATCH );
+                }
+                if( !CheckTypes( oR1.type, pInt )
+                && !CheckTypes( oR1.type, pString ))
+                {
+                    Error( ERR_INVALID_TYPE );
+                }
+                oR0.type = oR1.type;
+                break;
+                
+        case 45:
+                if( !CheckTypes( oR1.type, oY.type ) )
+                {
+                   Error( ERR_TYPE_MISMATCH );
+                }
+                if( !CheckTypes( oR1.type, pInt ) )
+                {
+                    Error( ERR_INVALID_TYPE );
+                }
+                oR0.type = oR1.type;
+                break;
+                
+        case 46:
+                oR.type = oY.type;
+                break;
+                
+        case 47:
+                if( !CheckTypes( oY1.type, oF.type ) )
+                {
+                    Error( ERR_TYPE_MISMATCH );
+                }
+                if( !CheckTypes( oY1.type, pInt ) )
+                {
+                    Error( ERR_INVALID_TYPE );
+                }
+                oY0.type = oY1.type;
+                break;
+                
+        case 48:
+                if( !CheckTypes( oY1.type, oF.type ) )
+                {
+                    Error( ERR_TYPE_MISMATCH );
+                }
+                if( !CheckTypes( oY1.type, pInt ) )
+                {
+                    Error( ERR_INVALID_TYPE );
+                }
+                oY0.type = oY1.type;
+                break;
+                
+        case 49:
+                oY.type = oF.type;
+                break;
+                
+        case 50:
+                oF.type = oLV.type;
+                break;
+                
+        case 51:
+                t = oLV.type;
+                if( !CheckTypes( t, pInt ) )
+                {
+                    Error( ERR_INVALID_TYPE );
+                }
+                oF.type = pInt;
+                break;
+                
+        case 52:
+                t = oLV.type;
+                if( !CheckTypes( t, pInt ) )
+                {
+                    Error( ERR_INVALID_TYPE );
+                }
+                oF.type = pInt;
+                break;
+                
+        case 53:
+                t = oLV.type;
+                if( !CheckTypes( t, pInt ) )
+                {
+                    Error( ERR_INVALID_TYPE );
+                }
+                oF.type = pInt;
+                break;
+                
+        case 54:
+                t = oLV.type;
+                if( !CheckTypes( t, pInt ) )
+                {
+                    Error( ERR_INVALID_TYPE );
+                }
+                oF.type = pInt;
+                break;
+                
+        case 55:
+                oF.type = oE.type;
+                break;
+        case 56:
+                oF.type = oMC.type;
+                if( !oMC.err )
+                {
+                    if( oLE.param != NULL )
+                        Error( ERR_TOO_FEW_ARGS );
+                }
+                break;
+         
+        case 57:
+                t = oF1.type;
+                if( !CheckTypes( t, pInt ) )
+                {
+                    Error( ERR_INVALID_TYPE );
+                }
+                oF.type = pInt;
+                break;
+                
+        case 58:
+                t = oF1.type;
+                if( !CheckTypes( t, pBool ) )
+                {
+                    Error( ERR_INVALID_TYPE );
+                }
+                oF0.type = pBool;
+                break;
+                
+        case 59:
+                oF.type = pBool;
+                break;
+                
+        case 60:
+                oF.type = pBool;
+                break;
+                
+        case 61:
+                oF.type = pChar;
+                break;
+                
+        case 62:
+                oF.type = pString;
+                break;
+                
+        case 63:
+                oF.type = pInt;
+                break;
+        case 64:
+                oLE0.param = NULL;
+                oLE0.err = oLE1.err;
+                n = oLE1.n;
+                if( !oLE1.err )
+                {
+                    p = oLE.param;
+                    if( p == NULL )
+                    {
+                        Error(ERR_TOO_MANY_ARGS);
+                        oLE0.err = true;
+                    }
+                }
+                else
+                {
+                    if( !CheckTypes(
+                    p->_.Param.pType,
+                    oE.type ) )
+                    {
+                        Error( ERR_PARAM_TYPE, n);
+                    }
+                    oLE0.param = p->pNext;
+                    oLE0.n = n+1;
+                }
+                break;
+               
+        case 65:
+                oE = TopSem(0);
+                oMC = TopSem(-1);
+                oLE.param = NULL;
+                oLE.err = oMC.err;
+                n = 1;
+                if( !oMC.err )
+                {
+                    p = oMC.param;
+                    if( p == NULL )
+                    {
+                        Error(ERR_TOO_MANY_ARGS);
+                        oLE.err = true;
+                    }
+                }
+                else
+                {
+                    if( !CheckTypes(
+                    p->_.Param.pType,
+                    oE.type ) )
+                    {
+                        Error( ERR_PARAM_TYPE, n);
+                    }
+                    oLE.param = p->pNext;
+                    oLE.n = n+1;
+                }
+                break;
+          
+        case 66:
+                t = oLV1.type;
+                if( t->eKind != STRUCT_TYPE_ )
+                {
+                    if( t->eKind != UNIVERSAL_ )
+                    {
+                        Error( ERR_KIND_NOT_STRUCT );
+                    }
+                    oLV0.type = pUniversal;
+                }
+                else
+                {
+                    p = t->_.Struct.pFields;
+                    while( p!= NULL )
+                    {
+                        if( p->nName == oID.nName )
+                        {
+                            break;
+                        }
+                        p = p->pNext;
+                    }
+                    if( p == NULL )
+                    {
+                        Error( ERR_FIELD_NOT_DECL );
+                        oLV0.type = pUniversal;
+                    }
+                    else
+                    {
+                        oLV0.type = p->_.Field.pType;
+                    }
+                }
+                break;
+                
+        case 67:
+                t = oLV1.type;
+                if( t == pString )
+                {
+                    oLV0.type = pChar;
+                }
+                else
+                if( t->eKind != ARRAY_TYPE_ )
+                {
+                    if( t->eKind != UNIVERSAL_ )
+                    {
+                        Error( ERR_KIND_NOT_ARRAY );
+                    }
+                    oLV0.type = pUniversal;
+                }
+                else
+                {
+                    oLV0.type = t->_.Array.pElemType;
+                }
+                if( !CheckTypes( oE.type, pInt ) )
+                {
+                    Error( ERR_INVALID_INDEX_TYPE );
+                }
+                break;
+                
+        case 68:
+                p = oIDU.obj;
+                if( p->eKind != VAR_ &&
+                p->eKind != PARAM_ )
+                {
+                    if( p->eKind != UNIVERSAL_ )
+                    {
+                        Error( ERR_KIND_NOT_VAR );
+                    }
+                    oLV.type = pUniversal;
+                }
+                else
+                {
+                    oLV.type = p->_.Var.pType;
+                }
+                break;
+         
         case 69: 
                 name = tokenSecundario;
                 oIDU.nName = name;
@@ -164,415 +583,36 @@ void semantics(elementoTabelaAuxiliar r)
                 newBlock();
                 break;
                 
-            
-            //FIXFIXFIXFIX
-            
-            case 77: 
-		NewBlock();
-		break;
-		
-case 11:		
-		p = IDD.obj;
-		p->eKind = STRUCT_TYPE_;
-		p->_.Struct.pFields = DC.list;
-		EndBlock();
-		break;
-		
-case 17:
-		p = IDD.obj;
-		t = T.type;
-		p->eKind = PARAM_;
-		p->_.Param.pType = t;
-		LP.list = p;
-		break;
-		
-case 16:
-		p = IDD.obj;
-		t = T.type;
-		p->eKind = PARAM_;
-		p->_.Param.pType = t;
-		LP0.list = LP1.list;
-		break;
-		
-case 78:
-		T = TopSem(0);
-		LP = TopSem(-1);
-		NB = TopSem(-2);
-		IDD = TopSem(-3);
-		f = IDD.obj;
-		f->eKind = FUNCTION_;
-		f->_.Function.pRetType = T.type;
-		f->_.Function.pParams = LP.list;
-		break;
-		
-case 15:
-		EndBlock();
-		break;
-		
-case 30:
-		EndBlock();
-		break;
-		
-case 26:
-		t = E.type;
-		if( !CheckTypes(t, pBool) )
-		{
-			Error( ERR_BOOL_TYPE_EXPECTED );
-		}
-		break;
-		
-case 27:
-		t = E.type;
-		if( !CheckTypes(t, pBool) )
-		{
-			Error( ERR_BOOL_TYPE_EXPECTED );
-		}
-		break;
-		
-case 28:
-		t = E.type;
-		if( !CheckTypes(t, pBool) )
-		{
-			Error( ERR_BOOL_TYPE_EXPECTED );
-		}
-		break;
-		
-case 29:
-		t = E.type;
-		if( !CheckTypes(t, pBool) )
-		{
-			Error( ERR_BOOL_TYPE_EXPECTED );
-		}
-		break;
-		
-case 31:
-		t1 = LV.type;
-		t2 = E.type;
-		if( ! CheckTypes( t1, t2 ) )
-		{
-			Error( ERR_TYPE_MISMATCH );
-		}
-		break;
-		
-case 34:
-		if( !CheckTypes( E1.type, pBool ) )
-			Error( ERR_BOOL_TYPE_EXPECTED );
-		if( !CheckTypes( L.type, pBool ) )
-			Error( ERR_BOOL_TYPE_EXPECTED );
-		E0.type = pBool;
-		break;
-		
-case 35:
-		if( !CheckTypes( E1.type, pBool ) )
-			Error( ERR_BOOL_TYPE_EXPECTED );
-		if( !CheckTypes( L.type, pBool ) )
-			Error( ERR_BOOL_TYPE_EXPECTED );
-		E0.type = pBool;
-		break;
-		
-case 36:
-		E.type = L.type;
-		break;
-		
-case 37:
-		if( !CheckTypes( L1.type, R.type ) )
-			Error( ERR_TYPE_MISMATCH );
-		L0.type = pBool;
-		break;
-		
-case 38:
-		if( !CheckTypes( L1.type, R.type ) )
-			Error( ERR_TYPE_MISMATCH );
-		L0.type = pBool;
-		break;
-		
-case 39:
-		if( !CheckTypes( L1.type, R.type ) )
-			Error( ERR_TYPE_MISMATCH );
-		L0.type = pBool;
-		break;
-		
-case 40:
-		if( !CheckTypes( L1.type, R.type ) )
-			Error( ERR_TYPE_MISMATCH );
-		L0.type = pBool;
-		break;
-		
-case 41:
-		if( !CheckTypes( L1.type, R.type ) )
-			Error( ERR_TYPE_MISMATCH );
-		L0.type = pBool;
-		break;
-		
-case 42:
-		if( !CheckTypes( L1.type, R.type ) )
-			Error( ERR_TYPE_MISMATCH );
-		L0.type = pBool;
-		break;
-		
-case 43:
-		L.type = R.type;
-		break;
-
-case 44:
-		if( !CheckTypes( R1.type, Y.type ) )
-			Error( ERR_TYPE_MISMATCH );
-		if( !CheckTypes( R1.type, pInteger )
-		&& !CheckTypes( R1.type, pString ))
-			Error( ERR_INVALID_TYPE );
-		R0.type = R1.type;
-		break;
-		
-case 45:
-		if( !CheckTypes( R1.type, Y.type ) )
-			Error( ERR_TYPE_MISMATCH );
-		if( !CheckTypes( R1.type, pInteger ) )
-			Error( ERR_INVALID_TYPE );
-		R0.type = R1.type
-		break;
-		
-case 46:
-		R.type = Y.type
-		break;
-		
-case 47:
-		if( !CheckTypes( Y1.type, F.type ) )
-			Error( ERR_TYPE_MISMATCH );
-		if( !CheckTypes( Y1.type, pInteger ) )
-			Error( ERR_INVALID_TYPE );
-		Y0.type = Y1.type
-		break;
-		
-case 48:
-		if( !CheckTypes( Y1.type, F.type ) )
-			Error( ERR_TYPE_MISMATCH );
-		if( !CheckTypes( Y1.type, pInteger ) )
-			Error( ERR_INVALID_TYPE );
-		Y0.type = Y1.type
-		break;
-		
-case 49:
-		Y.type = F.type
-		break;
-		
-case 50:
-		F.type = LV.type;
-		break;
-		
-case 51:
-		t = LV.type;
-		if( !CheckTypes( t, pInteger ) )
-			Error( ERR_INVALID_TYPE );
-		F.type = pInteger;
-		break;
-		
-case 52:
-		t = LV.type;
-		if( !CheckTypes( t, pInteger ) )
-			Error( ERR_INVALID_TYPE );
-		F.type = pInteger;
-		break;
-		
-case 53:
-		t = LV.type;
-		if( !CheckTypes( t, pInteger ) )
-			Error( ERR_INVALID_TYPE );
-		F.type = pInteger;
-		break;
-		
-case 54:
-		t = LV.type;
-		if( !CheckTypes( t, pInteger ) )
-			Error( ERR_INVALID_TYPE );
-		F.type = pInteger;
-		break;
-		
-case 55:
-		F.type = E.type;
-		break;
-		
-case 57:
-		t = F1.type;
-		if( !CheckTypes( t, pInteger ) )
-			Error( ERR_INVALID_TYPE );
-		F.type = pInteger;
-		break;
-		
-case 58:
-		t = F1.type;
-		if( !CheckTypes( t, pBool ) )
-			Error( ERR_INVALID_TYPE );
-		F0.type = pBool;
-		break;
-		
-case 59:
-		F.type = pBool;
-		break;
-		
-case 60:
-		F.type = pBool;
-		break;
-		
-case 61:
-		F.type = pChar;
-		break;
-		
-case 62:
-		F.type = pString;
-		break;
-		
-case 63:
-		F.type = pInteger;
-		break;
-		
-case 66:
-		t = LV1.type;
-		if( t->eKind != STRUCT_TYPE_ )
-		{
-			if( t->eKind != UNIVERSAL_ )
-				Error( ERR_KIND_NOT_STRUCT );
-			LV0.type = pUniversal;
-		}
-		else
-		{
-			p = t->_.Struct.pFields;
-			while( p!= NULL )
-			{
-				if( p->nName == ID.name )
-					break;
-				p = p->pNext.
-			}
-			if( p == NULL )
-			{
-				Error( ERR_FIELD_NOT_DECL );
-				LV0.type = pUniversal;
-			}
-			else
-			{
-				LV0.type = p->_.Field.pType;
-			}
-		}
-		break;
-		
-case 67:
-		t = LV1.type;
-		if( t == pString )
-		{
-			LV0.type = pChar;
-		}
-		else
-		if( t->eKind != ARRAY_TYPE_ )
-		{
-			if( t->eKind != UNIVERSAL_ )
-				Error( ERR_KIND_NOT_ARRAY );
-			LV0.type = pUniversal;
-		}
-		else
-		{
-			LV0.type = t->_.Array.pElemType;
-		}
-		if( !CheckTypes( E.type, pInteger ) )
-		{
-			Error( ERR_INVALID_INDEX_TYPE );
-		}
-		break;
-		
-case 68:
-		p = IDU.obj;
-		if( p->eKind != VAR_ &&
-		p->eKind != PARAM_ )
-		{
-			if( p->eKind != UNIVERSAL_ )
-				Error( ERR_KIND_NOT_VAR );
-			LV.type = pUniversal;
-		}
-		else
-		{
-			LV.type = p->_.Var.pType;
-		}
-		break;
-		
-case 79:
-		IDU = TopSem(0);
-		f = IDU.obj;
-		if( f->eKind != FUNCTION_ )
-		{
-			Error( ERR_KIND_NOT_FUNC );
-			MC.type = pUniversal;
-			MC.param = NULL;
-			MC.err = true;
-		}
-		else
-		{
-			MC.type = f->_.Function.pRetType;
-			MC.param = f->_.Function.pParams;
-			MC.err = false;
-		}
-		break;
-		
-case 65:
-		E = TopSem(0);
-		MC = TopSem(-1);
-		LE.param = NULL;
-		LE.err = MC.err;
-		n = 1;
-		if( !MC.err )
-		{
-			p = MC.param;
-			if( p == NULL )
-			{
-				Error(ERR_TOO_MANY_ARGS);
-				LE.err = true;
-			}
-		}
-		else
-		{
-			if( !CheckTypes(
-			p->_.Param.pType,
-			E.type ) )
-			{
-				Error( ERR_PARAM_TYPE, n);
-			}
-			LE.param = p->pNext;
-			LE.n = n+1;
-		}
-		break;
-		
-case 64:
-		LE0.param = NULL;
-		LE0.err = LE1.err;
-		n = LE1.n;
-		if( !LE1.err )
-		{
-			p = LE.param;
-			if( p == NULL )
-			{
-				Error(ERR_TOO_MANY_ARGS);
-				LE0.err = true;
-			}
-		}
-		else
-		{
-			if( !CheckTypes(
-			p->_.Param.pType,
-			E.type ) )
-			{
-				Error( ERR_PARAM_TYPE, n);
-			}
-			LE0.param = p->pNext;
-			LE0.n = n+1;
-		}
-		break;
-		
-case 56:
-		F.type = MC.type;
-		if( !MC.err )
-		{
-			if( LE.param != NULL )
-				Error( ERR_TOO_FEW_ARGS );
-		}
-		break;
-            
+        case 78:
+                oT = TopSem(0);
+                oLP = TopSem(-1);
+                oNB = TopSem(-2);
+                oIDD = TopSem(-3);
+                f = oIDD.obj;
+                f->eKind = FUNCTION_;
+                f->_.Function.pRetType = oT.type;
+                f->_.Function.pParams = oLP.list;
+                break;
+                
+        case 79:
+                oIDU = TopSem(0);
+                f = oIDU.obj;
+                if( f->eKind != FUNCTION_ )
+                {
+                    Error( ERR_KIND_NOT_FUNC );
+                    oMC.type = pUniversal;
+                    oMC.param = NULL;
+                    oMC.err = true;
+                }
+                else
+                {
+                    oMC.type = f->_.Function.pRetType;
+                    oMC.param = f->_.Function.pParams;
+                    oMC.err = false;
+                }
+                break;
+                
+                   
 
         default:
             printf("MOPAMPOAMOPAMOPA\n");
