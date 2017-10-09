@@ -123,4 +123,16 @@ void Error(t_error e)
     }
 }
 
-
+boolean CheckTypes(pobject t1, pobject t2)
+{
+	if( t1 == t2 )
+		return true;
+	else
+		if( t1 == pUniversal || t2 == pUniversal )
+			return true;
+	else
+		if( t1->eKind == UNIVERSAL_ || t2->eKind == UNIVERSAL_ )
+			return true;
+	else
+		return false;
+}
