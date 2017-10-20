@@ -1,6 +1,6 @@
 function myFunction(AAA : integer) : integer {
     var str1, str2 : integer;
-    var str1 : char;
+    var str3 : char;
     str1 = 1;
     str2 = 2;
     if (str1 == str2) {

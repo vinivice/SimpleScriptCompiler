@@ -74,7 +74,8 @@ typedef enum
     ERR_REDECL, ERR_NOT_DECL, ERR_TYPE_EXPECTED, ERR_TOO_FEW_ARGS, ERR_TOO_MANY_ARGS, ERR_PARAM_TYPE, ERR_KIND_NOT_FUNC, ERR_KIND_NOT_VAR, ERR_INVALID_INDEX_TYPE, ERR_KIND_NOT_ARRAY, ERR_FIELD_NOT_DECL, ERR_KIND_NOT_STRUCT, ERR_INVALID_TYPE, ERR_TYPE_MISMATCH, ERR_BOOL_TYPE_EXPECTED
 } t_error;
 
-struct object
+    
+typedef struct object
 {
     int nName;
     struct object *pNext;
@@ -109,7 +110,7 @@ struct object
     bool bVal, err;
     char cVal, *sVal;
     int iVal, pos, n;
-};
+} object, *pobject;
 
 object oIDD, oIDU, oT, oNUM, oLI, oLI0, oLI1, oDC, oDC0, oDC1, oSTR, oCHR, oTRUE, oFALSE, oNB, oLV0, oLV1, oID, oLE, oLE0, oLE1, oF0, oF1, oMC, oF, oY0, oY1, oY, oR0, oR1, oR, oL, oL0, oL1, oE0, oE1, oE, oLV, oLP, oLP0, oLP1;
 object *p, *t, *f, *t1, *t2;
@@ -129,7 +130,13 @@ object *pString = &string_;
 object universal_ = {-1, NULL, SCALAR_TYPE_};
 object *pUniversal = &universal_;
 
+void init() {
+    p = new object;
+    printf("\n\n Pointer: %p \n\n", p);
+    
 
+
+}
 
 void Error(t_error e, int n = 1)
 {
@@ -144,7 +151,7 @@ void Error(t_error e, int n = 1)
     }
 }
 
-bool CheckTypes(object *t1, object *t2)
+bool CheckTypes(struct object *t1, struct object *t2)
 {
 	if( t1 == t2 )
     {
@@ -164,12 +171,14 @@ bool CheckTypes(object *t1, object *t2)
     }
 }
 
-struct object StackSem[MAX_STACK_SIZE];
+object StackSem[MAX_STACK_SIZE];
 
 int top_Stack_Sem = -1;
 
-int PushSem( struct object &obj ) {
-    StackSem[++top_Stack_Sem] = obj;
+int PushSem(object &anObj ) {
+    StackSem[++top_Stack_Sem] = anObj;
+    printf("\n\nEntrou na pilha... Topo: %d\nEndereco: %p\n\n", top_Stack_Sem, &StackSem[top_Stack_Sem - 1]);
+    
     return top_Stack_Sem;
 }
 
@@ -178,7 +187,7 @@ int PopSem( int nToPop ) {
     return top_Stack_Sem;
 }
 
-struct object TopSem( int offFromTop ) {
-    return StackSem[top_Stack_Sem - offFromTop];
+object TopSem( int offFromTop ) {
+    return StackSem[top_Stack_Sem + offFromTop - 1];
 }
     
