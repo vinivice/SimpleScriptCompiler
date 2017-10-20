@@ -179,9 +179,12 @@ void semantics(elementoTabelaAuxiliar r)
         case 30:
                 endBlock();
                 break;
-        case 31:
+        case 31:                
+                oLV = TopSem(0);
+                PopSem(1);                
                 t1 = oLV.type;
                 t2 = oE.type;
+                printf("\n t1, t2: %p, %p\n", t1, t2);
                 if( ! CheckTypes( t1, t2 ) )
                 {
                     Error( ERR_TYPE_MISMATCH );
