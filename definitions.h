@@ -176,10 +176,14 @@ object StackSem[MAX_STACK_SIZE];
 int top_Stack_Sem = -1;
 
 int PushSem(object &anObj ) {
-    StackSem[++top_Stack_Sem] = anObj;
-    printf("\n\nEntrou na pilha... Topo: %d\nEndereco: %p\n\n", top_Stack_Sem, &StackSem[top_Stack_Sem - 1]);
-    
-    return top_Stack_Sem;
+    if ( top_Stack_Sem < MAX_STACK_SIZE ) {
+        StackSem[++top_Stack_Sem] = anObj;
+        printf("\n\nEntrou na pilha... Topo: %d\nEndereco: %p\n\n", top_Stack_Sem, &StackSem[top_Stack_Sem - 1]);
+        return top_Stack_Sem;
+    } 
+    else 
+        printf("\nError: top_Stack_Sem > MAX_STACK_SIZE\n");
+        return -2;
 }
 
 int PopSem( int nToPop ) {

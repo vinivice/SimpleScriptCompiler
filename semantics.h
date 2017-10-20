@@ -255,6 +255,10 @@ void semantics(elementoTabelaAuxiliar r)
                 break;
                 
         case 41:
+                printf("\noL.type, oL1.type: %p, %p\n", oL.type, oL1.type);
+                oL1 = TopSem(0);
+                PopSem(1);
+                printf("\n\nPointers: oL1.type %p - oR.type %p\n\n", oL1.type, oR.type);
                 if( !CheckTypes( oL1.type, oR.type ) )
                 {
                     Error( ERR_TYPE_MISMATCH );
@@ -635,7 +639,7 @@ void semantics(elementoTabelaAuxiliar r)
                     Error(ERR_NOT_DECL);
                     p=define(name);
                 }
-                oIDU.pNext = p;
+                oIDU.obj = p;
                 PushSem(oIDU);
                 break;
         case 77:
