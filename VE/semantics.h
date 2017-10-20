@@ -1,5 +1,4 @@
 #include "definitions.h"
-#include <stdlib.h>
 //#include "analisador_lexico.h"
 #include "analisador_escopo.h"
 #include <stdio.h>
@@ -8,30 +7,11 @@
 void semantics(elementoTabelaAuxiliar r)
 {
     int name, n;
-    printf("\n\n Run semantics!!! \n\n");    
-    printf("\n\nRule: %d\n\n",r.rule);
- /*   object oIDD, oIDU, oT, oNUM, oLI, oLI0, oLI1, oDC, oDC0, oDC1, oSTR, oCHR, oTRUE, oFALSE, oNB, oLV0, oLV1, oID, oLE, oLE0, oLE1, oF0, oF1, oMC, oF, oY0, oY1, oY, oR0, oR1, oR, oL, oL0, oL1, oE0, oE1, oE, oLV, oLP, oLP0, oLP1;
-    object *p, *t, *f, *t1, *t2;
-
-    object int_ = {-1, NULL, SCALAR_TYPE_};
-    object *pInt = &int_;
-
-    object char_ = {-1, NULL, SCALAR_TYPE_};
-    object *pChar = &char_;
-
-    object bool_ = {-1, NULL, SCALAR_TYPE_};
-    object *pBool = &bool_;
-
-    object string_ = {-1, NULL, SCALAR_TYPE_};
-    object *pString = &string_;
-
-    object universal_ = {-1, NULL, SCALAR_TYPE_};
-    object *pUniversal = &universal_;
-*/
     printf("-*%d*-\n", tokenSecundario);
+    printf("%d\n", r.rule);
     switch(r.rule)
     {
-        case 5:            
+        case 5:
                 oT.type = pInt;
                 PushSem(oT);
                 break;
@@ -124,7 +104,6 @@ void semantics(elementoTabelaAuxiliar r)
                 oLP.list = p;
                 PushSem(oLP);
                 break;
-
         
         case 23:
                 p = oLI.list;
@@ -623,7 +602,7 @@ void semantics(elementoTabelaAuxiliar r)
                     p=define(name);
                 }
                 p->eKind = NO_KIND_DEF_;
-                oIDD.obj = p;
+                oIDD.pNext = p;
                 PushSem(oIDD);
                 break;
                 
@@ -639,7 +618,6 @@ void semantics(elementoTabelaAuxiliar r)
                 PushSem(oIDU);
                 break;
         case 77:
-                PushSem(oNB);
                 newBlock();
                 break;
                 
@@ -648,7 +626,6 @@ void semantics(elementoTabelaAuxiliar r)
                 oLP = TopSem(-1);
                 oNB = TopSem(-2);
                 oIDD = TopSem(-3);
-                PopSem(4);
                 f = oIDD.obj;
                 f->eKind = FUNCTION_;
                 f->_.Function.pRetType = oT.type;
@@ -678,7 +655,7 @@ void semantics(elementoTabelaAuxiliar r)
         default:
             printf("MOPAMPOAMOPAMOPA\n");
     }
-    printf("\n\n Go out semantics!!! \n\n");
+    
 }
 
 void PTS()
