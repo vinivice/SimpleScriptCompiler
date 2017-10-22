@@ -764,6 +764,7 @@ void semantics(elementoTabelaAuxiliar r)
                 p->eKind = NO_KIND_DEF_;
                 oIDD.obj = p;
                 PushSem(oIDD);
+                printf("\noIDD no topo: %p\n", oIDD.obj);
                 break;
                 
         case 76:
@@ -820,6 +821,7 @@ void semantics(elementoTabelaAuxiliar r)
         case 80:   
                 oIDD = TopSem(0);
                 f = oIDD.obj;
+                printf("\n\ncase 80: %p\n\n", f);
                 f->eKind = FUNCTION_;
                 f->_.Function.nParams = 0;
                 f->_.Function.pVars = 0;

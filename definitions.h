@@ -205,7 +205,7 @@ int PopSem( int nToPop ) {
 }
 
 object TopSem( int offFromTop ) {
-    return StackSem[top_Stack_Sem + offFromTop - 1];
+    return StackSem[top_Stack_Sem + offFromTop];
 }
     
 //DEFINIÇÕES GERAÇÃO DE CÓDIGO
