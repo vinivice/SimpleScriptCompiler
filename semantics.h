@@ -7,7 +7,7 @@
 
 void semantics(elementoTabelaAuxiliar r)
 {
-    int name, n, l;
+    int name, n, l, l1, l2;
     printf("\n\n Run semantics!!! \n\n");    
     printf("\n\nRule: %d\n\n",r.rule);
     //myOutputFile << "SEMANTICS\n";
@@ -190,41 +190,57 @@ void semantics(elementoTabelaAuxiliar r)
                 oLI.list = oIDD.obj;
                 PushSem(oLI);
                 break;
+
+//26: S -> 'if' '(' E ')' MT S
         case 26:
                 t = oE.type;
+                l = oMT.label;
                 if( !CheckTypes(t, pBool) )
                 {
                     Error( ERR_BOOL_TYPE_EXPECTED );
                 }
+                myOutputFile << "L" << l << "\n";
                 break;
-                
+
+//27 : S -> 'if' '(' E ')' MT S 'else' ME S         
         case 27:
                 t = oE.type;
+                l = oME.label;
                 if( !CheckTypes(t, pBool) )
                 {
                     Error( ERR_BOOL_TYPE_EXPECTED );
                 }
+                myOutputFile << "L" << l << ":\n";
                 break;
-                
+
+//28 : S -> 'while' MW '(' E ')' MT S                
         case 28:
                 t = oE.type;
+                l1 = oMW.label;
+                l2 = oMT.label;
                 if( !CheckTypes(t, pBool) )
                 {
                     Error( ERR_BOOL_TYPE_EXPECTED );
                 }
+                myOutputFile << "\tJMP_BW L" << l1 << "\nL" << l2 << "\n";
                 break;
-                
+               
+//29 : S -> 'do' MW S 'while' '(' E ')' ';' 
         case 29:
                 t = oE.type;
+                l = oMW.label;
                 if( !CheckTypes(t, pBool) )
                 {
                     Error( ERR_BOOL_TYPE_EXPECTED );
                 }
+                myOutputFile << "\tNOT\n\tTJMP_BW L" << l << "\n";
                 break;
          
         case 30:
                 endBlock();
                 break;
+
+//31 : S -> LV '=' E ';'
         case 31:                
                 oLV = TopSem(0);
                 PopSem(1);                
@@ -235,7 +251,10 @@ void semantics(elementoTabelaAuxiliar r)
                 {
                     Error( ERR_TYPE_MISMATCH );
                 }
+                myOutputFile << "\tSTORE_REF " << t->_.Type.nSize << "\n";
                 break;
+
+//34 : E -> E '&&' L
         case 34:
                 if( !CheckTypes( oE1.type, pBool ) )
                 {
@@ -247,8 +266,10 @@ void semantics(elementoTabelaAuxiliar r)
                 }
                 oE0.type = pBool;
                 PushSem(oE0);
+                myOutputFile << "\tAND\n" ;
                 break;
-                
+
+//35 : E -> E '||' L
         case 35:
                 if( !CheckTypes( oE1.type, pBool ) )
                 {
@@ -260,6 +281,7 @@ void semantics(elementoTabelaAuxiliar r)
                 }
                 oE0.type = pBool;
                 PushSem(oE0);
+                myOutputFile << "\tOR\n" ;                
                 break;
                 
         case 36:
@@ -267,6 +289,7 @@ void semantics(elementoTabelaAuxiliar r)
                 PushSem(oE);
                 break;
                 
+//37 : L -> L '<' R
         case 37:
                 if( !CheckTypes( oL1.type, oR.type ) )
                 {
@@ -274,8 +297,10 @@ void semantics(elementoTabelaAuxiliar r)
                 }
                 oL0.type = pBool;
                 PushSem(oL0);
+                myOutputFile << "\tLT\n" ;
                 break;
-                
+
+//38 : L -> L '>' R
         case 38:
                 if( !CheckTypes( oL1.type, oR.type ) )
                 {
@@ -283,8 +308,10 @@ void semantics(elementoTabelaAuxiliar r)
                 }
                 oL0.type = pBool;
                 PushSem(oL0);
+                myOutputFile << "\tGT\n" ;
                 break;
-                
+
+//39 : L -> L '<=' R 
         case 39:
                 if( !CheckTypes( oL1.type, oR.type ) )
                 {
@@ -292,8 +319,10 @@ void semantics(elementoTabelaAuxiliar r)
                 }
                 oL0.type = pBool;
                 PushSem(oL0);
+                myOutputFile << "\tLE\n" ;
                 break;
-                
+
+//40 : L -> L '>=' R                
         case 40:
                 if( !CheckTypes( oL1.type, oR.type ) )
                 {
@@ -301,8 +330,10 @@ void semantics(elementoTabelaAuxiliar r)
                 }
                 oL0.type = pBool;
                 PushSem(oL0);
+                myOutputFile << "\tGE\n" ;
                 break;
                 
+//41 : L -> L '==' R
         case 41:
                 printf("\noL.type, oL1.type: %p, %p\n", oL.type, oL1.type);
                 oL1 = TopSem(0);
@@ -313,10 +344,11 @@ void semantics(elementoTabelaAuxiliar r)
                     Error( ERR_TYPE_MISMATCH );
                 }
                 oL0.type = pBool;
-                myOutputFile << "\tEQ\n";
                 PushSem(oL0);
+                myOutputFile << "\tEQ\n" ;
                 break;
                 
+//42 : L -> L '!=' R
         case 42:
                 if( !CheckTypes( oL1.type, oR.type ) )
                 {
@@ -324,6 +356,7 @@ void semantics(elementoTabelaAuxiliar r)
                 }
                 oL0.type = pBool;
                 PushSem(oL0);
+                myOutputFile << "\tNE\n" ;
                 break;
                 
         case 43:
@@ -331,6 +364,7 @@ void semantics(elementoTabelaAuxiliar r)
                 PushSem(oL);
                 break;
 
+//44 : R -> R '+' Y
         case 44:
                 if( !CheckTypes( oR1.type, oY.type ) )
                 {
@@ -343,8 +377,10 @@ void semantics(elementoTabelaAuxiliar r)
                 }
                 oR0.type = oR1.type;
                 PushSem(oR0);
+                myOutputFile << "\tADD\n" ;
                 break;
-                
+
+//45 : R -> R '-' Y
         case 45:
                 if( !CheckTypes( oR1.type, oY.type ) )
                 {
@@ -356,13 +392,15 @@ void semantics(elementoTabelaAuxiliar r)
                 }
                 oR0.type = oR1.type;
                 PushSem(oR0);
+                myOutputFile << "\tSUB\n" ;
                 break;
                 
         case 46:
                 oR.type = oY.type;
                 PushSem(oR);
                 break;
-                
+
+//47 : Y -> Y '*' F
         case 47:
                 if( !CheckTypes( oY1.type, oF.type ) )
                 {
@@ -374,8 +412,10 @@ void semantics(elementoTabelaAuxiliar r)
                 }
                 oY0.type = oY1.type;
                 PushSem(oY0);
+                myOutputFile << "\tMUL\n" ;
                 break;
-                
+
+//48 : Y -> Y '/' F
         case 48:
                 if( !CheckTypes( oY1.type, oF.type ) )
                 {
@@ -387,18 +427,23 @@ void semantics(elementoTabelaAuxiliar r)
                 }
                 oY0.type = oY1.type;
                 PushSem(oY0);
+                myOutputFile << "\tDIV\n" ;
                 break;
                 
         case 49:
                 oY.type = oF.type;
-                PushSem(oY);
+                PushSem(oY);                
                 break;
-                
+
+//50 : F -> LV
         case 50:
                 oF.type = oLV.type;
                 PushSem(oF);
+                n = oLV.type->_.Type.nSize;
+                myOutputFile << "\tDE_REF " << n << "\n" ;                
                 break;
-                
+
+//51 : F -> '++' LV 
         case 51:
                 t = oLV.type;
                 if( !CheckTypes( t, pInt ) )
@@ -407,8 +452,11 @@ void semantics(elementoTabelaAuxiliar r)
                 }
                 oF.type = pInt;
                 PushSem(oF);
+                myOutputFile << "\tDUP\n\tDUP\tDE_REF 1\n" ;
+                myOutputFile << "\tINC\n\tSTORE_REF 1\tDE_REF 1\n" ;
                 break;
-                
+
+//52 : F -> '--' LV 
         case 52:
                 t = oLV.type;
                 if( !CheckTypes( t, pInt ) )
@@ -417,8 +465,11 @@ void semantics(elementoTabelaAuxiliar r)
                 }
                 oF.type = pInt;
                 PushSem(oF);
+                myOutputFile << "\tDUP\n\tDUP\tDE_REF 1\n" ;
+                myOutputFile << "\tDEC\n\tSTORE_REF 1\tDE_REF 1\n" ;
                 break;
-                
+               
+//53 : F -> LV '++' 
         case 53:
                 t = oLV.type;
                 if( !CheckTypes( t, pInt ) )
@@ -427,8 +478,11 @@ void semantics(elementoTabelaAuxiliar r)
                 }
                 oF.type = pInt;
                 PushSem(oF);
+                myOutputFile << "\tDUP\n\tDUP\tDE_REF 1\n\tINC\n" ;
+                myOutputFile << "\tSTORE_REF 1\tDE_REF 1\nDEC\n" ;
                 break;
-                
+               
+//54 : F -> LV '--' 
         case 54:
                 t = oLV.type;
                 if( !CheckTypes( t, pInt ) )
@@ -437,22 +491,29 @@ void semantics(elementoTabelaAuxiliar r)
                 }
                 oF.type = pInt;
                 PushSem(oF);
+                myOutputFile << "\tDUP\n\tDUP\tDE_REF 1\n\tDEC\n" ;
+                myOutputFile << "\tSTORE_REF 1\tDE_REF 1\nINC\n" ;
                 break;
                 
         case 55:
                 oF.type = oE.type;
                 PushSem(oF);
                 break;
+
+//56 : F -> IDU MC '(' LE ')'
         case 56:
                 oF.type = oMC.type;
+                func = oIDU.obj;
                 if( !oMC.err )
                 {
                     if( oLE.param != NULL )
                         Error( ERR_TOO_FEW_ARGS );
                 }
                 PushSem(oF);
+                myOutputFile << "\tCALL " << func->_.Function.nIndex;
                 break;
-         
+        
+//57 : F -> '-' F 
         case 57:
                 t = oF1.type;
                 if( !CheckTypes( t, pInt ) )
@@ -461,8 +522,10 @@ void semantics(elementoTabelaAuxiliar r)
                 }
                 oF.type = pInt;
                 PushSem(oF);
+                myOutputFile << "\tNEG\n" ;
                 break;
                 
+//58 : F -> '!' F
         case 58:
                 t = oF1.type;
                 if( !CheckTypes( t, pBool ) )
@@ -471,32 +534,49 @@ void semantics(elementoTabelaAuxiliar r)
                 }
                 oF0.type = pBool;
                 PushSem(oF0);
+                myOutputFile << "\tNOT\n" ;
                 break;
-                
+               
+//59 : F -> TRUE 
         case 59:
                 oF.type = pBool;
                 PushSem(oF);
+                n = tokenSecundario;
+                myOutputFile << "\tLOAD_CONST " << n << "\n" ;                
                 break;
-                
+
+//60 : F -> FALSE
         case 60:
                 oF.type = pBool;
                 PushSem(oF);
+                n = tokenSecundario;
+                myOutputFile << "\tLOAD_CONST " << n << "\n" ;                
                 break;
-                
+        
+//61 : F -> CHR        
         case 61:
                 oF.type = pChar;
                 PushSem(oF);
+                n = tokenSecundario;
+                myOutputFile << "\tLOAD_CONST " << n << "\n" ;                
                 break;
                 
+//62 : F -> STR
         case 62:
                 oF.type = pString;
                 PushSem(oF);
+                n = tokenSecundario;
+                myOutputFile << "\tLOAD_CONST " << n << "\n" ;                
                 break;
-                
+               
+//63 : F -> NUM 
         case 63:
                 oF.type = pInt;
                 PushSem(oF);
+                n = tokenSecundario;
+                myOutputFile << "\tLOAD_CONST " << n << "\n" ;                
                 break;
+
         case 64:
                 oLE0.param = NULL;
                 oLE0.err = oLE1.err;
@@ -552,7 +632,8 @@ void semantics(elementoTabelaAuxiliar r)
                 }
                 PushSem(oLE);
                 break;
-          
+
+//66 : LV -> LV '.' IDU          
         case 66:
                 t = oLV1.type;
                 if( t->eKind != STRUCT_TYPE_ )
@@ -582,11 +663,13 @@ void semantics(elementoTabelaAuxiliar r)
                     else
                     {
                         oLV0.type = p->_.Field.pType;
+                        myOutputFile << "\tADD " << p->_.Field.nIndex << "\n" ;
                     }
                 }
                 PushSem(oLV0);
                 break;
-                
+               
+//67 : LV -> LV '[' E ']' 
         case 67:
                 t = oLV1.type;
                 if( t == pString )
@@ -605,6 +688,7 @@ void semantics(elementoTabelaAuxiliar r)
                 else
                 {
                     oLV0.type = t->_.Array.pElemType;
+                    myOutputFile << "\tMUL " << t->_.Array.pElemType->_.Type.nSize << "\n\tADD\n" ;
                 }
                 if( !CheckTypes( oE.type, pInt ) )
                 {
@@ -612,11 +696,11 @@ void semantics(elementoTabelaAuxiliar r)
                 }
                 PushSem(oLV0);
                 break;
-                
+               
+//68 : LV -> IDU 
         case 68:
                 p = oIDU.obj;
-                if( p->eKind != VAR_ &&
-                p->eKind != PARAM_ )
+                if( p->eKind != VAR_ && p->eKind != PARAM_ )
                 {
                     if( p->eKind != UNIVERSAL_ )
                     {
@@ -627,6 +711,7 @@ void semantics(elementoTabelaAuxiliar r)
                 else
                 {
                     oLV.type = p->_.Var.pType;
+                    myOutputFile << "\tLOAD_REF " << t->_.Var.pType->_.Type.nSize << "\n\tADD\n" ;
                 }
                 PushSem(oLV);
                 break;
@@ -731,6 +816,7 @@ void semantics(elementoTabelaAuxiliar r)
                 }
                 break;
 
+//80 : NF -> ''
         case 80:   
                 oIDD = TopSem(0);
                 f = oIDD.obj;
@@ -740,12 +826,29 @@ void semantics(elementoTabelaAuxiliar r)
                 f->_.Function.nIndex = nFuncs++;
                 newBlock();
                 break;                   
-
-        case 81:
-            l = newLabel();
-            oMT.label = l;
-            myOutputFile << "\tTJMP_FW L" << l << "\n";
             
+        case 81:
+                l = newLabel();
+                oMT.label = l;
+                myOutputFile << "\tTJMP_FW L" << l << "\n";
+                PushSem(oMT);
+                break;
+
+//82 : ME -> ''
+        case 82:
+                oMT = TopSem(-1);
+                l1 = oMT.label;
+                l2 = newLabel();
+                oME.label = l2;
+                myOutputFile << "\tJMP_FW L" << l2 << "\nL" << l1 << "\n";        
+                break;
+
+//83 : MW -> ''
+        case 83:
+                l = newLabel();
+                oMW.label = l;
+                myOutputFile << "L" << l << "\n";
+
         default:
             printf("MOPAMPOAMOPAMOPA\n");
     }
