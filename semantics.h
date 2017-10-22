@@ -7,6 +7,7 @@
 
 void semantics(elementoTabelaAuxiliar r)
 {
+    long offset;
     int name, n;
     printf("\n\n Run semantics!!! \n\n");    
     printf("\n\nRule: %d\n\n",r.rule);
@@ -86,7 +87,7 @@ void semantics(elementoTabelaAuxiliar r)
         case 12:
                 p = oIDD.obj;
                 t = oT.type;
-                p->eKind - ALIAS_TYPE_;
+                p->eKind = ALIAS_TYPE_;
                 p->_.Alias.pBaseType = t;
                 p->_.Alias.nSize = oT._.Type.nSize;
                 break;
@@ -154,6 +155,17 @@ void semantics(elementoTabelaAuxiliar r)
                 PushSem(oLP);
                 break;
 
+        case 18:
+                oMF = TopSem(-2);
+                oIDD = TopSem(-6);              
+                o = oIDD.obj;
+                offset = oMF.offset;
+                myOutputFile << "END_FUNC\n";
+                current = myOutputFile.tellp();
+                myOutputFile.seekp(offset);
+                myOutputFile << o->_.Function.nVars;
+                myOutputFile.seekp(current);
+                break;
         
         case 23:
                 p = oLI.list;
@@ -686,10 +698,14 @@ void semantics(elementoTabelaAuxiliar r)
                 oNB = TopSem(-2);
                 oIDD = TopSem(-3);
                 PopSem(4);
-                f = oIDD.obj;
-                f->eKind = FUNCTION_;
-                f->_.Function.pRetType = oT.type;
-                f->_.Function.pParams = oLP.list;
+                o = oIDD.obj;
+                o->_.Function.pRetType = oT.type;
+                o->_.Function.pParams = oLP.list;
+                o->_.Function.nParams = oLP._.Type.nSize;                
+                curFunction = o;
+                myOutputFile << "BEGIN_FUNC " << nFuncs - 1 << ", " << o->_.Function.nParams << ", " << 0 << "\n";
+                oMF.offset = myOutputFile.tellp() - (long)3;
+                PushSem(oMF);
                 break;
                 
         case 79:
@@ -709,8 +725,16 @@ void semantics(elementoTabelaAuxiliar r)
                     oMC.err = false;
                 }
                 break;
-                
-                   
+
+        case 80:   
+                oIDD = TopSem(0);
+                f = oIDD.obj;
+                f->eKind = FUNCTION_;
+                f->_.Function.nParams = 0;
+                f->_.Function.pVars = 0;
+                f->_.Function.nIndex = nFuncs++;
+                newBlock();
+                break;                   
 
         default:
             printf("MOPAMPOAMOPAMOPA\n");

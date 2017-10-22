@@ -92,6 +92,7 @@ typedef struct object
             {
                 struct object *pRetType;
                 struct object *pParams;
+                struct object *pVars;
                 int nIndex;
                 int nParams;
                 int nVars;
@@ -118,6 +119,7 @@ typedef struct object
     bool bVal, err;
     char cVal, *sVal;
     int iVal, pos, n;
+    long offset;
 } object, *pobject;
 
 object oIDD, oIDU, oT, oNUM, oLI, oLI0, oLI1, oDC, oDC0, oDC1, oSTR, oCHR, oTRUE, oFALSE, oNB, oLV0, oLV1, oID, oLE, oLE0, oLE1, oF0, oF1, oMC, oF, oY0, oY1, oY, oR0, oR1, oR, oL, oL0, oL1, oE0, oE1, oE, oLV, oLP, oLP0, oLP1;
@@ -209,3 +211,9 @@ object TopSem( int offFromTop ) {
 //DEFINIÇÕES GERAÇÃO DE CÓDIGO
 #include <fstream>
 std::ofstream myOutputFile;
+
+//Numero de funcoes usado no case 80 do semantic.h
+int nFuncs = 0;
+long current;
+object *curFunction, *o;
+object oMF;
