@@ -72,13 +72,21 @@ int main(int argc, char *argv[])
     FILE *fp;
     int i;
     char c1, c2;
+    char *outputFile = "s.out";
     init();
     if (argc < 2) {
         printf("Erro! Nenhum arquivo a ser analisado...\n");
         exit(EXIT_FAILURE);
     } 
     else if (fp = fopen(argv[1], "r")) 
-    {
+    { 
+            if(argc >= 3)
+            {
+                outputFile = argv[2];
+            }
+
+            myOutputFile.open(outputFile);
+ 
             int q, a, l;
 
             q = 0;
@@ -130,6 +138,7 @@ int main(int argc, char *argv[])
  //               getchar();
             //} while (q != 49);
             } while (q != ACC);
+            myOutputFile.close();
     }
             printf("\nANALISE SINTATICA OK\n");
 return 0;

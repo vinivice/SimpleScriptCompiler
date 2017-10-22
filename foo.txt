@@ -5,6 +5,6 @@ function myFunction(AAA : integer) : integer {
     str2 = 2;
     if (str1 == str2) {
         var b : integer;
-        aaa = 'd';
+        ddd = 'd';
     }
 }

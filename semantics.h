@@ -10,6 +10,7 @@ void semantics(elementoTabelaAuxiliar r)
     int name, n;
     printf("\n\n Run semantics!!! \n\n");    
     printf("\n\nRule: %d\n\n",r.rule);
+    //myOutputFile << "SEMANTICS\n";
  /*   object oIDD, oIDU, oT, oNUM, oLI, oLI0, oLI1, oDC, oDC0, oDC1, oSTR, oCHR, oTRUE, oFALSE, oNB, oLV0, oLV1, oID, oLE, oLE0, oLE1, oF0, oF1, oMC, oF, oY0, oY1, oY, oR0, oR1, oR, oL, oL0, oL1, oE0, oE1, oE, oLV, oLP, oLP0, oLP1;
     object *p, *t, *f, *t1, *t2;
 
@@ -33,18 +34,22 @@ void semantics(elementoTabelaAuxiliar r)
     {
         case 5:            
                 oT.type = pInt;
+                oT._.Type.nSize = 1;
                 PushSem(oT);
                 break;
         case 6:
                 oT.type = pChar;
+                oT._.Type.nSize = 1;
                 PushSem(oT);
                 break;
         case 7:
                 oT.type = pBool;
+                oT._.Type.nSize = 1;
                 PushSem(oT);
                 break;
         case 8:
                 oT.type = pString;
+                oT._.Type.nSize = 1;
                 PushSem(oT);
                 break;
         case 9:
@@ -52,10 +57,12 @@ void semantics(elementoTabelaAuxiliar r)
                 if(IS_TYPE_KIND(p->eKind) || p->eKind == UNIVERSAL_)
                 {
                     oT.type = p;
+                    oT._.Type.nSize = p->_.Alias.nSize;
                 }
                 else
                 {
                     oT.type = pUniversal;
+                    oT._.Type.nSize = 0;
                     Error(ERR_TYPE_EXPECTED);
                 }
                 PushSem(oT);
@@ -67,11 +74,13 @@ void semantics(elementoTabelaAuxiliar r)
                 p->eKind = ARRAY_TYPE_;
                 p->_.Array.nNumElems = n;
                 p->_.Array.pElemType = t;
+                p->_.Array.nSize = n * oT._.Type.nSize;
                 break;
          case 11:		
                 p = oIDD.obj;
                 p->eKind = STRUCT_TYPE_;
                 p->_.Struct.pFields = oDC.list;
+                p->_.Struct.nSize = oDC._.Type.nSize;
                 endBlock();
                 break;
         case 12:
@@ -79,40 +88,57 @@ void semantics(elementoTabelaAuxiliar r)
                 t = oT.type;
                 p->eKind - ALIAS_TYPE_;
                 p->_.Alias.pBaseType = t;
+                p->_.Alias.nSize = oT._.Type.nSize;
                 break;
         case 13:
+                oDC1 = TopSem(0);
                 p = oLI.list;
                 t = oT.type;
+                n = oDC1._.Type.nSize;
                 while(p != NULL && p->eKind == NO_KIND_DEF_)
                 {
                     p->eKind = FIELD_;
                     p->_.Field.pType = t;
+                    p->_.Field.nIndex = n;
+                    p->_.Field.nSize = oT._.Type.nSize;
+                    n = n + oT._.Type.nSize;
                     p = p->pNext;
                 }
                 oDC0.list = oDC1.list;
+                oDC0._.Type.nSize = n;
                 PushSem(oDC0);
                 break;
         case 14:
                 p = oLI.list;
                 t = oT.type;
+                n = 0;
                 while(p != NULL && p->eKind == NO_KIND_DEF_)
                 {
                     p->eKind = FIELD_;
                     p->_.Field.pType = t;
+                    p->_.Field.nIndex = n;
+                    p->_.Field.nSize = oT._.Type.nSize;
+                    n = n + oT._.Type.nSize;
                     p = p->pNext;
                 }
                 oDC.list = oLI.list;
+                oDC._.Type.nSize = n;
                 PushSem(oDC);
                 break;
         case 15:
                 endBlock();
                 break;
         case 16:
+                oLP1 = TopSem(0);
                 p = oIDD.obj;
                 t = oT.type;
+                n = oLP1._.Type.nSize;
                 p->eKind = PARAM_;
                 p->_.Param.pType = t;
+                p->_.Param.nIndex = n;
+                p->_.Param.nSize = oT._.Type.nSize;
                 oLP0.list = oLP1.list;
+                oLP0._.Type.nSize = n + oT._.Type.nSize;
                 PushSem(oLP0);
                 break;
          
@@ -121,7 +147,10 @@ void semantics(elementoTabelaAuxiliar r)
                 t = oT.type;
                 p->eKind = PARAM_;
                 p->_.Param.pType = t;
+                p->_.Param.nIndex = 0;
+                p->_.Param.nSize = oT._.Type.nSize;
                 oLP.list = p;
+                oLP._.Type.nSize = oT._.Type.nSize;
                 PushSem(oLP);
                 break;
 
@@ -267,6 +296,7 @@ void semantics(elementoTabelaAuxiliar r)
                     Error( ERR_TYPE_MISMATCH );
                 }
                 oL0.type = pBool;
+                myOutputFile << "\tEQ\n";
                 PushSem(oL0);
                 break;
                 

@@ -75,35 +75,43 @@ typedef enum
 } t_error;
 
     
-typedef struct object
+typedef struct object 
 {
     int nName;
     struct object *pNext;
     t_kind eKind;
     union 
     {
-	struct 
-	{
-		struct object *pType;
-	} Var, Param, Field;
-	struct 
-	{
-		struct object *pRetType;
-		struct object *pParams;
-	} Function;
-	struct 
-	{
-		struct object *pElemType;
-		int nNumElems;
-	} Array;
-	struct 
-	{
-		struct object *pFields;
-	} Struct;
-	struct 
-	{
-		struct object *pBaseType;
-	} Alias;
+            struct 
+            {
+                int nSize;
+                struct object *pType;
+                int nIndex;
+            } Var, Param, Field;
+            struct 
+            {
+                struct object *pRetType;
+                struct object *pParams;
+                int nIndex;
+                int nParams;
+                int nVars;
+            } Function;
+            struct 
+            {
+                int nSize;
+                struct object *pElemType;
+                int nNumElems;
+            } Array;
+            struct 
+            {
+                int nSize;
+                struct object *pFields;
+            } Struct;
+            struct 
+            {
+                int nSize;
+                struct object *pBaseType;
+            } Alias, Type;
     }_;
 
     struct object *obj, *type, *list, *param;
@@ -147,6 +155,9 @@ void Error(t_error e, int n = 1)
                         break;
         case ERR_NOT_DECL:
                         printf("Não declarado.\n");
+                        break;
+        default:
+                        printf("Erro desconhecido.\n");
                         break;
     }
 }
@@ -195,3 +206,6 @@ object TopSem( int offFromTop ) {
     return StackSem[top_Stack_Sem + offFromTop - 1];
 }
     
+//DEFINIÇÕES GERAÇÃO DE CÓDIGO
+#include <fstream>
+std::ofstream myOutputFile;
