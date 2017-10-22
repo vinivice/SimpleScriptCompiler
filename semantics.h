@@ -7,8 +7,7 @@
 
 void semantics(elementoTabelaAuxiliar r)
 {
-    long offset;
-    int name, n;
+    int name, n, l;
     printf("\n\n Run semantics!!! \n\n");    
     printf("\n\nRule: %d\n\n",r.rule);
     //myOutputFile << "SEMANTICS\n";
@@ -170,13 +169,19 @@ void semantics(elementoTabelaAuxiliar r)
         case 23:
                 p = oLI.list;
                 t = oT.type;
+                n = curFunction->_.Function.nVars;
                 while(p != NULL && p->eKind == NO_KIND_DEF_)
                 {
                     p->eKind = VAR_;
                     p->_.Var.pType = t;
+                    p->_.Var.nIndex = n;
+                    p->_.Var.nSize = oT._.Type.nSize;
+                    n += oT._.Type.nSize;
                     p = p->pNext;
                 }
+                curFunction->_.Function.nVars = n;
                 break;
+                
         case 24:
                 oLI0.list = oLI1.list;
                 PushSem(oLI0);
@@ -736,6 +741,11 @@ void semantics(elementoTabelaAuxiliar r)
                 newBlock();
                 break;                   
 
+        case 81:
+            l = newLabel();
+            oMT.label = l;
+            myOutputFile << "\tTJMP_FW L" << l << "\n";
+            
         default:
             printf("MOPAMPOAMOPAMOPA\n");
     }

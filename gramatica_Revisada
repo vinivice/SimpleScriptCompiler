@@ -1,0 +1,115 @@
+00 : P -> LDE
+  
+01 : LDE -> LDE DE
+02 : LDE -> DE
+  
+03 : DE -> DF
+04 : DE -> DT
+ 
+05 : T -> 'integer'
+06 : T -> 'char'
+07 : T -> 'boolean'
+08 : T -> 'string'
+09 : T -> IDU 
+
+10 : DT -> 'type' IDD '=' 'array' '[' NUM ']' 'of' T
+11 : DT -> 'type' IDD '=' 'struct' NB '{' DC '}'
+12 : DT -> 'type' IDD '=' T
+
+13 : DC -> DC ';' LI ':' T
+14 : DC -> LI ':' T
+
+15 : DF -> 'function' IDD NF '(' LP ')' ':' T MF B
+
+16 : LP -> LP ',' IDD ':' T
+17 : LP -> IDD ':' T
+
+18 : B -> '{' LDV LS '}'
+
+19 : LDV -> LDV DV
+20 : LDV -> DV
+
+21 : LS -> LS S
+22 : LS -> S
+
+23 : DV -> 'var' LI ':' T ';'
+
+24 : LI -> LI ',' IDD
+25 : LI -> IDD
+
+26 : S -> 'if' '(' E ')' MT S
+27 : S -> 'if' '(' E ')' MT S 'else' ME S
+28 : S -> 'while' MW '(' E ')' MT S
+29 : S -> 'do' MW S 'while' '(' E ')' ';'
+30 : S -> NB B
+31 : S -> LV '=' E ';'
+32 : S -> 'break' ';'
+33 : S -> 'continue' ';'
+
+34 : E -> E '&&' L
+35 : E -> E '||' L
+36 : E -> L
+
+37 : L -> L '<' R
+38 : L -> L '>' R
+39 : L -> L '<=' R
+40 : L -> L '>=' R
+41 : L -> L '==' R
+42 : L -> L '!=' R
+43 : L -> R
+
+44 : R -> R '+' Y
+45 : R -> R '-' Y
+46 : R -> Y
+
+47 : Y -> Y '*' F
+48 : Y -> Y '/' F
+49 : Y -> F
+
+50 : F -> LV
+51 : F -> '++' LV
+52 : F -> '--' LV
+53 : F -> LV '++'
+54 : F -> LV '--'
+55 : F -> '(' E ')'
+56 : F -> IDU MC '(' LE ')'
+57 : F -> '-' F
+58 : F -> '!' F
+59 : F -> TRUE
+60 : F -> FALSE
+61 : F -> CHR
+62 : F -> STR
+63 : F -> NUM
+64 : F -> IDU '=' E ';' 
+64 : F -> IDU
+64 : F -> '++' IDU
+64 : F -> '--' IDU
+64 : F -> IDU '++'
+64 : F -> IDU '--'
+64 : F -> IDU '[' E ']'
+64 : F -> IDU '[' E1 ']' MA '=' E2
+
+
+64 : LE -> LE ',' E
+65 : LE -> E
+
+66 : LV -> LV '.' IDU
+67 : LV -> LV '[' E ']'
+68 : LV -> IDU
+
+69 : ID_N_TERMINAL -> 'Id'
+70 : TRU -> 'true'
+71 : FAL -> 'false'
+72 : CHR -> 'c'
+73 : STR -> 's'
+74 : NUM -> 'n'
+75 : IDD -> 'Id'
+76 : IDU -> 'Id'
+77 : NB -> ''
+78 : MF -> ''
+79 : MC -> ''
+80 : NF -> ''
+81 : MT -> ''
+82 : ME -> ''
+83 : MW -> ''
+

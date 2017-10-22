@@ -118,12 +118,12 @@ typedef struct object
     struct object *obj, *type, *list, *param;
     bool bVal, err;
     char cVal, *sVal;
-    int iVal, pos, n;
+    int iVal, pos, n, label;
     long offset;
 } object, *pobject;
 
-object oIDD, oIDU, oT, oNUM, oLI, oLI0, oLI1, oDC, oDC0, oDC1, oSTR, oCHR, oTRUE, oFALSE, oNB, oLV0, oLV1, oID, oLE, oLE0, oLE1, oF0, oF1, oMC, oF, oY0, oY1, oY, oR0, oR1, oR, oL, oL0, oL1, oE0, oE1, oE, oLV, oLP, oLP0, oLP1;
-object *p, *t, *f, *t1, *t2;
+object oIDD, oIDU, oT, oNUM, oLI, oLI0, oLI1, oDC, oDC0, oDC1, oSTR, oCHR, oTRUE, oFALSE, oNB, oLV0, oLV1, oID, oLE, oLE0, oLE1, oF0, oF1, oMC, oF, oY0, oY1, oY, oR0, oR1, oR, oL, oL0, oL1, oE0, oE1, oE, oLV, oLP, oLP0, oLP1, oMF, oMT;
+object *p, *t, *f, *t1, *t2, *curFunction, *o;
 
 object int_ = {-1, NULL, SCALAR_TYPE_};
 object *pInt = &int_;
@@ -214,6 +214,13 @@ std::ofstream myOutputFile;
 
 //Numero de funcoes usado no case 80 do semantic.h
 int nFuncs = 0;
-long current;
-object *curFunction, *o;
-object oMF;
+
+//current e offset manipulam posições no arquivo myOutputFile
+long current, offset;
+
+int newLabel() {
+    static int labelNo = 0;
+    //printf("%d -label\n", labelNo);
+    return labelNo++;
+}
+
