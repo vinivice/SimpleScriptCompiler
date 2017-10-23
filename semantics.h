@@ -125,8 +125,16 @@ void semantics(elementoTabelaAuxiliar r)
                 oDC._.Type.nSize = n;
                 PushSem(oDC);
                 break;
-        case 15:
-                endBlock();
+        case 15: 
+                oMF = TopSem(-2);
+                oIDD = TopSem(-6);              
+                o = oIDD.obj;
+                offset = oMF.offset;
+                myOutputFile << "END_FUNC\n";
+                current = myOutputFile.tellp();
+                myOutputFile.seekp(offset);
+                myOutputFile << o->_.Function.nVars;
+                myOutputFile.seekp(current);
                 break;
         case 16:
                 oLP1 = TopSem(0);
@@ -155,16 +163,8 @@ void semantics(elementoTabelaAuxiliar r)
                 break;
 
         case 18:
-                oMF = TopSem(-2);
-                oIDD = TopSem(-6);              
-                o = oIDD.obj;
-                offset = oMF.offset;
-                myOutputFile << "END_FUNC\n";
-                current = myOutputFile.tellp();
-                myOutputFile.seekp(offset);
-                myOutputFile << o->_.Function.nVars;
-                myOutputFile.seekp(current);
-                break;
+               endBlock();
+               break;
         
         case 23:
                 p = oLI.list;
@@ -235,10 +235,10 @@ void semantics(elementoTabelaAuxiliar r)
                 }
                 myOutputFile << "\tNOT\n\tTJMP_BW L" << l << "\n";
                 break;
-         
+         /*
         case 30:
                 endBlock();
-                break;
+                break;*/
 
 //31 : S -> LV '=' E ';'
         case 31:                
@@ -699,9 +699,15 @@ void semantics(elementoTabelaAuxiliar r)
                
 //68 : LV -> IDU 
         case 68:
+                printf("entering rule 68\n");
+                printf("p %p\n", p);
+                printf("idu.obj %p\n", oIDU.obj);
                 p = oIDU.obj;
+                printf("p %p\n", p);
+                printf("idu.obj %p\n", oIDU.obj);
                 if( p->eKind != VAR_ && p->eKind != PARAM_ )
                 {
+                    printf("IF\n");
                     if( p->eKind != UNIVERSAL_ )
                     {
                         Error( ERR_KIND_NOT_VAR );
@@ -710,8 +716,9 @@ void semantics(elementoTabelaAuxiliar r)
                 }
                 else
                 {
+                    printf("ELSE\n");
                     oLV.type = p->_.Var.pType;
-                    myOutputFile << "\tLOAD_REF " << t->_.Var.pType->_.Type.nSize << "\n\tADD\n" ;
+                    myOutputFile << "\tLOAD_REF " << p->_.Var.pType->_.Type.nSize << "\n" ;
                 }
                 PushSem(oLV);
                 break;
@@ -829,6 +836,7 @@ void semantics(elementoTabelaAuxiliar r)
                 newBlock();
                 break;                   
             
+//81 : MT -> ''
         case 81:
                 l = newLabel();
                 oMT.label = l;

@@ -4,7 +4,7 @@ function myFunction(AAA : integer) : integer {
     str1 = 1;
     str2 = 2;
     if (str1 == str2) {
-        var b : integer;
-        ddd = 'd';
+        var c : integer;
+        ddd = 'C';
     }
 }
