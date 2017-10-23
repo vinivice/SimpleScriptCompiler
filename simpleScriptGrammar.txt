@@ -19,7 +19,7 @@
 13 : DC -> DC ';' LI ':' T
 14 : DC -> LI ':' T
 
-15 : DF -> 'function' IDD NB '(' LP ')' ':' T MF B
+15 : DF -> 'function' IDD NF '(' LP ')' ':' T MF B
 
 16 : LP -> LP ',' IDD ':' T
 17 : LP -> IDD ':' T
@@ -37,10 +37,10 @@
 24 : LI -> LI ',' IDD
 25 : LI -> IDD
 
-26 : S -> 'if' '(' E ')' S
-27 : S -> 'if' '(' E ')' S 'else' S
-28 : S -> 'while' '(' E ')' S
-29 : S -> 'do' S 'while' '(' E ')' ';'
+26 : S -> 'if' '(' E ')' MT S
+27 : S -> 'if' '(' E ')' MT S 'else' ME S
+28 : S -> 'while' MW '(' E ')' S
+29 : S -> 'do' MW S 'while' '(' E ')' ';'
 30 : S -> NB B
 31 : S -> LV '=' E ';'
 32 : S -> 'break' ';'
@@ -75,8 +75,8 @@
 56 : F -> IDU MC '(' LE ')'
 57 : F -> '-' F
 58 : F -> '!' F
-59 : F -> TRUE
-60 : F -> FALSE
+59 : F -> TRU
+60 : F -> FAL
 61 : F -> CHR
 62 : F -> STR
 63 : F -> NUM
