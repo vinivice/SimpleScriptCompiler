@@ -11,18 +11,6 @@ std::vector<int> stateStack;
 FILE *fr;
 elementoTabelaAuxiliar r;
 
-/*int nextToken()
-{
-    int *a;
-    a = new int;
-    if(fread(a, 4, 1, fr) < 1)
-    {
-        return $;
-    }
-    //printf("*%d*", *a);
-    return *a;
-}*/
-
 void push(int input)
 {
     stateStack.push_back(input);
@@ -32,7 +20,6 @@ void pop(int n)
 {
     for(int i = 0; i < n; i++)
     {
-        //printf("POP\n");
         stateStack.pop_back();
     }
 }
@@ -96,24 +83,8 @@ int main(int argc, char *argv[])
 
             do 
             {
-                /*
-                printf("\n\nPointer: %p\n\n", p); 
-                printf("=============\n");
-                printf("q: %d\n", q);
-                printf("a: %d\n", a);
-                */
                 //implementado em tabelaAcao
                 l = action(q, a);
-                /*
-                printf("p: %d\n", l);
-                PTS();
-                printf("=============\n");
-                */
-                /*if(a == ID)
-                {
-                    //PEGA TOKEN SECUNDARIO
-                    a = nextToken();
-                }*/
 
                 if(isShift(l))
                 {
@@ -124,14 +95,8 @@ int main(int argc, char *argv[])
                 {
                     //r e rule em tabelaAcao.h
                     r = rule(l);
-                    /*
-                    printf("r.len: %d\n", r.len);
-                    printf("r.left: %d\n", r.left);
-                    printf("r.rule: %d\n", r.rule);
-                    */
                     pop(r.len);
                     push(action(top(), r.left));
-                    //printf("PRESEM");
                     semantics(r);
                 }
                 else
@@ -139,7 +104,6 @@ int main(int argc, char *argv[])
                     syntaxError();
                 }
                 q = top();
-              // getchar();
             } while (q != ACC);
             myOutputFile.close();
     }

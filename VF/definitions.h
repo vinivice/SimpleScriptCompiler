@@ -183,8 +183,6 @@ int top_Stack_Sem = -1;
 int PushSem(object &anObj ) {
     if ( top_Stack_Sem < MAX_STACK_SIZE ) {
         StackSem[++top_Stack_Sem] = anObj;
-        //printf("\n\nEntrou na pilha... Topo: %d\nEndereco: %p\n\n", top_Stack_Sem, &StackSem[top_Stack_Sem - 1]);
-        printf("SS: %d\n", top_Stack_Sem);
         return top_Stack_Sem;
     } 
     else 
@@ -194,7 +192,6 @@ int PushSem(object &anObj ) {
 
 int PopSem( int nToPop ) {
     top_Stack_Sem = top_Stack_Sem - nToPop;
-    printf("SS: %d\n", top_Stack_Sem);
     return top_Stack_Sem;
 }
 
@@ -214,7 +211,6 @@ long current, offset;
 
 int newLabel() {
     static int labelNo = 0;
-    //printf("%d -label\n", labelNo);
     return labelNo++;
 }
 

@@ -1,0 +1,10 @@
+function myFunction(AAA : integer) : integer {
+    var str1, str2 : integer;
+    var ddd : char;
+    str1 = 1;
+    str2 = 2;
+    if (str1 == str2) {
+        var c : integer;
+        ddd = 'C';
+    }
+}

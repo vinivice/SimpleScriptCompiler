@@ -107,7 +107,6 @@ t_token nextToken(FILE *fp) {
     t_token token;
     while (isspace(nextChar)) {
         nextChar = readChar(fp);
-        //printf("*%c*", nextChar);
         if ( nextChar == EOF )
             return $;
     }
@@ -252,7 +251,6 @@ t_token nextToken(FILE *fp) {
         }
     }
     
-        //printf("+%d+", tokenSecundario);
     return token;
 }   
 

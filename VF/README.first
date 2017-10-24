@@ -8,4 +8,4 @@ Para usar o programa use o comando ./nomeExec input output ou ./nomeExec input, 
 
 Atente para a permissão de execução antes de usar o comando acima. 
 
-Para os testes do compilador foi usado o arquivo foo.txt.
+Para os testes do compilador foi usado o arquivo test_file.txt.

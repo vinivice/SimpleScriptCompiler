@@ -1,6 +1,5 @@
 #include "definitions.h"
 #include <stdlib.h>
-//#include "analisador_lexico.h"
 #include "analisador_escopo.h"
 #include <stdio.h>
 #define IS_TYPE_KIND(k) ((k)==ARRAY_TYPE_ || (k)==STRUCT_TYPE_ || (k)==ALIAS_TYPE_ || (k)==SCALAR_TYPE_)
@@ -8,10 +7,6 @@
 void semantics(elementoTabelaAuxiliar r)
 {
     int name, n, l, l1, l2;
- //   printf("\n\n Run semantics!!! \n\n");    
-    printf("Rule: %d\n",r.rule);
-    //myOutputFile << "SEMANTICS\n";
-   // printf("-*%d*-\n", tokenSecundario);
     switch(r.rule)
     {
 //05 : T -> 'integer'
@@ -248,7 +243,6 @@ void semantics(elementoTabelaAuxiliar r)
                 oE = TopSem(-1);
                 PopSem(2);
                 t = oE.type;
-                printf("t: %p\n", t);
                 l = oMT.label;
                 if( !CheckTypes(t, pBool) )
                 {
@@ -317,7 +311,6 @@ void semantics(elementoTabelaAuxiliar r)
                 PopSem(2);                
                 t1 = oLV.type;
                 t2 = oE.type;
-                //printf("\n t1, t2: %p, %p\n", t1, t2);
                 if( ! CheckTypes( t1, t2 ) )
                 {
                     Error( ERR_TYPE_MISMATCH );
@@ -430,9 +423,6 @@ void semantics(elementoTabelaAuxiliar r)
                 oR = TopSem(0);
                 oL1 = TopSem(-1);
                 PopSem(2);
-                //printf("\noL.type, oL1.type: %p, %p\n", oL.type, oL1.type);
-                //PopSem(1);
-                //printf("\n\nPointers: oL1.type %p - oR.type %p\n\n", oL1.type, oR.type);
                 if( !CheckTypes( oL1.type, oR.type ) )
                 {
                     Error( ERR_TYPE_MISMATCH );
@@ -864,17 +854,11 @@ void semantics(elementoTabelaAuxiliar r)
                
 //68 : LV -> IDU 
         case 68:
-                //printf("entering rule 68\n");
-                //printf("p %p\n", p);
-                //printf("idu.obj %p\n", oIDU.obj);
                 oIDU = TopSem(0);
                 PopSem(1);
                 p = oIDU.obj;
-                //printf("p %p\n", p);
-                //printf("idu.obj %p\n", oIDU.obj);
                 if( p->eKind != VAR_ && p->eKind != PARAM_ )
                 {
-                    //printf("IF\n");
                     if( p->eKind != UNIVERSAL_ )
                     {
                         Error( ERR_KIND_NOT_VAR );
@@ -883,7 +867,6 @@ void semantics(elementoTabelaAuxiliar r)
                 }
                 else
                 {
-                    //printf("ELSE\n");
                     oLV.type = p->_.Var.pType;
                     myOutputFile << "\tLOAD_REF " << p->nName << "\n" ;
                 }
@@ -951,7 +934,6 @@ void semantics(elementoTabelaAuxiliar r)
                 p->eKind = NO_KIND_DEF_;
                 oIDD.obj = p;
                 PushSem(oIDD);
-                //printf("\noIDD no topo: %p\n", oIDD.obj);
                 break;
                 
 //76 : IDU -> 'Id'
@@ -1012,7 +994,6 @@ void semantics(elementoTabelaAuxiliar r)
         case 80:   
                 oIDD = TopSem(0);
                 f = oIDD.obj;
-                //printf("\n\ncase 80: %p\n\n", f);
                 f->eKind = FUNCTION_;
                 f->_.Function.nParams = 0;
                 f->_.Function.pVars = 0;
@@ -1046,10 +1027,4 @@ void semantics(elementoTabelaAuxiliar r)
                 PushSem(oMW);
 
     }
-    //printf("\n\n Go out semantics!!! \n\n");
-}
-
-void PTS()
-{
-    printf("--%d--\n", tokenSecundario);
 }
