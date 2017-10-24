@@ -12,8 +12,11 @@ BEGIN_FUNC 0 1 4
         EQ
         TJMP_FW L0
         LOAD_REF 3
-        LOAD_CONST 3
+        LOAD_CONST 2
         STORE_REF 1
         L0:
 END_FUNC
 
+/\
+||
+CÓDIGO DE REFERÊNCIA

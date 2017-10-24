@@ -1,0 +1,11 @@
+Código compilado com g++ (Ubuntu 5.4.0-6ubuntu1~16.04.4) 5.4.0.
+
+É recomendado o uso da mesma versão, porém versões diferentes provavelmente serão compatíveis.
+
+Para compilar o programa utilize o comando g++ main.c -o nomeExec.
+
+Para usar o programa use o comando ./nomeExec input output ou ./nomeExec input, nesse caso o output se chamará s.out.
+
+Atente para a permissão de execução antes de usar o comando acima. 
+
+Para os testes do compilador foi usado o arquivo foo.txt.
